@@ -1,0 +1,1 @@
+hll_engineer_ll\startup_stm32f427xx.o: startup_stm32f427xx.s
