@@ -23,7 +23,7 @@
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "usart_bsp.h"
+#include "bsp_usart.h"
 
 
 /* USER CODE END Includes */

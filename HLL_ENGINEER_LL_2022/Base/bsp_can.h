@@ -1,5 +1,5 @@
-#ifndef CAN_BSP_H
-#define CAN_BSP_H
+#ifndef BSP_CAN_H
+#define BSP_CAN_H
 #include "main.h"
 #include "can.h"
 /*电机ID结构体*/

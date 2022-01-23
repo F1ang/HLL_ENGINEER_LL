@@ -1,5 +1,5 @@
-#ifndef _USART1__H
-#define _USART1__H
+#ifndef BSP_USART_H
+#define BSP_USART_H
 
 #include <stdio.h> 
 #include "main.h"

@@ -40,5 +40,5 @@ hll_engineer_ll\centre.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.h
 hll_engineer_ll\centre.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 hll_engineer_ll\centre.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h
 hll_engineer_ll\centre.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
-hll_engineer_ll\centre.o: ..\Base\can_bsp.h
+hll_engineer_ll\centre.o: ..\Base\bsp_can.h
 hll_engineer_ll\centre.o: ../Core/Inc/can.h

@@ -1,10 +1,9 @@
-
 /*
 1、CAN1过滤器配置
 2、RX0挂起中断回调函数
 3、CAN1发*2（于是最多可以发8个3508电机）
 */
-#include "can_bsp.h"
+#include "bsp_can.h"
 CAN_RxHeaderTypeDef RX1message;
 CAN_TxHeaderTypeDef TX1message;
 uint8_t TXdata[8];

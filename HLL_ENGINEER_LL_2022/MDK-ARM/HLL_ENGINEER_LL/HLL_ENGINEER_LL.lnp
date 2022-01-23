@@ -32,9 +32,9 @@
 "hll_engineer_ll\stm32f4xx_ll_tim.o"
 "hll_engineer_ll\stm32f4xx_ll_usart.o"
 "hll_engineer_ll\system_stm32f4xx.o"
-"hll_engineer_ll\usart_bsp.o"
-"hll_engineer_ll\can_bsp.o"
-"hll_engineer_ll\tim_bsp.o"
+"hll_engineer_ll\bsp_can.o"
+"hll_engineer_ll\bsp_tim.o"
+"hll_engineer_ll\bsp_usart.o"
 "hll_engineer_ll\centre.o"
 --library_type=microlib --strict --scatter "HLL_ENGINEER_LL\HLL_ENGINEER_LL.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols

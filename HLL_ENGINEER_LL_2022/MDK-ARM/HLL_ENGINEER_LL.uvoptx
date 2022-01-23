@@ -677,8 +677,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Base\usart_bsp.c</PathWithFileName>
-      <FilenameWithoutPath>usart_bsp.c</FilenameWithoutPath>
+      <PathWithFileName>..\Base\bsp_can.c</PathWithFileName>
+      <FilenameWithoutPath>bsp_can.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -690,8 +690,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Base\can_bsp.c</PathWithFileName>
-      <FilenameWithoutPath>can_bsp.c</FilenameWithoutPath>
+      <PathWithFileName>..\Base\bsp_tim.c</PathWithFileName>
+      <FilenameWithoutPath>bsp_tim.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -703,8 +703,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Base\tim_bsp.c</PathWithFileName>
-      <FilenameWithoutPath>tim_bsp.c</FilenameWithoutPath>
+      <PathWithFileName>..\Base\bsp_usart.c</PathWithFileName>
+      <FilenameWithoutPath>bsp_usart.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

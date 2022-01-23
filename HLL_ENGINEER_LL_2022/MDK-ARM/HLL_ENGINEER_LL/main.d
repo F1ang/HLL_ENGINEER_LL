@@ -45,6 +45,6 @@ hll_engineer_ll\main.o: ../Core/Inc/tim.h
 hll_engineer_ll\main.o: ../Core/Inc/usart.h
 hll_engineer_ll\main.o: ../Core/Inc/gpio.h
 hll_engineer_ll\main.o: ..\Task\centre.h
-hll_engineer_ll\main.o: ..\Base\can_bsp.h
-hll_engineer_ll\main.o: ..\Base\usart_bsp.h
+hll_engineer_ll\main.o: ..\Base\bsp_can.h
+hll_engineer_ll\main.o: ..\Base\bsp_usart.h
 hll_engineer_ll\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h

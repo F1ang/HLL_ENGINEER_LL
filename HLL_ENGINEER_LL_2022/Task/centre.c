@@ -9,7 +9,8 @@ APB2_peripheral:90M  APB2_timer:180M
 cortex system timer:180M
 
 */
-#include "centre.h"
+#include "centre.h"    
+
 
 extern uint8_t UartRxDmaBuf[18];   //上位机传输的原始数据   一帧18byte
 //集中补充配置
@@ -28,6 +29,9 @@ void base_init()
 /*注：encoder:tim2 tim4 tim5   pwm:tim8的ch1~ch4、tim3的ch3、ch4   tim7_updata-20ms待加
 	高级定时器的主输出使能、ARPE使能待加...
 	*/	
+	
+	
+	
 //	//tim3--ch1~ch4的pwm输出-----先配置在这
 //	LL_TIM_CC_EnableChannel(TIM3,LL_TIM_CHANNEL_CH1);
 //	LL_TIM_CC_EnableChannel(TIM3,LL_TIM_CHANNEL_CH2);
