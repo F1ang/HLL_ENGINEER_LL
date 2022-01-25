@@ -1,0 +1,13 @@
+hll_engineer_ll\port.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\port.c
+hll_engineer_ll\port.o: ..\FreeRTOS\include\FreeRTOS.h
+hll_engineer_ll\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hll_engineer_ll\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+hll_engineer_ll\port.o: ..\FreeRTOS\include\FreeRTOSConfig.h
+hll_engineer_ll\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\port.o: ..\FreeRTOS\include\projdefs.h
+hll_engineer_ll\port.o: ..\FreeRTOS\include\portable.h
+hll_engineer_ll\port.o: ..\FreeRTOS\include\deprecated_definitions.h
+hll_engineer_ll\port.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
+hll_engineer_ll\port.o: ..\FreeRTOS\include\mpu_wrappers.h
+hll_engineer_ll\port.o: ..\FreeRTOS\include\task.h
+hll_engineer_ll\port.o: ..\FreeRTOS\include\list.h
