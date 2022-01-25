@@ -1,5 +1,5 @@
-hll_engineer_ll\start_task.o: ..\FreeRTOS\TASK\start_task.c
-hll_engineer_ll\start_task.o: ..\FreeRTOS\TASK\start_task.h
+hll_engineer_ll\start_task.o: ..\Task\start_task.c
+hll_engineer_ll\start_task.o: ..\Task\start_task.h
 hll_engineer_ll\start_task.o: ..\FreeRTOS\include\FreeRTOS.h
 hll_engineer_ll\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 hll_engineer_ll\start_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

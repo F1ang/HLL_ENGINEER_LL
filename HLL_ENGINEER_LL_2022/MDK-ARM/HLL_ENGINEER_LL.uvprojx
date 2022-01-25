@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_FULL_LL_DRIVER,STM32F427xx,USE_HAL_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;..\Base;..\Task;../Drivers/CMSIS/Include;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM4F;..\FreeRTOS\TASK</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;..\Base;..\Task;../Drivers/CMSIS/Include;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM4F</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1450,19 +1450,19 @@
           <GroupName>Task</GroupName>
           <Files>
             <File>
-              <FileName>start_task.c</FileName>
+              <FileName>centre.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\TASK\start_task.c</FilePath>
+              <FilePath>..\Task\centre.c</FilePath>
             </File>
             <File>
               <FileName>init_task.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\FreeRTOS\TASK\init_task.c</FilePath>
+              <FilePath>..\Task\init_task.c</FilePath>
             </File>
             <File>
-              <FileName>centre.c</FileName>
+              <FileName>start_task.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Task\centre.c</FilePath>
+              <FilePath>..\Task\start_task.c</FilePath>
             </File>
           </Files>
         </Group>

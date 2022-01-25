@@ -654,8 +654,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\FreeRTOS\TASK\start_task.c</PathWithFileName>
-      <FilenameWithoutPath>start_task.c</FilenameWithoutPath>
+      <PathWithFileName>..\Task\centre.c</PathWithFileName>
+      <FilenameWithoutPath>centre.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -666,7 +666,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\FreeRTOS\TASK\init_task.c</PathWithFileName>
+      <PathWithFileName>..\Task\init_task.c</PathWithFileName>
       <FilenameWithoutPath>init_task.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -678,8 +678,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Task\centre.c</PathWithFileName>
-      <FilenameWithoutPath>centre.c</FilenameWithoutPath>
+      <PathWithFileName>..\Task\start_task.c</PathWithFileName>
+      <FilenameWithoutPath>start_task.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
