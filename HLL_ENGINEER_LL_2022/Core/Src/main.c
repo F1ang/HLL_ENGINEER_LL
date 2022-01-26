@@ -32,6 +32,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "init_task.h"
+#include "start_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -81,7 +82,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  base_init();
+  
 	
   /* USER CODE END Init */
 

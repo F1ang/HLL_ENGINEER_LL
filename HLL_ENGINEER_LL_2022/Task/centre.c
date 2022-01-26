@@ -63,11 +63,6 @@ void base_init()
 */
 
 
-	//can1--filter&RX0_interrupt
-	CAN1_FILTER_CONFIG(&hcan1);
-	CAN1_FILTER_CONFIG(&hcan2);
-	HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING); 
-	HAL_CAN_ActivateNotification(&hcan2, CAN_IT_RX_FIFO0_MSG_PENDING);
 
 }
 

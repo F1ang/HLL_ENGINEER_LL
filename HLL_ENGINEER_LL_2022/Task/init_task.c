@@ -4,5 +4,5 @@
 
 void All_Init(void)
 {
-	
+	base_init();
 }
