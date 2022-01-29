@@ -37,6 +37,8 @@
 "hll_engineer_ll\centre.o"
 "hll_engineer_ll\init_task.o"
 "hll_engineer_ll\start_task.o"
+"hll_engineer_ll\remoter_task.o"
+"hll_engineer_ll\judge_task.o"
 "hll_engineer_ll\croutine.o"
 "hll_engineer_ll\event_groups.o"
 "hll_engineer_ll\list.o"
@@ -46,6 +48,9 @@
 "hll_engineer_ll\timers.o"
 "hll_engineer_ll\heap_4.o"
 "hll_engineer_ll\port.o"
+"hll_engineer_ll\remoter.o"
+"hll_engineer_ll\power_output.o"
+"hll_engineer_ll\math2.o"
 --strict --scatter "HLL_ENGINEER_LL\HLL_ENGINEER_LL.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

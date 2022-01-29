@@ -1,16 +1,21 @@
-1、DBUS：USART1， 数据待解析         调试：USART3，已配置  
+1、DBUS：USART1， 数据待解析         调试：USART3，已配置     裁判系统：USART6，裁判系统任务待加
 
 2、CAN1、CAN2已配置，反馈数据待解析
 
 3、encoder:tim2 tim4 tim5   pwm:tim8的ch1~ch4、tim3的ch3、ch4  tim7_updata-20ms
   注：高级定时器的主输出使能、ARPE使能未配置...
 
-4、中断优先级待分配，操作系统未上
+4、中断优先级待分配，操作系统已上
+
+
 
 Base:等效于DEVICE
 Task:同
-USERLIB：待加
-HARDWARE：待加
+USERLIB：算法库,部分已加
+HARDWARE：部分已加
+
+
+
 
 注：所有均可改
 

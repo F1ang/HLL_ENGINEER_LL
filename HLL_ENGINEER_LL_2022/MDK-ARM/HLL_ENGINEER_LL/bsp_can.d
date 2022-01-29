@@ -7,12 +7,11 @@ hll_engineer_ll\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc
 hll_engineer_ll\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 hll_engineer_ll\bsp_can.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 hll_engineer_ll\bsp_can.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
-hll_engineer_ll\bsp_can.o: ../Drivers/CMSIS/Include/core_cm4.h
+hll_engineer_ll\bsp_can.o: D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm4.h
 hll_engineer_ll\bsp_can.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
-hll_engineer_ll\bsp_can.o: ../Drivers/CMSIS/Include/cmsis_version.h
-hll_engineer_ll\bsp_can.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
-hll_engineer_ll\bsp_can.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
-hll_engineer_ll\bsp_can.o: ../Drivers/CMSIS/Include/mpu_armv7.h
+hll_engineer_ll\bsp_can.o: D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h
+hll_engineer_ll\bsp_can.o: D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h
+hll_engineer_ll\bsp_can.o: D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmSimd.h
 hll_engineer_ll\bsp_can.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 hll_engineer_ll\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 hll_engineer_ll\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h

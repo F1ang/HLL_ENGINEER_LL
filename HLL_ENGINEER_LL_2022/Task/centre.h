@@ -3,6 +3,7 @@
 
 #include "main.h" 
 #include "bsp_can.h"
+#include "power_output.h"
 void base_init(void);
 
 

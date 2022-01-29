@@ -149,10 +149,10 @@ void UsageFault_Handler(void)
 /**
   * @brief This function handles System service call via SWI instruction.
   */
-//void SVC_Handler(void)//RTOS中定义了SVC_Handler()  PendSV_Handler()  SysTick_Handler()
+//void SVC_Handler(void)
 //{
 //  /* USER CODE BEGIN SVCall_IRQn 0 */
-//	vPortSVCHandler();
+////	vPortSVCHandler();
 //  /* USER CODE END SVCall_IRQn 0 */
 //  /* USER CODE BEGIN SVCall_IRQn 1 */
 
@@ -178,7 +178,7 @@ void DebugMon_Handler(void)
 //void PendSV_Handler(void)
 //{
 //  /* USER CODE BEGIN PendSV_IRQn 0 */
-//  xPortPendSVHandler();
+////  xPortPendSVHandler();
 //  /* USER CODE END PendSV_IRQn 0 */
 //  /* USER CODE BEGIN PendSV_IRQn 1 */
 
@@ -191,7 +191,7 @@ void DebugMon_Handler(void)
 //void SysTick_Handler(void)
 //{
 //  /* USER CODE BEGIN SysTick_IRQn 0 */
-//  xPortSysTickHandler();
+////  xPortSysTickHandler();
 //  /* USER CODE END SysTick_IRQn 0 */
 
 //  /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -300,6 +300,20 @@ void TIM7_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles DMA2 stream1 global interrupt.
+  */
+void DMA2_Stream1_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream1_IRQn 0 */
+
+  /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream1_IRQn 1 */
+}
+
+/**
   * @brief This function handles DMA2 stream2 global interrupt.
   */
 void DMA2_Stream2_IRQHandler(void)
@@ -311,6 +325,20 @@ void DMA2_Stream2_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Stream2_IRQn 1 */
 
   /* USER CODE END DMA2_Stream2_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USART6 global interrupt.
+  */
+void USART6_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART6_IRQn 0 */
+		USART6_RxIdleCallback();
+		LL_USART_ClearFlag_RXNE(USART6);
+  /* USER CODE END USART6_IRQn 0 */
+  /* USER CODE BEGIN USART6_IRQn 1 */
+
+  /* USER CODE END USART6_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
