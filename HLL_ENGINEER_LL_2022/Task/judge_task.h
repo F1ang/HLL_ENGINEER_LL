@@ -4,7 +4,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-#include "bsp_usart.h"
+#include "usart_hll.h"
 extern TaskHandle_t JudgeTask_Handler;
 
 void Judge_Task(void *pvParameters);

@@ -29,7 +29,7 @@ hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
-hll_engineer_ll\remoter.o: ..\Base\bsp_usart.h
+hll_engineer_ll\remoter.o: ..\Base\usart_hll.h
 hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 hll_engineer_ll\remoter.o: ../Core/Inc/main.h
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h

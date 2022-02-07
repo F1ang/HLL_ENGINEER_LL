@@ -51,6 +51,6 @@ hll_engineer_ll\judge_task.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\mpu_wrappers.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\task.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\list.h
-hll_engineer_ll\judge_task.o: ..\Base\bsp_usart.h
+hll_engineer_ll\judge_task.o: ..\Base\usart_hll.h
 hll_engineer_ll\judge_task.o: ../Core/Inc/usart.h
 hll_engineer_ll\judge_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h

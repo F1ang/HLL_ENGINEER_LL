@@ -3,7 +3,7 @@
 	2、裁判系统-串口6，Notify_Judge_Task二值信号量
 	
 */
-#include "bsp_usart.h"
+#include "usart_hll.h"
 //DBUS
 #define RC_RX_BUF_NUM 18
 uint8_t UartRxBuf[RC_RX_BUF_NUM];							 //cope数据

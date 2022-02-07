@@ -3,7 +3,7 @@
 2、RX0挂起中断回调函数
 3、CAN1发*2（于是最多可以发8个3508电机）
 */
-#include "bsp_can.h"
+#include "can_hll.h"
 
 
 

@@ -42,9 +42,9 @@ hll_engineer_ll\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pw
 hll_engineer_ll\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 hll_engineer_ll\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h
 hll_engineer_ll\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
-hll_engineer_ll\init_task.o: ..\Base\bsp_can.h
+hll_engineer_ll\init_task.o: ..\Base\can_hll.h
 hll_engineer_ll\init_task.o: ..\HARDWARE\inc\power_output.h
 hll_engineer_ll\init_task.o: ../Core/Inc/gpio.h
 hll_engineer_ll\init_task.o: ../Core/Inc/usart.h
-hll_engineer_ll\init_task.o: ..\Base\bsp_usart.h
+hll_engineer_ll\init_task.o: ..\Base\usart_hll.h
 hll_engineer_ll\init_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h

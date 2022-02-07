@@ -2,7 +2,7 @@
 #define __REMOTER_H
 
 #include "stm32f4xx.h"
-#include "bsp_usart.h"
+#include "usart_hll.h"
 
 /* °´¼ü¶¨Òå */
 #define KEY_W        0x01

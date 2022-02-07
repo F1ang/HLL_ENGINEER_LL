@@ -2,7 +2,7 @@
 #define _CENTRE_H
 
 #include "main.h" 
-#include "bsp_can.h"
+#include "can_hll.h"
 #include "power_output.h"
 void base_init(void);
 

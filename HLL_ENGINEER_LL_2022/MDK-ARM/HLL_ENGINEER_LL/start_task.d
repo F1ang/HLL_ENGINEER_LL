@@ -12,7 +12,7 @@ hll_engineer_ll\start_task.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
 hll_engineer_ll\start_task.o: ..\FreeRTOS\include\mpu_wrappers.h
 hll_engineer_ll\start_task.o: ..\FreeRTOS\include\task.h
 hll_engineer_ll\start_task.o: ..\FreeRTOS\include\list.h
-hll_engineer_ll\start_task.o: ..\Base\bsp_usart.h
+hll_engineer_ll\start_task.o: ..\Base\usart_hll.h
 hll_engineer_ll\start_task.o: ../Core/Inc/main.h
 hll_engineer_ll\start_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 hll_engineer_ll\start_task.o: ../Core/Inc/stm32f4xx_hal_conf.h

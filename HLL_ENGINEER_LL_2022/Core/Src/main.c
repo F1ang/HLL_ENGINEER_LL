@@ -27,7 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "centre.h"
-#include "bsp_usart.h"
+#include "usart_hll.h"
 #include "FreeRTOSConfig.h"
 #include "FreeRTOS.h"
 #include "task.h"

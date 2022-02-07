@@ -42,7 +42,7 @@ hll_engineer_ll\remoter_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ha
 hll_engineer_ll\remoter_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 hll_engineer_ll\remoter_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 hll_engineer_ll\remoter_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
-hll_engineer_ll\remoter_task.o: ..\Base\bsp_usart.h
+hll_engineer_ll\remoter_task.o: ..\Base\usart_hll.h
 hll_engineer_ll\remoter_task.o: ../Core/Inc/main.h
 hll_engineer_ll\remoter_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h
 hll_engineer_ll\remoter_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h
