@@ -589,19 +589,19 @@
           <GroupName>Base</GroupName>
           <Files>
             <File>
-              <FileName>bsp_can.c</FileName>
+              <FileName>can_hll.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Base\bsp_can.c</FilePath>
+              <FilePath>..\Base\can_hll.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_tim.c</FileName>
+              <FileName>tim_hll.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Base\bsp_tim.c</FilePath>
+              <FilePath>..\Base\tim_hll.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_usart.c</FileName>
+              <FileName>usart_hll.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Base\bsp_usart.c</FilePath>
+              <FilePath>..\Base\usart_hll.c</FilePath>
             </File>
           </Files>
         </Group>
