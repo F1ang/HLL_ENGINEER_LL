@@ -3,7 +3,8 @@
 
 #include "main.h"
 #include "stm32f4xx.h"
-#include "arm_math.h"
+#include "math.h"
+//#include "arm_math.h"
 
 float Quick_Sqrt(float num);
 void Ramp_Calc(float *output, float input, float min_value, float max_value);
