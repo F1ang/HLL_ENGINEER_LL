@@ -3,6 +3,7 @@
 
 #include "stm32f4xx.h"
 #include "usart_hll.h"
+#include "detect_task.h" 
 
 /* °´¼ü¶¨Òå */
 #define KEY_W        0x01

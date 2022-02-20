@@ -4,7 +4,9 @@
 #include <stdio.h> 
 #include "main.h"
 #include "usart.h"
+#include "remoter_task.h"
 
+#include "judge_task.h"
 #define DEBUG 1
 #define INFORMATION 1
 
@@ -42,7 +44,8 @@ void USART6_RxIdleCallback(void);
 const uint8_t* Get_Judge_Buf(void);
 uint8_t Get_Judge_Buf_Len(void);
 
-
+void usart1_base_init(void);
+void usart6_base_init(void);
 
 
 #endif

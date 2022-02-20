@@ -1,5 +1,5 @@
-hll_engineer_ll\can_hll.o: ..\Base\can_hll.c
-hll_engineer_ll\can_hll.o: ..\Base\can_hll.h
+hll_engineer_ll\can_hll.o: ..\Base\src\can_hll.c
+hll_engineer_ll\can_hll.o: ..\Base\inc\can_hll.h
 hll_engineer_ll\can_hll.o: ../Core/Inc/main.h
 hll_engineer_ll\can_hll.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 hll_engineer_ll\can_hll.o: ../Core/Inc/stm32f4xx_hal_conf.h

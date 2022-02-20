@@ -11,36 +11,13 @@ cortex system timer:180M
 */
 #include "centre.h"    
 
-
-extern uint8_t UartRxDmaBuf[18];   //上位机传输的原始数据   一帧18byte
-
-extern  uint8_t uart6_rx_buf[128];
-	
-
 //集中补充配置
 void base_init()
 {
 	//usart1__dma2
-	LL_DMA_DisableFifoMode(DMA2, LL_DMA_STREAM_2);
-	LL_DMA_SetPeriphAddress(DMA2, LL_DMA_STREAM_2, (uint32_t)(&USART1->DR));
-  LL_DMA_SetMemoryAddress(DMA2, LL_DMA_STREAM_2, (uint32_t)UartRxDmaBuf);
-  LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_2, 18);
-	LL_USART_EnableIT_RXNE(USART1);   //使能串口1的中断
-	LL_USART_EnableIT_IDLE(USART1);   //使能串口1的空闲中断   注：使用IDLE+RXNE的DMA模式
-	
-	LL_USART_EnableDMAReq_RX(USART1);
-	LL_DMA_EnableStream(DMA2,LL_DMA_STREAM_2);
-	
+	usart1_base_init();    
 	//usart6__dma2
-	LL_DMA_DisableFifoMode(DMA2, LL_DMA_STREAM_1);
-	LL_DMA_SetPeriphAddress(DMA2, LL_DMA_STREAM_1, (uint32_t)(&USART6->DR));
-  LL_DMA_SetMemoryAddress(DMA2, LL_DMA_STREAM_1, (uint32_t)uart6_rx_buf);
-  LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_1, 128);
-	LL_USART_EnableIT_RXNE(USART6);   //使能串口1的中断
-	LL_USART_EnableIT_IDLE(USART6);   //使能串口1的空闲中断   注：使用IDLE+RXNE的DMA模式
-	
-	LL_USART_EnableDMAReq_RX(USART6);
-	LL_DMA_EnableStream(DMA2,LL_DMA_STREAM_1);
+	usart6_base_init();
 	
 	
 /*注：encoder:tim2 tim4 tim5   pwm:tim8的ch1~ch4、tim3的ch3、ch4   tim7_updata-20ms待加

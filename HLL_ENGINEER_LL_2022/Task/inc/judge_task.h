@@ -5,10 +5,13 @@
 #include "task.h"
 
 #include "usart_hll.h"
+#include "judge_system.h"
+#include "detect_task.h"   
+#include "crc_check.h"
 extern TaskHandle_t JudgeTask_Handler;
 
-void Judge_Task(void *pvParameters);
+extern void Judge_Task(void *pvParameters);
 
-void Notify_Judge_Task( uint32_t send_data );
+extern void Notify_Judge_Task( uint32_t send_data );
 
 #endif

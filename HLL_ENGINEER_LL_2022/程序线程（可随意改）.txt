@@ -1,0 +1,30 @@
+基于手动FreeRtos：
+一、
+1、can1和can2配置的屏蔽及初始化的删除，实现
+2、RTOS的手动完善，实现
+3、DBUS的接收，remote_task，实现
+4、judge_task，实现，detect_task，待先加各个任务实现，待实现
+5、完善了工程的可读性
+6、配置led，用cubemax，实现
+7、开始classcic_task，待实现
+
+
+8、encoder:tim2 tim4 tim5   pwm:tim8的ch1~ch4、tim3的ch3、ch4  tim7_updata-20ms
+  注：高级定时器的主输出使能、ARPE使能未配置...
+
+9、功能任务，待实现
+
+10、中断优先级，待分配
+
+
+
+
+Base:等效于DEVICE
+Task:同
+USERLIB：算法库,部分已加
+HARDWARE：部分已加
+
+注：所有均可改
+
+
+
