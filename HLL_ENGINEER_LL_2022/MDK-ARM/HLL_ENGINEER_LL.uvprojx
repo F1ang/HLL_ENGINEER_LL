@@ -613,6 +613,11 @@
               <FileType>1</FileType>
               <FilePath>..\Base\src\usart_hll.c</FilePath>
             </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Base\src\encoder.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -737,6 +742,16 @@
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\buzzer.c</FilePath>
+            </File>
+            <File>
+              <FileName>pump.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\pump.c</FilePath>
             </File>
           </Files>
         </Group>

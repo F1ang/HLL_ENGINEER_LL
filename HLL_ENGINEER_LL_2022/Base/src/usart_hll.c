@@ -40,8 +40,8 @@ void usart1_base_init(void)
 	LL_DMA_SetCurrentTargetMem  (DMA2,LL_DMA_STREAM_2,LL_DMA_CURRENTTARGETMEM0);
 	LL_DMA_EnableDoubleBufferMode  (DMA2,LL_DMA_STREAM_2);	
 	
-	LL_USART_EnableIT_RXNE(USART1);   
-	LL_USART_EnableIT_IDLE(USART1);   				//注：使用IDLE+RXNE的DMA模式
+//	LL_USART_EnableIT_RXNE(USART1);   
+	//	LL_USART_EnableIT_IDLE(USART1);   				//注：法一：IDLE+RXNE，法二：BUFF+IDLE ，方法三:BUFF+DMA(选)
 	
 	LL_USART_EnableDMAReq_RX(USART1);
 	LL_DMA_EnableStream(DMA2,LL_DMA_STREAM_2);
@@ -53,20 +53,19 @@ void USART_RxIdleCallback(void)
 		if(LL_USART_IsActiveFlag_IDLE(USART1))			
 		{			
 			//清标志位			
-			LL_USART_ClearFlag_IDLE(USART1); 											
-			if(rc_rx_buf0[2] == 0xEE)			
-			{			
-				NVIC_SystemReset();			
-			}		
-			//暂停接收		
-			LL_DMA_DisableStream(DMA2, LL_DMA_STREAM_2); 				
-			//成功接收到一帧
-			UartRxflag = 1; 
-			//通知遥控器任务
-			Rc_Data_Update();    
-			LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_2, 18);						
+			LL_USART_ClearFlag_IDLE(USART1); 											  				
 		}
 }
+void DMA2_Stream2_IRQHandler(void)
+{
+	if(LL_DMA_IsActiveFlag_TC2(DMA2))
+	{
+		LL_DMA_ClearFlag_TC2(DMA2);
+		Rc_Data_Update(); 
+		//注：已在RESET，再次声明接收的BUFF大小=18
+	}
+}
+
 
 /*
   函数名：Get_Rc_Buf

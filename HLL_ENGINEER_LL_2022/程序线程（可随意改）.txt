@@ -5,12 +5,11 @@
 3、DBUS的接收，remote_task，实现
 4、judge_task，实现，detect_task，待先加各个任务实现，待实现
 5、完善了工程的可读性
-6、配置led，用cubemax，实现
-7、开始classcic_task，待实现
+6、NVIC已配(HAL_Init())，led，buzzer, Pump，tim相关->编码器、pwm、定时，已加
+7、底层硬件LL库搭建，完成
 
 
-8、encoder:tim2 tim4 tim5   pwm:tim8的ch1~ch4、tim3的ch3、ch4  tim7_updata-20ms
-  注：高级定时器的主输出使能、ARPE使能未配置...
+8、开始classcic_task，待实现
 
 9、功能任务，待实现
 

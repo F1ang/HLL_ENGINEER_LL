@@ -42,3 +42,7 @@ hll_engineer_ll\tim_hll.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.
 hll_engineer_ll\tim_hll.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 hll_engineer_ll\tim_hll.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h
 hll_engineer_ll\tim_hll.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
+hll_engineer_ll\tim_hll.o: ..\Base\inc\encoder.h
+hll_engineer_ll\tim_hll.o: ..\USERLIB\inc\motor.h
+hll_engineer_ll\tim_hll.o: ..\USERLIB\inc\pid.h
+hll_engineer_ll\tim_hll.o: ..\USERLIB\inc\sys.h

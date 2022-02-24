@@ -60,3 +60,13 @@ void Led_Flow_Off(void)
 	LED_GREEN_OFF;
 	LL_mDelay(30);
 }
+
+//PG1~8   PF14  PE11
+void Led_Init(void)
+{
+	LED_GREEN_OFF;
+	LED_RED_OFF;
+	LED_FLOW_OFF_PIN(LL_GPIO_PIN_1 |LL_GPIO_PIN_2 | LL_GPIO_PIN_3 | LL_GPIO_PIN_4 | LL_GPIO_PIN_5 | LL_GPIO_PIN_6 | LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
+}
+
+

@@ -20,6 +20,10 @@
 #define LED_FLOW_OFF(led_num) 		LL_GPIO_SetOutputPin(GPIOG, (LL_GPIO_PIN_8 >> led_num))
 #define LED_FLOW_TOGGLE(led_num)  LL_GPIO_TogglePin(GPIOG,(LL_GPIO_PIN_8 >> led_num))
 
+
+#define LED_FLOW_ON_PIN(GPIO_Pin) 		LL_GPIO_ResetOutputPin(GPIOE, GPIO_Pin)
+#define LED_FLOW_OFF_PIN(GPIO_Pin) 		LL_GPIO_SetOutputPin(GPIOE, GPIO_Pin)
+#define LED_FLOW_TOGGLE_PIN(GPIO_Pin) LL_GPIO_TogglePin(GPIOE,GPIO_Pin)
 void Led_Init(void);
 void Led_All_Flash(void);
 void Led_Flow_On(void);

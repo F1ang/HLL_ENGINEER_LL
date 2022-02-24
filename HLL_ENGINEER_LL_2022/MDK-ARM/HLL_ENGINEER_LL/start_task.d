@@ -63,3 +63,5 @@ hll_engineer_ll\start_task.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\start_task.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\start_task.o: ..\USERLIB\inc\crc_check.h
 hll_engineer_ll\start_task.o: ..\USERLIB\inc\sys.h
+hll_engineer_ll\start_task.o: ..\HARDWARE\inc\led.h
+hll_engineer_ll\start_task.o: ../Core/Inc/gpio.h

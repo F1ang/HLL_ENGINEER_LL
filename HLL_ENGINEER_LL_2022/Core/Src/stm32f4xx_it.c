@@ -24,8 +24,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usart_hll.h"
-
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -62,10 +60,8 @@
 extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN EV */
-extern void xPortPendSVHandler(void);
-extern void xPortSysTickHandler(void);
-extern void vPortSVCHandler(void);
-
+//timx:x=2,4,5,7   DMA2_Stream2_IRQHandler()  
+//RTOS÷–∂®“Â:SVC_Handler   PendSV_Handler  SysTick_Handler
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -152,7 +148,7 @@ void UsageFault_Handler(void)
 //void SVC_Handler(void)
 //{
 //  /* USER CODE BEGIN SVCall_IRQn 0 */
-//////	vPortSVCHandler();
+
 //  /* USER CODE END SVCall_IRQn 0 */
 //  /* USER CODE BEGIN SVCall_IRQn 1 */
 
@@ -178,7 +174,7 @@ void DebugMon_Handler(void)
 //void PendSV_Handler(void)
 //{
 //  /* USER CODE BEGIN PendSV_IRQn 0 */
-//////  xPortPendSVHandler();
+
 //  /* USER CODE END PendSV_IRQn 0 */
 //  /* USER CODE BEGIN PendSV_IRQn 1 */
 
@@ -191,7 +187,7 @@ void DebugMon_Handler(void)
 //void SysTick_Handler(void)
 //{
 //  /* USER CODE BEGIN SysTick_IRQn 0 */
-//////  xPortSysTickHandler();
+
 //  /* USER CODE END SysTick_IRQn 0 */
 
 //  /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -223,28 +219,28 @@ void TIM1_UP_TIM10_IRQHandler(void)
 /**
   * @brief This function handles TIM2 global interrupt.
   */
-void TIM2_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM2_IRQn 0 */
+//void TIM2_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN TIM2_IRQn 0 */
 
-  /* USER CODE END TIM2_IRQn 0 */
-  /* USER CODE BEGIN TIM2_IRQn 1 */
+//  /* USER CODE END TIM2_IRQn 0 */
+//  /* USER CODE BEGIN TIM2_IRQn 1 */
 
-  /* USER CODE END TIM2_IRQn 1 */
-}
+//  /* USER CODE END TIM2_IRQn 1 */
+//}
 
 /**
   * @brief This function handles TIM4 global interrupt.
   */
-void TIM4_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM4_IRQn 0 */
+//void TIM4_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN TIM4_IRQn 0 */
 
-  /* USER CODE END TIM4_IRQn 0 */
-  /* USER CODE BEGIN TIM4_IRQn 1 */
+//  /* USER CODE END TIM4_IRQn 0 */
+//  /* USER CODE BEGIN TIM4_IRQn 1 */
 
-  /* USER CODE END TIM4_IRQn 1 */
-}
+//  /* USER CODE END TIM4_IRQn 1 */
+//}
 
 /**
   * @brief This function handles USART1 global interrupt.
@@ -253,7 +249,6 @@ void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
 		USART_RxIdleCallback();
-		LL_USART_ClearFlag_RXNE(USART1);
   /* USER CODE END USART1_IRQn 0 */
   /* USER CODE BEGIN USART1_IRQn 1 */
 
@@ -276,28 +271,28 @@ void USART3_IRQHandler(void)
 /**
   * @brief This function handles TIM5 global interrupt.
   */
-void TIM5_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM5_IRQn 0 */
+//void TIM5_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN TIM5_IRQn 0 */
 
-  /* USER CODE END TIM5_IRQn 0 */
-  /* USER CODE BEGIN TIM5_IRQn 1 */
+//  /* USER CODE END TIM5_IRQn 0 */
+//  /* USER CODE BEGIN TIM5_IRQn 1 */
 
-  /* USER CODE END TIM5_IRQn 1 */
-}
+//  /* USER CODE END TIM5_IRQn 1 */
+//}
 
 /**
   * @brief This function handles TIM7 global interrupt.
   */
-void TIM7_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM7_IRQn 0 */
+//void TIM7_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN TIM7_IRQn 0 */
 
-  /* USER CODE END TIM7_IRQn 0 */
-  /* USER CODE BEGIN TIM7_IRQn 1 */
+//  /* USER CODE END TIM7_IRQn 0 */
+//  /* USER CODE BEGIN TIM7_IRQn 1 */
 
-  /* USER CODE END TIM7_IRQn 1 */
-}
+//  /* USER CODE END TIM7_IRQn 1 */
+//}
 
 /**
   * @brief This function handles DMA2 stream1 global interrupt.
@@ -316,16 +311,16 @@ void DMA2_Stream1_IRQHandler(void)
 /**
   * @brief This function handles DMA2 stream2 global interrupt.
   */
-void DMA2_Stream2_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA2_Stream2_IRQn 0 */
+//void DMA2_Stream2_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN DMA2_Stream2_IRQn 0 */
 
-  /* USER CODE END DMA2_Stream2_IRQn 0 */
+//  /* USER CODE END DMA2_Stream2_IRQn 0 */
 
-  /* USER CODE BEGIN DMA2_Stream2_IRQn 1 */
+//  /* USER CODE BEGIN DMA2_Stream2_IRQn 1 */
 
-  /* USER CODE END DMA2_Stream2_IRQn 1 */
-}
+//  /* USER CODE END DMA2_Stream2_IRQn 1 */
+//}
 
 /**
   * @brief This function handles USART6 global interrupt.
@@ -334,7 +329,6 @@ void USART6_IRQHandler(void)
 {
   /* USER CODE BEGIN USART6_IRQn 0 */
 		USART6_RxIdleCallback();
-		LL_USART_ClearFlag_RXNE(USART6);
   /* USER CODE END USART6_IRQn 0 */
   /* USER CODE BEGIN USART6_IRQn 1 */
 

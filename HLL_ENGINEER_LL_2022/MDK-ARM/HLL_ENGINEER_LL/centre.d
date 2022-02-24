@@ -66,3 +66,13 @@ hll_engineer_ll\centre.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\centre.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\centre.o: ..\USERLIB\inc\crc_check.h
 hll_engineer_ll\centre.o: ..\USERLIB\inc\sys.h
+hll_engineer_ll\centre.o: ..\Base\inc\tim_hll.h
+hll_engineer_ll\centre.o: ../Core/Inc/tim.h
+hll_engineer_ll\centre.o: ..\Base\inc\encoder.h
+hll_engineer_ll\centre.o: ..\USERLIB\inc\motor.h
+hll_engineer_ll\centre.o: ..\USERLIB\inc\pid.h
+hll_engineer_ll\centre.o: ..\HARDWARE\inc\led.h
+hll_engineer_ll\centre.o: ..\HARDWARE\inc\buzzer.h
+hll_engineer_ll\centre.o: ..\HARDWARE\inc\pump.h
+hll_engineer_ll\centre.o: ..\Base\inc\can1_hll.h
+hll_engineer_ll\centre.o: ..\Base\inc\can2_hll.h

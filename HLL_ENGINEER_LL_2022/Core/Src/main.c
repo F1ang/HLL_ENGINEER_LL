@@ -105,6 +105,7 @@ int main(void)
   MX_TIM8_Init();
   MX_TIM7_Init();
   MX_USART6_UART_Init();
+  MX_TIM12_Init();
   /* USER CODE BEGIN 2 */
   All_Init();
 	//创建开始任务

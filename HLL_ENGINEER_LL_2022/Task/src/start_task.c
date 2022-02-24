@@ -75,7 +75,7 @@ void Start_Task(void *pvParameters)
 //								(TaskHandle_t*  )&CPU_Task_Handle);/* 任务控制块指针 */
 //	#endif
 								
-//	Led_Flow_Off();
+	Led_Flow_Off();  
 	INFO_LOG("\r\nAll tasks creat.\r\n");      
 	INFO_LOG("\r\nSystem run.\r\n");
   taskEXIT_CRITICAL(); //退出临界区
