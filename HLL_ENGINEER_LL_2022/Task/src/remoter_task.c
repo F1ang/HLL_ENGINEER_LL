@@ -38,79 +38,83 @@ uint8_t chip_flag;
 uint8_t overturn_flag;
 void Remoter_Task(void *pvParameters)
 {
-	static uint8_t rx_available_bufx;
+//	static uint8_t rx_available_bufx;
 
-	//二值信号量初始化
-	rc_data_update_semaphore = xSemaphoreCreateBinary();
-	
-	//取得遥控器DBUS原始数据指针
-	rc_rx_buf[0] = Get_Rc_Bufferx(0);
-	rc_rx_buf[1] = Get_Rc_Bufferx(1);  
-	
-//	judge_data = Get_Judge_Data();
+//	//二值信号量初始化
+//	rc_data_update_semaphore = xSemaphoreCreateBinary();
+//	
+//	//取得遥控器DBUS原始数据指针
+//	rc_rx_buf[0] = Get_Rc_Bufferx(0);
+//	rc_rx_buf[1] = Get_Rc_Bufferx(1);  
+//	
+////	judge_data = Get_Judge_Data();
 
-	//重置遥控器数据
-	Rc_Data_Reset(&remote_controller);
-	Rc_Data_Reset(&last_time_rc);  
-	
-	//初始化机器人模式
-	{
-		robot_mode.control_device=2;  //操控设备选择 1 键鼠  2遥控器
-		robot_mode.mode_up=1; //模式 1放下 2抬小10cm 3 抬大20cm             //s2
-	  robot_mode.mode_stretch=1;// 1缩回 2伸中250 3伸小15cm  4伸大        //ch1
-	  robot_mode.mode_chip=1;//1松开 2夹取                                 //s1 
-	  robot_mode.mode_overturn=1;//1平 2翻                                //ch4
-		//robot_mode.action=1;//1兑换 2资源岛
-	}  
-	
-	vTaskDelay(200);  
-	
-	//开启串口1DMA接收完成中断
-	LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_2);
+//	//重置遥控器数据
+//	Rc_Data_Reset(&remote_controller);
+//	Rc_Data_Reset(&last_time_rc);  
+//	
+//	//初始化机器人模式
+//	{
+//		robot_mode.control_device=2;  //操控设备选择 1 键鼠  2遥控器
+//		robot_mode.mode_up=1; //模式 1放下 2抬小10cm 3 抬大20cm             //s2
+//	  robot_mode.mode_stretch=1;// 1缩回 2伸中250 3伸小15cm  4伸大        //ch1
+//	  robot_mode.mode_chip=1;//1松开 2夹取                                 //s1 
+//	  robot_mode.mode_overturn=1;//1平 2翻                                //ch4
+//		//robot_mode.action=1;//1兑换 2资源岛
+//	}  
+//	
+//	vTaskDelay(200);  
+//	
+//	//开启串口1DMA接收完成中断
+//	LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_2);
 
 	while(1)
 	{
 		
-		//等待信号量，超时时间50ms
-		if( xSemaphoreTake(rc_data_update_semaphore, 500) == pdTRUE )
-		{
-			/* 获取当前遥控器可用原始数据 */
-			rx_available_bufx = Get_Rc_Available_Bufferx();
-
-			/* 解析遥控器数据 */
-			Parse_Remoter_Data(rc_rx_buf[rx_available_bufx], &remote_controller);
-
-			/* 检测遥控器数据，是否合法如果不合法采取操作 */
-			if(Remoter_Data_Check(&remote_controller))
-			{
-				//保持当前遥控器数据不变
-				Rc_Data_Copy(&remote_controller, &last_time_rc);
-				//重置串口1及DMA
-				Usart1_DMA_Reset();
-				
-				DEBUG_ERROR(100);
-			}
-			
-			/* 更新遥控器状态 */
-			Detect_Reload(0);  
-			
-			/* 机器人模式变换响应，待加 */
-			Robot_Rc_Mode_Change_Control();
-			
-			/* 响应键盘控制 */
-//			Switch_Mouse_Key_Change(&remote_controller, &last_time_rc, &robot_mode);
-			
-			/* 保存本次遥控器状态 */
-			Rc_Data_Copy(&last_time_rc, &remote_controller);
-			
-		}
+		//debug
+		LED_RED_ON;
+		vTaskDelay(200);
 		
-		//若等待信号量超时
-		else
-		{
-			Rc_Data_Reset(&remote_controller);
-			Rc_Data_Reset(&last_time_rc);
-		}
+//		//等待信号量，超时时间50ms
+//		if( xSemaphoreTake(rc_data_update_semaphore, 500) == pdTRUE )
+//		{
+//			/* 获取当前遥控器可用原始数据 */
+//			rx_available_bufx = Get_Rc_Available_Bufferx();
+
+//			/* 解析遥控器数据 */
+//			Parse_Remoter_Data(rc_rx_buf[rx_available_bufx], &remote_controller);
+
+//			/* 检测遥控器数据，是否合法如果不合法采取操作 */
+//			if(Remoter_Data_Check(&remote_controller))
+//			{
+//				//保持当前遥控器数据不变
+//				Rc_Data_Copy(&remote_controller, &last_time_rc);
+//				//重置串口1及DMA
+//				Usart1_DMA_Reset();
+//				
+//				DEBUG_ERROR(100);
+//			}
+//			
+//			/* 更新遥控器状态 */
+//			Detect_Reload(0);  
+//			
+//			/* 机器人模式变换响应，待加 */
+//			Robot_Rc_Mode_Change_Control();
+//			
+//			/* 响应键盘控制 */
+////			Switch_Mouse_Key_Change(&remote_controller, &last_time_rc, &robot_mode);
+//			
+//			/* 保存本次遥控器状态 */
+//			Rc_Data_Copy(&last_time_rc, &remote_controller);
+//			
+//		}
+//		
+//		//若等待信号量超时
+//		else
+//		{
+//			Rc_Data_Reset(&remote_controller);
+//			Rc_Data_Reset(&last_time_rc);
+//		}
 		
 	}
 	

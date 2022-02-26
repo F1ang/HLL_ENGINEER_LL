@@ -62,6 +62,7 @@ hll_engineer_ll\centre.o: ..\FreeRTOS\include\queue.h
 hll_engineer_ll\centre.o: ..\HARDWARE\inc\remoter.h
 hll_engineer_ll\centre.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\centre.o: ..\Task\inc\detect_task.h
+hll_engineer_ll\centre.o: ..\HARDWARE\inc\led.h
 hll_engineer_ll\centre.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\centre.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\centre.o: ..\USERLIB\inc\crc_check.h
@@ -71,7 +72,6 @@ hll_engineer_ll\centre.o: ../Core/Inc/tim.h
 hll_engineer_ll\centre.o: ..\Base\inc\encoder.h
 hll_engineer_ll\centre.o: ..\USERLIB\inc\motor.h
 hll_engineer_ll\centre.o: ..\USERLIB\inc\pid.h
-hll_engineer_ll\centre.o: ..\HARDWARE\inc\led.h
 hll_engineer_ll\centre.o: ..\HARDWARE\inc\buzzer.h
 hll_engineer_ll\centre.o: ..\HARDWARE\inc\pump.h
 hll_engineer_ll\centre.o: ..\Base\inc\can1_hll.h

@@ -58,6 +58,8 @@ hll_engineer_ll\usart_hll.o: ..\FreeRTOS\include\queue.h
 hll_engineer_ll\usart_hll.o: ..\HARDWARE\inc\remoter.h
 hll_engineer_ll\usart_hll.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\usart_hll.o: ..\Task\inc\detect_task.h
+hll_engineer_ll\usart_hll.o: ..\HARDWARE\inc\led.h
+hll_engineer_ll\usart_hll.o: ../Core/Inc/gpio.h
 hll_engineer_ll\usart_hll.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\usart_hll.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\usart_hll.o: ..\USERLIB\inc\crc_check.h

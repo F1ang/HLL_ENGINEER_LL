@@ -59,6 +59,8 @@ hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\queue.h
 hll_engineer_ll\judge_system.o: ..\HARDWARE\inc\remoter.h
 hll_engineer_ll\judge_system.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\judge_system.o: ..\Task\inc\detect_task.h
+hll_engineer_ll\judge_system.o: ..\HARDWARE\inc\led.h
+hll_engineer_ll\judge_system.o: ../Core/Inc/gpio.h
 hll_engineer_ll\judge_system.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\judge_system.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\judge_system.o: ..\USERLIB\inc\crc_check.h
@@ -66,4 +68,3 @@ hll_engineer_ll\judge_system.o: ..\USERLIB\inc\sys.h
 hll_engineer_ll\judge_system.o: ..\USERLIB\inc\math2.h
 hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
 hll_engineer_ll\judge_system.o: ..\HARDWARE\inc\power_output.h
-hll_engineer_ll\judge_system.o: ../Core/Inc/gpio.h

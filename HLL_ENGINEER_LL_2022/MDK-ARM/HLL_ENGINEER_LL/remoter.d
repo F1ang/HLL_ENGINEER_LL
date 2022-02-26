@@ -57,6 +57,8 @@ hll_engineer_ll\remoter.o: ..\FreeRTOS\include\list.h
 hll_engineer_ll\remoter.o: ..\FreeRTOS\include\semphr.h
 hll_engineer_ll\remoter.o: ..\FreeRTOS\include\queue.h
 hll_engineer_ll\remoter.o: ..\HARDWARE\inc\remoter.h
+hll_engineer_ll\remoter.o: ..\HARDWARE\inc\led.h
+hll_engineer_ll\remoter.o: ../Core/Inc/gpio.h
 hll_engineer_ll\remoter.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\remoter.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\remoter.o: ..\HARDWARE\inc\judge_system.h

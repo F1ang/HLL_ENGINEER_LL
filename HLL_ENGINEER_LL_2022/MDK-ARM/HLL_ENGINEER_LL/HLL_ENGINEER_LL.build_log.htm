@@ -26,7 +26,24 @@ Project File Date:  02/24/2022
 
 <h2>Output:</h2>
 Build target 'HLL_ENGINEER_LL'
-"HLL_ENGINEER_LL\HLL_ENGINEER_LL.axf" - 0 Error(s), 0 Warning(s).
+compiling judge_task.c...
+..\Task\src\judge_task.c(6): warning:  #177-D: variable "judge_buf" was declared but never referenced
+  static const uint8_t *judge_buf;
+..\Task\src\judge_task.c(7): warning:  #177-D: variable "judge_buf_copy" was declared but never referenced
+  static uint8_t judge_buf_copy[128];
+..\Task\src\judge_task.c(8): warning:  #177-D: variable "judge_buf_len" was declared but never referenced
+  static uint32_t judge_buf_len = 0;
+..\Task\src\judge_task.c: 3 warnings, 0 errors
+compiling remoter_task.c...
+..\Task\src\remoter_task.c(161): warning:  #177-D: function "Robot_Rc_Mode_Change_Control" was declared but never referenced
+  static void Robot_Rc_Mode_Change_Control(void)
+..\Task\src\remoter_task.c(32): warning:  #177-D: variable "rc_rx_buf" was declared but never referenced
+  static const uint8_t* rc_rx_buf[2];  //串口1接收原始数据数组指针
+..\Task\src\remoter_task.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=18898 RO-data=542 RW-data=188 ZI-data=49988  
+FromELF: creating hex file...
+"HLL_ENGINEER_LL\HLL_ENGINEER_LL.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
