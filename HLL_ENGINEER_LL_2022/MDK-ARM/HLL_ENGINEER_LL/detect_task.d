@@ -66,7 +66,14 @@ hll_engineer_ll\detect_task.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\detect_task.o: ..\FreeRTOS\include\semphr.h
 hll_engineer_ll\detect_task.o: ..\FreeRTOS\include\queue.h
 hll_engineer_ll\detect_task.o: ..\HARDWARE\inc\remoter.h
+hll_engineer_ll\detect_task.o: ..\Task\inc\buzzer_task.h
 hll_engineer_ll\detect_task.o: ..\Base\inc\usart_hll.h
+hll_engineer_ll\detect_task.o: ..\HARDWARE\inc\buzzer.h
+hll_engineer_ll\detect_task.o: ..\Base\inc\tim_hll.h
+hll_engineer_ll\detect_task.o: ../Core/Inc/tim.h
+hll_engineer_ll\detect_task.o: ..\Base\inc\encoder.h
+hll_engineer_ll\detect_task.o: ..\HARDWARE\inc\can2_motor.h
+hll_engineer_ll\detect_task.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\detect_task.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\detect_task.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\detect_task.o: ..\USERLIB\inc\crc_check.h

@@ -15,22 +15,22 @@ void Start_Task(void *pvParameters)
 	
 
 	
-//	//创建蜂鸣器任务
-//	xTaskCreate((TaskFunction_t )Buzzer_Task,
-//							(const char*    )"buzzer_task",
-//							(uint16_t       )128,
-//							(void*          )NULL,
-//							(UBaseType_t    )3,
-//							(TaskHandle_t*  )&BuzzerTask_Handler);
+	//创建蜂鸣器任务
+	xTaskCreate((TaskFunction_t )Buzzer_Task,  
+							(const char*    )"buzzer_task",
+							(uint16_t       )128,
+							(void*          )NULL,
+							(UBaseType_t    )3,
+							(TaskHandle_t*  )&BuzzerTask_Handler);
 
-//						
-//	//创建底盘任务
-//	xTaskCreate((TaskFunction_t )Chassis_Task,
-//							(const char*    )"chassis_task",
-//							(uint16_t       )256,
-//							(void*          )NULL,
-//							(UBaseType_t    )20,
-//							(TaskHandle_t*  )&ChassisTask_Handler);
+						
+	//创建底盘任务
+	xTaskCreate((TaskFunction_t )Chassis_Task,  
+							(const char*    )"chassis_task",
+							(uint16_t       )256,
+							(void*          )NULL,
+							(UBaseType_t    )20,
+							(TaskHandle_t*  )&ChassisTask_Handler);
 //							
 //	//创建功能任务					
 //  xTaskCreate((TaskFunction_t )Function_Task,

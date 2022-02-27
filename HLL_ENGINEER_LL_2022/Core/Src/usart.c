@@ -70,7 +70,7 @@ void MX_USART1_UART_Init(void)
   LL_DMA_DisableFifoMode(DMA2, LL_DMA_STREAM_2);
 
   /* USART1 interrupt Init */
-  NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),6, 0));
   NVIC_EnableIRQ(USART1_IRQn);
 
   USART_InitStruct.BaudRate = 100000;
@@ -96,21 +96,21 @@ void MX_USART3_UART_Init(void)
   /* Peripheral clock enable */
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_USART3);
 
-  LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOC);
+  LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOD);
   /**USART3 GPIO Configuration
-  PC11   ------> USART3_RX
-  PC10   ------> USART3_TX
+  PD9   ------> USART3_RX
+  PD8   ------> USART3_TX
   */
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_11|LL_GPIO_PIN_10;
+  GPIO_InitStruct.Pin = LL_GPIO_PIN_9|LL_GPIO_PIN_8;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
   GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
   GPIO_InitStruct.Alternate = LL_GPIO_AF_7;
-  LL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  LL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /* USART3 interrupt Init */
-  NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),6, 0));
   NVIC_EnableIRQ(USART3_IRQn);
 
   USART_InitStruct.BaudRate = 115200;
@@ -171,7 +171,7 @@ void MX_USART6_UART_Init(void)
   LL_DMA_DisableFifoMode(DMA2, LL_DMA_STREAM_1);
 
   /* USART6 interrupt Init */
-  NVIC_SetPriority(USART6_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(USART6_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),6, 0));
   NVIC_EnableIRQ(USART6_IRQn);
 
   USART_InitStruct.BaudRate = 115200;

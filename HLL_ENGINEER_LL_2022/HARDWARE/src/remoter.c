@@ -11,7 +11,6 @@
 
 #include "remoter_task.h"
 #include "math2.h"
-//#include "detect_task.h"
 #define RC_CH_VALUE_MIN ((uint16_t)364)
 #define RC_CH_VALUE_OFFSET ((uint16_t)1024)
 #define RC_CH_VALUE_MAX ((uint16_t)1684)
@@ -86,23 +85,24 @@ uint8_t Remoter_Data_Check(Rc_ctrl_t *remote_controller)
 	}
 	if (ROCKER_DATA_CHECK(remote_controller->rc.ch1))
 	{
-		return 1;
+//		printf("%d\r\n",remote_controller->rc.ch1);
+		return 2;
 	}
 	if (ROCKER_DATA_CHECK(remote_controller->rc.ch2))
 	{
-		return 1;
+		return 3;
 	}
 	if (ROCKER_DATA_CHECK(remote_controller->rc.ch3))
 	{
-		return 1;
+		return 4;
 	}
 	if (SWITCH_DATA_CHECK(remote_controller->rc.s1))
 	{
-		return 1;
+		return 5;
 	}
 	if (SWITCH_DATA_CHECK(remote_controller->rc.s2))
 	{
-		return 1;
+		return 6;
 	}
 	return 0;
 }

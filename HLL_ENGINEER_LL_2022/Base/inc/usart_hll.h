@@ -7,6 +7,7 @@
 #include "remoter_task.h"
 
 #include "judge_task.h"
+#include "buzzer_task.h"
 #define DEBUG 1
 #define INFORMATION 1
 

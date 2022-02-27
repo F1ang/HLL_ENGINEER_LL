@@ -300,7 +300,20 @@ void USART3_IRQHandler(void)
 void DMA2_Stream1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream1_IRQn 0 */
-
+	
+//	if(LL_DMA_IsActiveFlag_TC2(DMA2))
+//	{
+//		LL_DMA_ClearFlag_TC2(DMA2);
+//		LL_DMA_DisableStream(DMA2, LL_DMA_STREAM_2);
+//		
+//		Rc_Data_Update(); 
+//	
+//		//debug
+//		LED_RED_ON;
+//		LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_2, 36);	
+//		LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_2);		
+//	}
+	
   /* USER CODE END DMA2_Stream1_IRQn 0 */
 
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */

@@ -1,8 +1,7 @@
 #ifndef __REMOTER_H
 #define __REMOTER_H
 
-#include "stm32f4xx.h"
-#include "usart_hll.h"
+#include "main.h"
 #include "detect_task.h" 
 
 /* °´¼ü¶¨Òå */

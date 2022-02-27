@@ -65,7 +65,7 @@ int Can2_Init(void)//CAN初始化
 	CAN2->IER|=1<<1;		//FIFO0消息挂号中断允许.
 	//分组4
   u32 temp;		   
-	temp=1<<0;	  //抢断优先级1
+	temp=6;	  //抢断优先级6
 	temp|=0&(0x0f>>4);  //响应优先级0
 	temp&=0xf;								//取低四位
 	NVIC->ISER[CAN2_RX0_IRQn/32]|=1<<CAN2_RX0_IRQn%32;//使能中断位(要清除的话,设置ICER对应位为1即可)

@@ -10,6 +10,7 @@
       <TargetName>HLL_ENGINEER_LL</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pArmCC>5050106::V5.05 update 1 (build 106)::ARMCC</pArmCC>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F427IIHx</Device>
@@ -147,7 +148,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>11</TargetSelection>
+          <TargetSelection>12</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -161,7 +162,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>STLink\ST-LINKIII-KEIL_SWO.dll</Driver>
+            <Driver>BIN\CMSIS_AGDI.dll</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -224,7 +225,7 @@
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <RoSelD>3</RoSelD>
@@ -589,11 +590,6 @@
           <GroupName>Base</GroupName>
           <Files>
             <File>
-              <FileName>can_hll.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Base\src\can_hll.c</FilePath>
-            </File>
-            <File>
               <FileName>can1_hll.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Base\src\can1_hll.c</FilePath>
@@ -652,6 +648,16 @@
               <FileName>start_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Task\src\start_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>buzzer_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Task\src\buzzer_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>chassis_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Task\src\chassis_task.c</FilePath>
             </File>
           </Files>
         </Group>

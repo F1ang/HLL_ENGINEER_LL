@@ -48,7 +48,7 @@ void MX_TIM2_Init(void)
   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* TIM2 interrupt Init */
-  NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),6, 0));
   NVIC_EnableIRQ(TIM2_IRQn);
 
   LL_TIM_SetEncoderMode(TIM2, LL_TIM_ENCODERMODE_X2_TI2);
@@ -139,7 +139,7 @@ void MX_TIM4_Init(void)
   LL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /* TIM4 interrupt Init */
-  NVIC_SetPriority(TIM4_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(TIM4_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),6, 0));
   NVIC_EnableIRQ(TIM4_IRQn);
 
   LL_TIM_SetEncoderMode(TIM4, LL_TIM_ENCODERMODE_X2_TI2);
@@ -185,7 +185,7 @@ void MX_TIM5_Init(void)
   LL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
   /* TIM5 interrupt Init */
-  NVIC_SetPriority(TIM5_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(TIM5_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),6, 0));
   NVIC_EnableIRQ(TIM5_IRQn);
 
   LL_TIM_SetEncoderMode(TIM5, LL_TIM_ENCODERMODE_X2_TI2);
@@ -216,7 +216,7 @@ void MX_TIM7_Init(void)
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM7);
 
   /* TIM7 interrupt Init */
-  NVIC_SetPriority(TIM7_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(TIM7_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),6, 0));
   NVIC_EnableIRQ(TIM7_IRQn);
 
   TIM_InitStruct.Prescaler = 89;

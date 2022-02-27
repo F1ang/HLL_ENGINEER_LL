@@ -4,6 +4,7 @@
 
 void All_Init(void)
 {	
+	
 	/*Ó²¼þ³õÊ¼»¯*/
 	base_init();
 	

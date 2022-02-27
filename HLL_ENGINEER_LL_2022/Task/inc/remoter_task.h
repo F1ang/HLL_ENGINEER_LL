@@ -7,6 +7,8 @@
 
 #include "remoter.h"  
 #include "led.h"
+#include "buzzer_task.h"
+
 typedef struct
 {
 	uint8_t control_device; //控制设备 1键鼠模式 2遥控器模式
@@ -24,11 +26,11 @@ extern TaskHandle_t RemoterTask_Handler;
 void Remoter_Task(void *pvParameters);
 void Rc_Data_Update(void);
 
-//void Clear_Shoot_Key(void);
-//void Fric_Reset(void);
+void Clear_Shoot_Key(void);
+void Fric_Reset(void);
 
-//const Rc_ctrl_t *Get_Remote_Control_Point(void);
-//Robot_mode_t *Get_Robot_Mode_Point(void);
+const Rc_ctrl_t *Get_Remote_Control_Point(void);
+Robot_mode_t *Get_Robot_Mode_Point(void);
 
 
 #endif
