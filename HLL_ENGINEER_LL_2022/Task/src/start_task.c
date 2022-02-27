@@ -31,23 +31,23 @@ void Start_Task(void *pvParameters)
 							(void*          )NULL,
 							(UBaseType_t    )20,
 							(TaskHandle_t*  )&ChassisTask_Handler);
-//							
-//	//创建功能任务					
-//  xTaskCreate((TaskFunction_t )Function_Task,
-//							(const char*    )"function_task",
-//							(uint16_t       )256,
-//							(void*          )NULL,
-//							(UBaseType_t    )19,
-//							(TaskHandle_t*  )&FunctionTask_Handler);
-//	//反转任务						
-//	xTaskCreate((TaskFunction_t )Overchip_Task,
-//							(const char*    )"overchip_task",
-//							(uint16_t       )256,
-//							(void*          )NULL,
-//							(UBaseType_t    )19,
-//							(TaskHandle_t*  )&OverchipTask_Handler);
-//							
-//							
+							
+	//创建功能任务					
+  xTaskCreate((TaskFunction_t )Function_Task,
+							(const char*    )"function_task",
+							(uint16_t       )256,
+							(void*          )NULL,
+							(UBaseType_t    )19,
+							(TaskHandle_t*  )&FunctionTask_Handler);
+	//反转任务						
+	xTaskCreate((TaskFunction_t )Overchip_Task,
+							(const char*    )"overchip_task",
+							(uint16_t       )256,
+							(void*          )NULL,
+							(UBaseType_t    )19,
+							(TaskHandle_t*  )&OverchipTask_Handler);
+							
+							
 	//创建裁判系统任务
 	xTaskCreate((TaskFunction_t )Judge_Task,
 							(const char*    )"judge_task",   

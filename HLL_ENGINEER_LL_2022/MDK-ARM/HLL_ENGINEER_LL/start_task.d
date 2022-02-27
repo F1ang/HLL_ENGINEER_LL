@@ -75,3 +75,5 @@ hll_engineer_ll\start_task.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\start_task.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\start_task.o: ..\USERLIB\inc\crc_check.h
 hll_engineer_ll\start_task.o: ..\Task\inc\chassis_task.h
+hll_engineer_ll\start_task.o: ..\Task\inc\function_task.h
+hll_engineer_ll\start_task.o: ..\Task\inc\over_chip_task.h

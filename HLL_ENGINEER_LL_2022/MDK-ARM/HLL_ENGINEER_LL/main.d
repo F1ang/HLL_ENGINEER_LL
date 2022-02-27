@@ -82,3 +82,5 @@ hll_engineer_ll\main.o: ..\Base\inc\can1_hll.h
 hll_engineer_ll\main.o: ..\Task\inc\init_task.h
 hll_engineer_ll\main.o: ..\Task\inc\start_task.h
 hll_engineer_ll\main.o: ..\Task\inc\chassis_task.h
+hll_engineer_ll\main.o: ..\Task\inc\function_task.h
+hll_engineer_ll\main.o: ..\Task\inc\over_chip_task.h

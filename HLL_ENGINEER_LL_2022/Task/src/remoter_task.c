@@ -31,11 +31,12 @@ static Rc_ctrl_t last_time_rc;  //上一次的遥控器数据
 Robot_mode_t robot_mode;  //机器人模式
 static const uint8_t* rc_rx_buf[2];  //串口1接收原始数据数组指针
 static SemaphoreHandle_t rc_data_update_semaphore;  //串口1DMA接收信号量
-
+//flag
 uint8_t up_flag;
 uint8_t stretch_flag;
 uint8_t chip_flag;
 uint8_t overturn_flag;
+
 void Remoter_Task(void *pvParameters)
 {
 	static uint8_t rx_available_bufx;

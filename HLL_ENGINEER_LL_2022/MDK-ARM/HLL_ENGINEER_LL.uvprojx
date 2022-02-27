@@ -366,7 +366,7 @@
               <MiscControls></MiscControls>
               <Define>USE_FULL_LL_DRIVER,STM32F427xx,USE_HAL_DRIVER,ARM_MATH_CM4</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;..\Base\inc;..\Task\inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM4F;..\HARDWARE\inc;..\USERLIB\inc</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;..\Base\inc;..\Task\inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM4F;..\HARDWARE\inc;..\USERLIB\inc;..\Task\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -659,6 +659,16 @@
               <FileType>1</FileType>
               <FilePath>..\Task\src\chassis_task.c</FilePath>
             </File>
+            <File>
+              <FileName>function_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Task\src\function_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>over_chip_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Task\src\over_chip_task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -758,6 +768,16 @@
               <FileName>pump.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\pump.c</FilePath>
+            </File>
+            <File>
+              <FileName>function.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\function.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor_550.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\src\motor_550.c</FilePath>
             </File>
           </Files>
         </Group>
