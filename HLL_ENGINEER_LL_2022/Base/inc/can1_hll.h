@@ -29,8 +29,7 @@ u8 Can1_Send_4Msg(u32 all_id,s16 *data);
 /*接收数据*/
 void CAN1_Rx_Msg(u8 fifox,u32 *id,u8 *ide,u8 *rtr,u8 *len,u8 *dat);//接受CAN1(未封装)
 u8 CAN1_Msg_Pend(u8 fifox);//得到在FIFO0/FIFO1中接收到的报文个数(接受到报文开始解析数据)
-u8 Query_Accept_Data(u8 *buf);//查询并接受数据(未封装)
-void Printf_CAN1_Data(u8 ID,Chassis_Motor *motor_1,Chassis_Motor *motor_2,Chassis_Motor *motor_3,Chassis_Motor *motor_4);//对应不同的电调ID分发数据
+
 
 
 

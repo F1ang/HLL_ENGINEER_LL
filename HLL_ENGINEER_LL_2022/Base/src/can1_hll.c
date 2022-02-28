@@ -168,7 +168,14 @@ u8 CAN1_Tx_Staus(u8 FIFOBOX)
 	return sta;
 } 
 
-u8 Can1_Send_4Msg(u32 all_id,s16 *data)  //0x200电调1234 0x199电调5678
+/*********************************************************************
+ * @brief 给予M3508电机电流
+ * 
+ * @param all_id 电调id（0x200电调1234 0x199电调5678）
+ * @param data 电流值数组
+ * @return u8 1发送成功 0发送失败
+*********************************************************************/
+u8 Can1_Send_4Msg(u32 all_id,s16 *data)  
 {
 	u8 FIFOBOX;
 	u8 Cur_Data[8];
@@ -232,73 +239,6 @@ u8 CAN1_Msg_Pend(u8 fifox)
 	else return 0;
 }
 
-/*********************************************************************
-* @ 函数名 ： 	Query_Accept_Data		
-* @ 功能说明：查询接受数据(已封装)
-* @ 参数 ：	buf 		暂存数据
-* @ 返回值 ： 7:未接受数据或者数据异常 其他:电调ID
-*********************************************************************/
-u8 Query_Accept_Data(u8 *buf)
-{
-	u32 ID;
-	u8 ide,rtr,len; 
-	if(CAN1_Msg_Pend(0)==0&&CAN1_Msg_Pend(1)==0){/*printf("没有数据接受");*/return 7;}		//没有接收到数据,直接退出 	 
-  	CAN1_Rx_Msg(0,&ID,&ide,&rtr,&len,buf); 	//读取数据，将暂存数据放置在buf中
-    if(ide!=0||rtr!=0){/*printf("数据异常")*/;return 7;}		//如果不是标准帧;不是数据帧;接受异常，直接退出; 
-	
-	return ID;	//返回电调ID，区分这是是谁的数据
-}
-/*********************************************************************
-* @ 函数名 ： 	Printf_CAN1_Data		
-* @ 功能说明：解析CAN1反馈报文
-* @ 参数 ：	CAN1_Motor 		can.h查看结构体文件
-* @ 返回值 ：无
-*********************************************************************/			
-void Printf_CAN1_Data(u8 ID,Chassis_Motor *motor_1,Chassis_Motor *motor_2,Chassis_Motor *motor_3,Chassis_Motor *motor_4)//区分电调ID
-{
-	u8 IDX;
-	u8 canrxbuf[8];//设定暂存数据
-	/* 如果电调ID不正确 */
-	while(IDX!=ID){IDX=Query_Accept_Data(canrxbuf);/*printf("电机ID:%x ",IDX);*/}
-	
-
-	switch(ID)//对应不同的电调ID做数据处理
-	{
-		case 1:
-			motor_1->Rotor_Mechanical_Angle	=REB(canrxbuf[0],canrxbuf[1]);
-			motor_1->Rotor_Speed						=REB(canrxbuf[2],canrxbuf[3]);
-			motor_1->Torque_Current					=REB(canrxbuf[4],canrxbuf[5]);
-			motor_1->temperature						=canrxbuf[6];
-		//printf("机械角度:%d,转速:%d,转矩电流:%d,电机温度:%d",CAN1_Motor.Motor_ID_1.Rotor_Mechanical_Angle,CAN1_Motor.Motor_ID_1.Rotor_Speed,CAN1_Motor.Motor_ID_1.Torque_Current,CAN1_Motor.Motor_ID_1.temperature);
-		/*波轮电机出现速度异常现象使用此输出调试*/
-		//printf("转速:%d高八位;%X低八位;%X",CAN1_Motor.Motor_ID_1.Rotor_Speed,canrxbuf[2],canrxbuf[3]);
-				break;
-		case 2:
-			motor_2->Rotor_Mechanical_Angle	=REB(canrxbuf[0],canrxbuf[1]);
-			motor_2->Rotor_Speed						=REB(canrxbuf[2],canrxbuf[3]);
-			motor_2->Torque_Current					=REB(canrxbuf[4],canrxbuf[5]);
-			motor_2->temperature						=canrxbuf[6];
-		//printf("机械角度:%d,转速:%d,转矩电流:%d,电机温度:%d",CAN1_Motor.Motor_ID_2.Rotor_Mechanical_Angle,CAN1_Motor.Motor_ID_2.Rotor_Speed,CAN1_Motor.Motor_ID_2.Torque_Current,CAN1_Motor.Motor_ID_2.temperature);
-				break;
-		case 3:
-			motor_3->Rotor_Mechanical_Angle	=REB(canrxbuf[0],canrxbuf[1]);
-			motor_3->Rotor_Speed						=REB(canrxbuf[2],canrxbuf[3]);
-			motor_3->Torque_Current					=REB(canrxbuf[4],canrxbuf[5]);
-			motor_3->temperature						=canrxbuf[6];
-		//printf("机械角度:%d,转速:%d,转矩电流:%d,电机温度:%d",CAN1_Motor.Motor_ID_3.Rotor_Mechanical_Angle,CAN1_Motor.Motor_ID_3.Rotor_Speed,CAN1_Motor.Motor_ID_3.Torque_Current,CAN1_Motor.Motor_ID_3.temperature);
-				break;
-		case 4:
-			motor_4->Rotor_Mechanical_Angle	=REB(canrxbuf[0],canrxbuf[1]);
-			motor_4->Rotor_Speed						=REB(canrxbuf[2],canrxbuf[3]);
-			motor_4->Torque_Current					=REB(canrxbuf[4],canrxbuf[5]);
-			motor_4->temperature						=canrxbuf[6];
-		//printf("机械角度:%d,转速:%d,转矩电流:%d,电机温度:%d",CAN1_Motor.Motor_ID_4.Rotor_Mechanical_Angle,CAN1_Motor.Motor_ID_4.Rotor_Speed,CAN1_Motor.Motor_ID_4.Torque_Current,CAN1_Motor.Motor_ID_4.temperature);
-				break;
-		default:break;
-	}
-	/*printf("%X %X %X %X %X %X %X %X \r\n",canrxbuf[0],canrxbuf[1],canrxbuf[2],canrxbuf[3],canrxbuf[4],canrxbuf[5],canrxbuf[6],canrxbuf[7]);*//*查看原数据*/
-
-}
 
 
 

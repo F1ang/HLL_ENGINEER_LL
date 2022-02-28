@@ -176,10 +176,11 @@ u8 CAN2_Tx_Staus(u8 FIFOBOX)
 /*********************************************************************
  * @brief 给予M3508电机电流
  * 
+ * @param all_id 电调id（0x200电调1234 0x199电调5678）
  * @param data 电流值数组
  * @return u8 1发送成功 0发送失败
 *********************************************************************/
-u8 MotorM3508_Send_Ampere(s16 *data)
+u8 MotorM3508_Send_Ampere(u32 all_id,s16 *data)
 {
 	u8 FIFOBOX;
 	u8 Cur_Data[8];
@@ -192,7 +193,7 @@ u8 MotorM3508_Send_Ampere(s16 *data)
 	Cur_Data[5]=CEBL(data[2]);
 	Cur_Data[6]=CEBH(data[3]);
 	Cur_Data[7]=CEBL(data[3]);
-  FIFOBOX=Motor_Can2_Send(0x00000200,8,Cur_Data);//发送数据并且获取是哪个邮箱发送的，写入FIFOBOX中
+  FIFOBOX=Motor_Can2_Send(all_id,8,Cur_Data);//发送数据并且获取是哪个邮箱发送的，写入FIFOBOX中
 	while((CAN2_Tx_Staus(FIFOBOX)!=0X07)&&(i<0XFFF))i++;//等待发送结束
 	if(i>=0XFFF)return 1;							//发送失败?
 	return 0;										//发送成功;
@@ -242,28 +243,5 @@ u8 CAN2_Msg_Pend(u8 fifox)
 	else if(fifox==1)return CAN2->RF1R&0x03; 
 	else return 0;
 }
-
-/*********************************************************************
-* @ 函数名 ： 	Query_Accept_Data		
-* @ 功能说明：查询接受数据(已封装)
-* @ 参数 ：	buf 		暂存数据
-* @ 返回值 ： 0:未接受数据或者数据一场 其他:电调ID
-*********************************************************************/
-u8 Query_Accept_Data2(u8 *buf)
-{
-	u32 ID;
-	u8 ide,rtr,len; 
-	if(CAN2_Msg_Pend(0)==0&&CAN2_Msg_Pend(1)==0){/*printf("没有数据接受");*/return 0;}		//没有接收到数据,直接退出 	 
-  	CAN2_Rx_Msg(0,&ID,&ide,&rtr,&len,buf); 	//读取数据，将暂存数据放置在buf中
-    if(ide!=0||rtr!=0){/*printf("数据异常")*/;return 0;}		//如果不是标准帧;不是数据帧;接受异常，直接退出; 
-	
-	return ID;	//返回电调ID，区分这是是谁的数据
-}
-/*********************************************************************
-* @ 函数名 ： 	Printf_CAN2_Data		
-* @ 功能说明：解析CAN2反馈报文
-* @ 参数 ：	CAN2_Motor 		can.h查看结构体文件
-* @ 返回值 ：无
-*********************************************************************/		
 
 

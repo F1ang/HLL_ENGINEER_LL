@@ -38,19 +38,30 @@ void Set_Chassis_Motors_Speed(float speed_fl, float speed_fr, float speed_bl, fl
 }
 
 #if CAN1_RX0_INT_ENABLE	//如果不采用轮询的方式（can口数据在每次使用前调用）
-//中断服务函数			    
+//中断服务函数	
 void CAN1_RX0_IRQHandler(void)
 {
+	CAN1->IER&=~(1<<1);  //关闭FIFO消息挂起中断
+
 	u8 rxbuf[8];
 	u32 id;
-	u8 ide,rtr,len;     
- 	CAN1_Rx_Msg(0,&id,&ide,&rtr,&len,rxbuf);
-  switch(id)
+	u8 ide,rtr,len; 
+	if(CAN1_Msg_Pend(0)==0&&CAN1_Msg_Pend(1)==0){printf("Can1未接收到数据\r\n");}    
+ 	CAN1_Rx_Msg(0,&id,&ide,&rtr,&len,rxbuf);  //使用FIFO0接收邮箱，读取数据放在rxbuf中
+	if(ide!=0||rtr!=0){printf("can1接收数据异常\r\n");}
+	switch(id)
 	{
 		case 1:Calculate_Motor_Data(&chassis_motor[0],rxbuf);break;
 		case 2:Calculate_Motor_Data(&chassis_motor[1],rxbuf);break;
 		case 3:Calculate_Motor_Data(&chassis_motor[2],rxbuf);break;
-		case 4:Calculate_Motor_Data(&chassis_motor[3],rxbuf);break;		
-	}		
+		case 4:Calculate_Motor_Data(&chassis_motor[3],rxbuf);break;	
+		default:break;
+	}
+	
+	CAN1->RF0R &=~(1<<5);//释放FIFO0输出邮箱
+	CAN1->IER|=1<<1;     //打开FIFO消息挂起中断
+    
 }
+
+
 #endif
