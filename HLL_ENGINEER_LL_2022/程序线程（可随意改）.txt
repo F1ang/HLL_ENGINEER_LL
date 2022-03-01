@@ -8,14 +8,13 @@
 6、NVIC已配(HAL_Init())，led，buzzer, Pump，tim相关->编码器、pwm、定时，已加
 7、底层硬件LL库搭建，完成
 
+8、开始classcic_task，实现
+9、function_task，buzzer_task，remoter_task，over_chip_task实现
 
-8、开始classcic_task，待实现
-
-9、功能任务，待实现
 
 10、中断优先级，待分配
 
-
+11、can1,can2,detect_task,待测试
 
 
 Base:等效于DEVICE

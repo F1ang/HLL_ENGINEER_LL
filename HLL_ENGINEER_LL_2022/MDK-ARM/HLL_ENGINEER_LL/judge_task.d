@@ -7,16 +7,15 @@ hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_
 hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 hll_engineer_ll\judge_task.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 hll_engineer_ll\judge_task.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
-hll_engineer_ll\judge_task.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm4.h
-hll_engineer_ll\judge_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-hll_engineer_ll\judge_task.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h
-hll_engineer_ll\judge_task.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h
-hll_engineer_ll\judge_task.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h
-hll_engineer_ll\judge_task.o: C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\mpu_armv7.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm4.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmSimd.h
 hll_engineer_ll\judge_task.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-hll_engineer_ll\judge_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
 hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -44,7 +43,7 @@ hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_u
 hll_engineer_ll\judge_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\FreeRTOS.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\FreeRTOSConfig.h
-hll_engineer_ll\judge_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\projdefs.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\portable.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -75,4 +74,4 @@ hll_engineer_ll\judge_task.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\judge_task.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\judge_task.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\judge_task.o: ..\USERLIB\inc\crc_check.h
-hll_engineer_ll\judge_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h

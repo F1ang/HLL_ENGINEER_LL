@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp.sp
+--cpu Cortex-M4.fp
 "hll_engineer_ll\startup_stm32f427xx.o"
 "hll_engineer_ll\main.o"
 "hll_engineer_ll\gpio.o"
@@ -73,6 +73,6 @@
 "hll_engineer_ll\pid.o"
 "hll_engineer_ll\sys.o"
 --library_type=microlib --strict --scatter "HLL_ENGINEER_LL\HLL_ENGINEER_LL.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "HLL_ENGINEER_LL.map" -o HLL_ENGINEER_LL\HLL_ENGINEER_LL.axf

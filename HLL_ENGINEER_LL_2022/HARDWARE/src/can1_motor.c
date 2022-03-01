@@ -46,7 +46,7 @@ void CAN1_RX0_IRQHandler(void)
 	u8 rxbuf[8];
 	u32 id;
 	u8 ide,rtr,len; 
-	if(CAN1_Msg_Pend(0)==0&&CAN1_Msg_Pend(1)==0){printf("Can1未接收到数据\r\n");}    
+	if(CAN1_Msg_Pend(0)==0&&CAN1_Msg_Pend(1)==0){printf("Can1未接收到数据\r\n");}      
  	CAN1_Rx_Msg(0,&id,&ide,&rtr,&len,rxbuf);  //使用FIFO0接收邮箱，读取数据放在rxbuf中
 	if(ide!=0||rtr!=0){printf("can1接收数据异常\r\n");}
 	switch(id)

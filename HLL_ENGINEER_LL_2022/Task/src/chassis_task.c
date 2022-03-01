@@ -7,6 +7,9 @@
 #include "judge_system.h"
 #include "detect_task.h"
 
+
+#include "can1_hll.h"
+#include "can2_hll.h"
 #define CHASSIS_SPEED_ZERO 0
 #define OUTPUT_LIMIT(data, limit) Int16_Constrain(data, -limit, limit)
 
@@ -25,6 +28,11 @@ void Chassis_Task(void *pvParameters)
 	remoter_control = Get_Remote_Control_Point();  //遥控器数据  
 	chassis_robot_mode = Get_Robot_Mode_Point();  //机器人模式数据
 //	judge_data = Get_Judge_Data();
+	
+//	//4、初始化CAN1
+//	Can1_Init();
+//	//5、初始化CAN2
+//	Can2_Init();
 	vTaskDelay(200);
 	
 	while(1)

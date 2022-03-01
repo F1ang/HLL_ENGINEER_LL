@@ -5,11 +5,12 @@
 #include "can1_motor.h"
 #include "judge_system.h"
 
+#include "remoter_task.h"
+#include "usart_hll.h" 
 #define MODULE_REONLINE(index) (module_status[index].time_out_flag==0 && module_status[index].old_time_out_flag==1)
 #define MODULE_OFFLINE(index)  (module_status[index].time_out_flag==1 && module_status[index].old_time_out_flag==0)
 
-#include "remoter_task.h"
-
+  
 //extern u16 rc_cnt;
 
 enum errorList
@@ -36,6 +37,8 @@ void Detect_Task(void *pvParameters)
 //	u8 cap_send_cnt = 0;
 //	judge_data = Get_Judge_Data();
 	INFO_PRINT("detect");
+	//3°¢≤√≈–œµÕ≥
+	usart6_base_init();
 	Detect_Task_Init();
 
 	vTaskDelay(800);
