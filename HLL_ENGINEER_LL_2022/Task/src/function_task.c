@@ -140,16 +140,15 @@ void Function_Task(void *pvParameters)
 						break;
 					}
 				}
-				//夹取
+				//夹取S1
 				if(function_robot_mode->mode_chip==1)
-				{
-					
-					PUMP_OFF;             //松开代码
+				{	
+					Notify_Judge_Task(30);
+					PUMP_OFF;             //松开代码  1-3
 				}
 				else
 				{
-					
-					PUMP_ON;              //夹取代码
+					PUMP_ON;              //夹取代码  3-1
 				}
 				
       overturn_total_tar=remoter_control->rc.ch4*	2;

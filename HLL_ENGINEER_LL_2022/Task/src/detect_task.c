@@ -45,7 +45,9 @@ void Detect_Task(void *pvParameters)
 	
 	while(1)
 	{
-    
+		//debug
+//    INFO_LOG("Module Online.\r\n\r\n");
+		
 		for(u8 i=0; i<8; i++)
 		{
 			//各个模块状态刷新

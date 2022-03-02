@@ -211,7 +211,8 @@ void CAN1_Rx_Msg(u8 fifox,u32 *id,u8 *ide,u8 *rtr,u8 *len,u8 *dat)
 {	   
 	*ide=CAN1->sFIFOMailBox[fifox].RIR&0x04;//第2位IDE：标识符扩展此位定义邮箱中邮件的标识符类型0：标准标识符1：扩展标识符位1 RTR：远程传输请求0：数据帧1：远程帧
 	
-	*id=CAN1->sFIFOMailBox[fifox].RIR>>21;//标准标识符
+//	*id=CAN1->sFIFOMailBox[fifox].RIR>>21;//标准标识符
+	*id=(uint32_t)0x00000FF&(CAN1->sFIFOMailBox[fifox].RIR>>21);//标准标识符
 
 	*rtr=CAN1->sFIFOMailBox[fifox].RIR&0x02;	//得到远程发送请求值.
 	*len=CAN1->sFIFOMailBox[fifox].RDTR&0x0F;//得到DLC

@@ -14,7 +14,9 @@
 
 10、中断优先级，待分配
 
-11、can1,can2,detect_task,待测试
+11、can1,can2,   detect_task,judge_task实现
+
+12、裁判系统judge_task：发送任务通知API，暂时丢在function_task.c，因usart6中断无法测试进入中断发任务中断API。
 
 
 Base:等效于DEVICE

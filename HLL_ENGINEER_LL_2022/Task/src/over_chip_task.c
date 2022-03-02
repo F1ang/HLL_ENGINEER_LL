@@ -20,8 +20,10 @@ void Overchip_Task(void *pvParameters)
 	while(1)
 	{
 		vTaskDelay(400);
-		printf("SPEED:%d  %d  %d  ANGLE:%d  %d  %d\r\n",motor550_l.speed_rpm,motor550_r.speed_rpm,motor550_s.speed_rpm\
-		,motor550_l.total_angle,motor550_s.total_angle,motor550_r.total_angle);
+		
+//		printf("SPEED:%d  %d  %d  ANGLE:%d  %d  %d\r\n",motor550_l.speed_rpm,motor550_r.speed_rpm,motor550_s.speed_rpm\
+//		,motor550_l.total_angle,motor550_s.total_angle,motor550_r.total_angle);
+		
 		//PI5_PWM_OUT(2000);
 		//PB0_PWM_OUT(200);
 		//PB1_PWM_OUT(0);

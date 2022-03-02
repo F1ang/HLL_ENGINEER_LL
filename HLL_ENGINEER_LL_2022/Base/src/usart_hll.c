@@ -154,7 +154,7 @@ void USART6_RxIdleCallback(void)
 		  uart6_rx_length = 128 - LL_DMA_GetDataLength (DMA2, LL_DMA_STREAM_1);
 			
 //			//debug
-			LED_RED_OFF;
+//			LED_RED_OFF;
 			
 			//重设传输长度
 			LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_1, 128);

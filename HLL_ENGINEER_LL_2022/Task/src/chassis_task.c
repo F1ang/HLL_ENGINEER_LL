@@ -29,10 +29,10 @@ void Chassis_Task(void *pvParameters)
 	chassis_robot_mode = Get_Robot_Mode_Point();  //机器人模式数据
 //	judge_data = Get_Judge_Data();
 	
-//	//4、初始化CAN1
-//	Can1_Init();
-//	//5、初始化CAN2
-//	Can2_Init();
+	//4、初始化CAN1
+	Can1_Init();
+	//5、初始化CAN2
+	Can2_Init();
 	vTaskDelay(200);
 	
 	while(1)
