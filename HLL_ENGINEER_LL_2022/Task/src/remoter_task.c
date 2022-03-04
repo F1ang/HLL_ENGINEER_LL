@@ -81,7 +81,7 @@ void Remoter_Task(void *pvParameters)
 			/* 解析遥控器数据 */
 			Parse_Remoter_Data(rc_rx_buf[rx_available_bufx], &remote_controller);
 			
-			printf("%d\r\n",remote_controller.rc.ch1);
+//			printf("%d\r\n",remote_controller.rc.ch1);
 			
 			/* 检测遥控器数据，是否合法如果不合法采取操作 */  
 		

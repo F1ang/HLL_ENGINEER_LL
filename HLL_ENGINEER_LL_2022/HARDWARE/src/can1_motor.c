@@ -1,15 +1,22 @@
 #include "can1_motor.h"
 static Motor_measure_t chassis_motor[4];
+//PID控制
+//p i d      max_err_integral（积分项）  max_out   is_integral_spare（1/0积分分离） begin_integral（闭环死区） stop_grow_integral
+static Pid_Position_t motor_fl_speed_pid = NEW_POSITION_PID(8, 0.0, 3,   2000, 16000,1, 500, 1000);//8 0 2
+static Pid_Position_t motor_fr_speed_pid = NEW_POSITION_PID(8, 0.0, 3,   2000, 16000,1, 500, 1000);
+static Pid_Position_t motor_bl_speed_pid = NEW_POSITION_PID(8, 0.0, 3,   2000, 16000,1, 500, 1000);
+static Pid_Position_t motor_br_speed_pid = NEW_POSITION_PID(8, 0.0, 3,   2000, 16000,1, 500, 1000);
 
-static Pid_Position_t motor_fl_speed_pid = NEW_POSITION_PID(11, 0, 5, 2000, 16000, 0, 1000, 500);
-static Pid_Position_t motor_fr_speed_pid = NEW_POSITION_PID(11, 0, 5, 2000, 16000, 0, 1000, 500);
-static Pid_Position_t motor_bl_speed_pid = NEW_POSITION_PID(11, 0, 5, 2000, 16000, 0, 1000, 500);
-static Pid_Position_t motor_br_speed_pid = NEW_POSITION_PID(11, 0, 5, 2000, 16000, 0, 1000, 500);
+//PD控制
+//static Pid_Position_t motor_fl_speed_pid = NEW_POSITION_PID(11, 0, 5,   2000, 16000,  0, 1000, 500);
+//static Pid_Position_t motor_fr_speed_pid = NEW_POSITION_PID(11, 0, 5,   2000, 16000,  0, 1000, 500);
+//static Pid_Position_t motor_bl_speed_pid = NEW_POSITION_PID(11, 0, 5,   2000, 16000,  0, 1000, 500);
+//static Pid_Position_t motor_br_speed_pid = NEW_POSITION_PID(11, 0, 5,   2000, 16000,  0, 1000, 500);
 
 static s16 motor_ampere[4]={0,0,0,0};
 
 /* CAN1 send and receive ID */
-typedef enum
+typedef enum 
 {
 	CAN_CHASSIS_ALL_ID = 0x200,
 	CAN_3508_M1_ID = 0x201,
@@ -40,7 +47,12 @@ void Set_Chassis_Motors_Speed(float speed_fl, float speed_fr, float speed_bl, fl
 //	printf("chassis_motor[1]=%d\r\n",chassis_motor[1].speed_rpm);
 //	printf("chassis_motor[2]=%d\r\n",chassis_motor[2].speed_rpm);
 //	printf("chassis_motor[3]=%d\r\n",chassis_motor[3].speed_rpm);
-	
+	//debug
+//	motor_ampere[0]=1000;	
+//	motor_ampere[1]=1000;
+//	motor_ampere[2]=1000;
+//	motor_ampere[3]=1000;
+	printf("%d,%d\n",motor_ampere[2],chassis_motor[2].speed_rpm);
 	
 	
 	Can1_Send_4Msg(CAN_CHASSIS_ALL_ID,motor_ampere);

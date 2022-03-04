@@ -2,7 +2,7 @@
 #define __PID_H
 
 #include "sys.h"
-
+//p i d  max_err_integral（积分项）  max_out  is_integral_spare（积分分离） begin_integral（闭环死区） stop_grow_integral
 #define NEW_POSITION_PID(p,i,d,limit_i,limit_out,is_i_spare,begin_i,stop_grow_i) {\
 	.kp                     = p,\
 	.ki                     = i,\
@@ -54,7 +54,7 @@ typedef struct
 	
 	u8    is_integral_spare;      //选择是否使用变积分分离
 	//此时的积分系数为ki*index
-	float begin_integral;         //当误差大于begin_integral时，不积分
+	float begin_integral;         //当误差大于begin_integral时，积分（闭环死区）
 	float stop_grow_integral;     //当误差小于stop_grow_integral时，积分系数处于最大值
 	
 	float max_err_integral;

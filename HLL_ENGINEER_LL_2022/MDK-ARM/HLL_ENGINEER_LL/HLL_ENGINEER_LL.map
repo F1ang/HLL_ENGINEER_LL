@@ -618,10 +618,10 @@ Section Cross References
     remoter_task.o(i.Remoter_Task) refers to queue.o(i.xQueueSemaphoreTake) for xQueueSemaphoreTake
     remoter_task.o(i.Remoter_Task) refers to usart_hll.o(i.Get_Rc_Available_Bufferx) for Get_Rc_Available_Bufferx
     remoter_task.o(i.Remoter_Task) refers to remoter.o(i.Parse_Remoter_Data) for Parse_Remoter_Data
-    remoter_task.o(i.Remoter_Task) refers to printf3.o(i.__0printf$3) for __2printf
     remoter_task.o(i.Remoter_Task) refers to remoter.o(i.Remoter_Data_Check) for Remoter_Data_Check
     remoter_task.o(i.Remoter_Task) refers to remoter.o(i.Rc_Data_Copy) for Rc_Data_Copy
     remoter_task.o(i.Remoter_Task) refers to usart_hll.o(i.Usart1_DMA_Reset) for Usart1_DMA_Reset
+    remoter_task.o(i.Remoter_Task) refers to printf3.o(i.__0printf$3) for __2printf
     remoter_task.o(i.Remoter_Task) refers to detect_task.o(i.Detect_Reload) for Detect_Reload
     remoter_task.o(i.Remoter_Task) refers to remoter_task.o(i.Robot_Rc_Mode_Change_Control) for Robot_Rc_Mode_Change_Control
     remoter_task.o(i.Remoter_Task) refers to remoter_task.o(.data) for .data
@@ -1134,6 +1134,7 @@ Section Cross References
     can1_motor.o(i.CAN1_RX0_IRQHandler) refers to can1_motor.o(.bss) for .bss
     can1_motor.o(i.Get_Chassis_Motor) refers to can1_motor.o(.bss) for .bss
     can1_motor.o(i.Set_Chassis_Motors_Speed) refers to pid.o(i.Pid_Position_Calc) for Pid_Position_Calc
+    can1_motor.o(i.Set_Chassis_Motors_Speed) refers to printf3.o(i.__0printf$3) for __2printf
     can1_motor.o(i.Set_Chassis_Motors_Speed) refers to can1_hll.o(i.Can1_Send_4Msg) for Can1_Send_4Msg
     can1_motor.o(i.Set_Chassis_Motors_Speed) refers to can1_motor.o(.data) for .data
     can1_motor.o(i.Set_Chassis_Motors_Speed) refers to can1_motor.o(.bss) for .bss
@@ -2565,12 +2566,12 @@ Image Symbol Table
     i.Rc_Data_Update                         0x080035f4   Section        0  remoter_task.o(i.Rc_Data_Update)
     i.Remoter_Data_Check                     0x08003620   Section        0  remoter.o(i.Remoter_Data_Check)
     i.Remoter_Task                           0x0800368c   Section        0  remoter_task.o(i.Remoter_Task)
-    i.Robot_Rc_Mode_Change_Control           0x08003774   Section        0  remoter_task.o(i.Robot_Rc_Mode_Change_Control)
-    Robot_Rc_Mode_Change_Control             0x08003775   Thumb Code   338  remoter_task.o(i.Robot_Rc_Mode_Change_Control)
-    i.Set_550_Motors_Angle                   0x080038d0   Section        0  motor_550.o(i.Set_550_Motors_Angle)
-    i.Set_550_Motors_Speed                   0x08003934   Section        0  motor_550.o(i.Set_550_Motors_Speed)
-    i.Set_Beep_Time                          0x080039f4   Section        0  buzzer_task.o(i.Set_Beep_Time)
-    i.Set_Chassis_Motors_Speed               0x08003a18   Section        0  can1_motor.o(i.Set_Chassis_Motors_Speed)
+    i.Robot_Rc_Mode_Change_Control           0x08003760   Section        0  remoter_task.o(i.Robot_Rc_Mode_Change_Control)
+    Robot_Rc_Mode_Change_Control             0x08003761   Thumb Code   338  remoter_task.o(i.Robot_Rc_Mode_Change_Control)
+    i.Set_550_Motors_Angle                   0x080038bc   Section        0  motor_550.o(i.Set_550_Motors_Angle)
+    i.Set_550_Motors_Speed                   0x08003920   Section        0  motor_550.o(i.Set_550_Motors_Speed)
+    i.Set_Beep_Time                          0x080039e0   Section        0  buzzer_task.o(i.Set_Beep_Time)
+    i.Set_Chassis_Motors_Speed               0x08003a04   Section        0  can1_motor.o(i.Set_Chassis_Motors_Speed)
     i.Set_Overturn_Motors_Speed              0x08003adc   Section        0  can2_motor.o(i.Set_Overturn_Motors_Speed)
     i.Start_Task                             0x08003b24   Section        0  start_task.o(i.Start_Task)
     i.SysTick_Handler                        0x08003cb0   Section        0  port.o(i.SysTick_Handler)
@@ -3082,11 +3083,11 @@ Image Symbol Table
     Rc_Data_Reset                            0x080035d5   Thumb Code    32  remoter.o(i.Rc_Data_Reset)
     Rc_Data_Update                           0x080035f5   Thumb Code    36  remoter_task.o(i.Rc_Data_Update)
     Remoter_Data_Check                       0x08003621   Thumb Code   108  remoter.o(i.Remoter_Data_Check)
-    Remoter_Task                             0x0800368d   Thumb Code   194  remoter_task.o(i.Remoter_Task)
-    Set_550_Motors_Angle                     0x080038d1   Thumb Code    86  motor_550.o(i.Set_550_Motors_Angle)
-    Set_550_Motors_Speed                     0x08003935   Thumb Code   168  motor_550.o(i.Set_550_Motors_Speed)
-    Set_Beep_Time                            0x080039f5   Thumb Code    30  buzzer_task.o(i.Set_Beep_Time)
-    Set_Chassis_Motors_Speed                 0x08003a19   Thumb Code   186  can1_motor.o(i.Set_Chassis_Motors_Speed)
+    Remoter_Task                             0x0800368d   Thumb Code   182  remoter_task.o(i.Remoter_Task)
+    Set_550_Motors_Angle                     0x080038bd   Thumb Code    86  motor_550.o(i.Set_550_Motors_Angle)
+    Set_550_Motors_Speed                     0x08003921   Thumb Code   168  motor_550.o(i.Set_550_Motors_Speed)
+    Set_Beep_Time                            0x080039e1   Thumb Code    30  buzzer_task.o(i.Set_Beep_Time)
+    Set_Chassis_Motors_Speed                 0x08003a05   Thumb Code   200  can1_motor.o(i.Set_Chassis_Motors_Speed)
     Set_Overturn_Motors_Speed                0x08003add   Thumb Code    64  can2_motor.o(i.Set_Overturn_Motors_Speed)
     Start_Task                               0x08003b25   Thumb Code   178  start_task.o(i.Start_Task)
     SysTick_Handler                          0x08003cb1   Thumb Code    38  port.o(i.SysTick_Handler)
@@ -3218,7 +3219,7 @@ Memory Map of the image
 
   Image Entry point : 0x080001ad
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00006c60, Max: 0x00200000, ABSOLUTE, COMPRESSED[0x000068e4])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00006c60, Max: 0x00200000, ABSOLUTE, COMPRESSED[0x000068e8])
 
     Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00006854, Max: 0x00200000, ABSOLUTE)
 
@@ -3413,12 +3414,12 @@ Memory Map of the image
     0x080035d4   0x00000020   Code   RO         5234    i.Rc_Data_Reset     remoter.o
     0x080035f4   0x0000002c   Code   RO         4044    i.Rc_Data_Update    remoter_task.o
     0x08003620   0x0000006c   Code   RO         5235    i.Remoter_Data_Check  remoter.o
-    0x0800368c   0x000000e8   Code   RO         4045    i.Remoter_Task      remoter_task.o
-    0x08003774   0x0000015c   Code   RO         4046    i.Robot_Rc_Mode_Change_Control  remoter_task.o
-    0x080038d0   0x00000064   Code   RO         5591    i.Set_550_Motors_Angle  motor_550.o
-    0x08003934   0x000000c0   Code   RO         5592    i.Set_550_Motors_Speed  motor_550.o
-    0x080039f4   0x00000024   Code   RO         4138    i.Set_Beep_Time     buzzer_task.o
-    0x08003a18   0x000000c4   Code   RO         5309    i.Set_Chassis_Motors_Speed  can1_motor.o
+    0x0800368c   0x000000d4   Code   RO         4045    i.Remoter_Task      remoter_task.o
+    0x08003760   0x0000015c   Code   RO         4046    i.Robot_Rc_Mode_Change_Control  remoter_task.o
+    0x080038bc   0x00000064   Code   RO         5591    i.Set_550_Motors_Angle  motor_550.o
+    0x08003920   0x000000c0   Code   RO         5592    i.Set_550_Motors_Speed  motor_550.o
+    0x080039e0   0x00000024   Code   RO         4138    i.Set_Beep_Time     buzzer_task.o
+    0x08003a04   0x000000d8   Code   RO         5309    i.Set_Chassis_Motors_Speed  can1_motor.o
     0x08003adc   0x00000048   Code   RO         5347    i.Set_Overturn_Motors_Speed  can2_motor.o
     0x08003b24   0x0000018c   Code   RO         4107    i.Start_Task        start_task.o
     0x08003cb0   0x0000002c   Code   RO         5153    i.SysTick_Handler   port.o
@@ -3538,7 +3539,7 @@ Memory Map of the image
     **** No section assigned to this execution region ****
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0000c5b8, Max: 0x00030000, ABSOLUTE, COMPRESSED[0x00000090])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0000c5b8, Max: 0x00030000, ABSOLUTE, COMPRESSED[0x00000094])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3595,7 +3596,7 @@ Image component sizes
         20          6          0          0          0        618   buzzer.o
        184         46          0          8          0      27319   buzzer_task.o
        906         56          0          0          0       4974   can1_hll.o
-       396         60          0        280         32       2345   can1_motor.o
+       416         66          0        280         32       2349   can1_motor.o
        726         40          0          0          0       3765   can2_hll.o
         72          8          0        144         28       1457   can2_motor.o
        520        410          0          0          0       1052   centre.o
@@ -3626,7 +3627,7 @@ Image component sizes
         16          6          0          0          0        584   pump.o
       2112        270          0          0          0      13685   queue.o
        656          0          0          0          0       4054   remoter.o
-       640         64          0         29         60       5174   remoter_task.o
+       620         56          0         29         60       5174   remoter_task.o
        396        218          0          4          0        869   start_task.o
         36          8        428          0       1024        860   startup_stm32f427xx.o
         68          8          0         12          0       7812   stm32f4xx_hal.o
@@ -3650,7 +3651,7 @@ Image component sizes
        696        132          8          4        200      38773   usart_hll.o
 
     ----------------------------------------------------------------------
-     23504       3516       1296       1032      49580    1410520   Object Totals
+     23504       3514       1296       1032      49580    1410524   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         42          0          0          5          6          0   (incl. Padding)
 
@@ -3707,15 +3708,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     25412       3546       1296       1036      49580    1388180   Grand Totals
-     25412       3546       1296        144      49580    1388180   ELF Image Totals (compressed)
-     25412       3546       1296        144          0          0   ROM Totals
+     25412       3544       1296       1036      49580    1388184   Grand Totals
+     25412       3544       1296        148      49580    1388184   ELF Image Totals (compressed)
+     25412       3544       1296        148          0          0   ROM Totals
 
 ==============================================================================
 
     Total RO  Size (Code + RO Data)                26708 (  26.08kB)
     Total RW  Size (RW Data + ZI Data)             50616 (  49.43kB)
-    Total ROM Size (Code + RO Data + RW Data)      26852 (  26.22kB)
+    Total ROM Size (Code + RO Data + RW Data)      26856 (  26.23kB)
 
 ==============================================================================
 
