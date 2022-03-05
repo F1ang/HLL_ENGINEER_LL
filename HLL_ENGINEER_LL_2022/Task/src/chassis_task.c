@@ -20,6 +20,7 @@ const static Rc_ctrl_t* remoter_control;
 const static Robot_mode_t* chassis_robot_mode;
 
 static float chassis_motor_dynamic_rate = 10;
+static float mouse_x_dynamic_rate= 16.0f; //Êó±êxÖáÁéÃô¶È
 int real_motor_speed[4];
 
 void Chassis_Task(void *pvParameters)
@@ -40,10 +41,10 @@ void Chassis_Task(void *pvParameters)
 		//¼üÊó¿ØÖÆ
 		if(chassis_robot_mode->control_device == 1)
 		{					
-					motor_speed[0] = remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/16.0f;
-					motor_speed[1] = remoter_control->virtual_rocker.ch2 - remoter_control->virtual_rocker.ch3  + remoter_control->virtual_rocker.ch0/16.0f;
-					motor_speed[2] = -remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/16.0f;
-					motor_speed[3] = -remoter_control->virtual_rocker.ch2 - remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/16.0f;
+					motor_speed[0] = remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
+					motor_speed[1] = remoter_control->virtual_rocker.ch2 - remoter_control->virtual_rocker.ch3  + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
+					motor_speed[2] = -remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
+					motor_speed[3] = -remoter_control->virtual_rocker.ch2 - remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
 					
 					motor_speed[0] *= chassis_motor_dynamic_rate;
 					motor_speed[1] *= chassis_motor_dynamic_rate;
@@ -54,10 +55,10 @@ void Chassis_Task(void *pvParameters)
 		else if(chassis_robot_mode->control_device == 2)
 		{
 					
-					motor_speed[0] = remoter_control->rc.ch2 + remoter_control->rc.ch3 + remoter_control->rc.ch0;
-					motor_speed[1] = remoter_control->rc.ch2 - remoter_control->rc.ch3 + remoter_control->rc.ch0;
-					motor_speed[2] = -remoter_control->rc.ch2 + remoter_control->rc.ch3 + remoter_control->rc.ch0;
-					motor_speed[3] = -remoter_control->rc.ch2 - remoter_control->rc.ch3 + remoter_control->rc.ch0;
+					motor_speed[0] = -remoter_control->rc.ch2 + remoter_control->rc.ch3 + remoter_control->rc.ch0;
+					motor_speed[1] = -remoter_control->rc.ch2 - remoter_control->rc.ch3 + remoter_control->rc.ch0;
+					motor_speed[2] = remoter_control->rc.ch2 + remoter_control->rc.ch3 + remoter_control->rc.ch0;
+					motor_speed[3] = remoter_control->rc.ch2 - remoter_control->rc.ch3 + remoter_control->rc.ch0;
 					
 					motor_speed[0] *= 11;
 					motor_speed[1] *= 11;

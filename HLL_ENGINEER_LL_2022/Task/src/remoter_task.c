@@ -162,85 +162,85 @@ Robot_mode_t *Get_Robot_Mode_Point(void)
 /* 响应遥控器按键切换模式 */
 static void Robot_Rc_Mode_Change_Control(void)
 {
-	//抬升
-	if(S2_CHANGED_TO(3,2))
-	{
-		robot_mode.mode_up=2;
-		
-		Set_Beep_Time(robot_mode.mode_up, 1000, 55);  
-	}
-	if(S2_CHANGED_TO(3,1))
-	{
-		robot_mode.mode_up=3;
-		Set_Beep_Time(robot_mode.mode_up, 1000, 55);
-	}
-	if(S2_CHANGED_TO(1,2))
-	{
-		robot_mode.mode_up=1;
-		Set_Beep_Time(robot_mode.mode_up, 1000, 55);  
-	}
-	if(S2_CHANGED_TO(2,3))
-	{
-		robot_mode.mode_up=1;
-		Set_Beep_Time(robot_mode.mode_up, 1000, 55);
-	}
-	if(S1_CHANGED_TO(3,1))
-	{
-		robot_mode.mode_chip=2;
-		//chip_flag=1;
-		Set_Beep_Time(robot_mode.mode_chip, 1000, 55);
-	}
-	if(S1_CHANGED_TO(1,3))
-	{
-		robot_mode.mode_chip=1;
-		//chip_flag=1;
-		Set_Beep_Time(robot_mode.mode_chip, 1000, 55);
-	}
-	/* 操控设备选择 */
+//	//抬升
 //	if(S2_CHANGED_TO(3,2))
 //	{
-//		robot_mode.control_device++;
-//		if(robot_mode.control_device==3) robot_mode.control_device=1;
-//		Set_Beep_Time(robot_mode.control_device, 1000, 55);
+//		robot_mode.mode_up=2;
+//		
+//		Set_Beep_Time(robot_mode.mode_up, 1000, 55);  
 //	}
+//	if(S2_CHANGED_TO(3,1))
+//	{
+//		robot_mode.mode_up=3;
+//		Set_Beep_Time(robot_mode.mode_up, 1000, 55);
+//	}
+//	if(S2_CHANGED_TO(1,2))
+//	{
+//		robot_mode.mode_up=1;
+//		Set_Beep_Time(robot_mode.mode_up, 1000, 55);  
+//	}
+//	if(S2_CHANGED_TO(2,3))
+//	{
+//		robot_mode.mode_up=1;
+//		Set_Beep_Time(robot_mode.mode_up, 1000, 55);
+//	}
+//	if(S1_CHANGED_TO(3,1))
+//	{
+//		robot_mode.mode_chip=2;
+//		//chip_flag=1;
+//		Set_Beep_Time(robot_mode.mode_chip, 1000, 55);
+//	}
+//	if(S1_CHANGED_TO(1,3))
+//	{
+//		robot_mode.mode_chip=1;
+//		//chip_flag=1;
+//		Set_Beep_Time(robot_mode.mode_chip, 1000, 55);
+//	}
+	/* 操控设备选择 */
+	if(S1_CHANGED_TO(3,2))
+	{
+		robot_mode.control_device++;
+		if(robot_mode.control_device==3) robot_mode.control_device=1;
+		Set_Beep_Time(robot_mode.control_device, 1000, 55);
+	}
 //	
 //		if(robot_mode.control_device != 2)
 //	{
 //		return;
 //	}
 	
-	/* 抬升模式 */       
-	if(S2_CHANGED_TO(3,2))
-	{
-		robot_mode.mode_up++;
-		if(robot_mode.mode_up==4) robot_mode.mode_up=1;
-		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
-	}
-  
-	if(S2_CHANGED_TO(3,1))//伸出
-	{
-		stretch_flag=1;
-		robot_mode.mode_stretch++;
-		if(robot_mode.mode_stretch==5) robot_mode.mode_stretch=1;
-		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
-	}
-	
-	if(S1_CHANGED_TO(3,1))//夹取
-	{
-		chip_flag=1;
-		robot_mode.mode_chip++;
-		if(robot_mode.mode_chip==3) robot_mode.mode_chip=1;
-  	Set_Beep_Time(robot_mode.mode_chip, 1200, 50);
-		//INFO_LOG("夹取\r\n");
-	}
-	
-	if(S1_CHANGED_TO(3,2)&&robot_mode.mode_overturn==1)//action
-	{
-		//angle_start=0;
-		//overturn_angle=overturn_motor.mechanical_angle;
-		robot_mode.mode_overturn=2;
-		Set_Beep_Time(robot_mode.mode_overturn, 1200, 50);
-	}
+//	/* 抬升模式 */       
+//	if(S2_CHANGED_TO(3,2))
+//	{
+//		robot_mode.mode_up++;
+//		if(robot_mode.mode_up==4) robot_mode.mode_up=1;
+//		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
+//	}
+//  
+//	if(S2_CHANGED_TO(3,1))//伸出
+//	{
+//		stretch_flag=1;
+//		robot_mode.mode_stretch++;
+//		if(robot_mode.mode_stretch==5) robot_mode.mode_stretch=1;
+//		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
+//	}
+//	
+//	if(S1_CHANGED_TO(3,1))//夹取
+//	{
+//		chip_flag=1;
+//		robot_mode.mode_chip++;
+//		if(robot_mode.mode_chip==3) robot_mode.mode_chip=1;
+//  	Set_Beep_Time(robot_mode.mode_chip, 1200, 50);
+//		//INFO_LOG("夹取\r\n");
+//	}
+//	
+//	if(S1_CHANGED_TO(3,2)&&robot_mode.mode_overturn==1)//action
+//	{
+//		//angle_start=0;
+//		//overturn_angle=overturn_motor.mechanical_angle;
+//		robot_mode.mode_overturn=2;
+//		Set_Beep_Time(robot_mode.mode_overturn, 1200, 50);
+//	}
 
 }
 

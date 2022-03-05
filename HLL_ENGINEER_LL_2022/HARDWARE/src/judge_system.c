@@ -2,7 +2,6 @@
 //#include "crc_check.h"
 #include "math2.h"
 #include "remoter_task.h"
-//#include "shooter_task.h"
 #include "power_output.h"
 
 /* 裁判系统调试宏定义 */
@@ -27,9 +26,9 @@ u8 Check_Package_Crc16(u8 *get_data, u16 data_len);
 uint16_t Analysis_Cmd_Id(u8 *get_data);
 uint8_t Analysis_Data(u8 *get_data, uint16_t data_len);
 
-static uint8_t Analysis_Power_Heat_Data(u8 *data_package, uint16_t data_len);
-static uint8_t Analysis_Shoot_Data(u8 *data_package, uint16_t data_len);
-static uint8_t Analysis_Game_Robot_Status(u8 *data_package, uint16_t data_len);
+static uint8_t Analysis_Buff_Data(u8 *data_package, uint16_t data_len);
+static uint8_t Analysis_Bullet_Remain_Data(u8 *data_package, uint16_t data_len);
+static uint8_t Analysis_RFID_Data(u8 *data_package, uint16_t data_len);
 
 //裁判系统数据定义
 static Judge_data_t judge_data;
@@ -181,121 +180,56 @@ uint8_t Analysis_Data(u8 *get_data, uint16_t data_len)
 	
 	switch (cmd_id)
 	{
-		//实时热量数据
-		case Power_Heat_Data:
-			return Analysis_Power_Heat_Data(&get_data[7], data_len);
-			//break;
-		
-		//实时功率热量数据
-		case Shoot_Data:
-			return Analysis_Shoot_Data(&get_data[7], data_len);
-			//break;
-		
-		//实时比赛机器人状态
-		case Game_Robot_Status:
-			return Analysis_Game_Robot_Status(&get_data[7], data_len);
-			//break;
+		//机器人增益
+		case Buff_Data:
+			return Analysis_Buff_Data(&get_data[7], data_len);
+		 // break;
+		case Bullet_Remain_Data:
+			return Analysis_Bullet_Remain_Data(&get_data[7], data_len);
+		 // break;
+		case RFID_Data:
+			return Analysis_RFID_Data(&get_data[7], data_len);
+		 // break;
 		
 	}
 	
 	return 0x0A;
 }
 
-//解析实时功率热量数据
-static uint8_t Analysis_Power_Heat_Data(u8 *data_package, uint16_t data_len)
+//解析机器人增益
+static uint8_t Analysis_Buff_Data(u8 *data_package, uint16_t data_len)
 {
-	if(data_len != 16)
+	if(data_len != 1)
 	{
 		JUDGE_ERROR(503);
 		return 0;
 	}
-	
-	judge_data.power_heat_data.chassis_power = Hex4_To_Float1(&data_package[4]);
-	judge_data.power_heat_data.chassis_power_buffer = U8_Array_To_U16(&data_package[8]);
-	judge_data.power_heat_data.shooter_id1_17mm_cooling_heat = U8_Array_To_U16(&data_package[10]);
-	
-	//DEBUG_SHOWDATA2("chassis_power", judge_data.power_heat_data.chassis_power);
-
+	judge_data.ext_buff_t.power_rune_buff=data_package[0];
 	return 1;
 }
 
-//解析实时射击信息
-static uint8_t Analysis_Shoot_Data(u8 *data_package, uint16_t data_len)
+//解析子弹剩余量
+static uint8_t Analysis_Bullet_Remain_Data(u8 *data_package, uint16_t data_len)
 {
-	if(data_len != 7)
+	if(data_len != 6)
 	{
-		JUDGE_ERROR(504);
+		JUDGE_ERROR(503);
 		return 0;
 	}
-	
-	// judge_data.shoot_data.bullet_type = data_package[0];
-	// judge_data.shoot_data.shooter_id = data_package[1];
-	// judge_data.shoot_data.bullet_freq = data_package[2];
-	// judge_data.shoot_data.bullet_speed = Hex4_To_Float1(&data_package[3]);
-	
-	memcpy(&judge_data.shoot_data, data_package, 7);
-	//Shooter_Friction_Speed_Limit();
-	//DEBUG_SHOWDATA2("bullet_speed", judge_data.shoot_data.bullet_speed);
-	
+	judge_data.ext_bullet_remaining_t.bullet_remaining_num_17mm=U8_Array_To_U16(&data_package[0]);
+	judge_data.ext_bullet_remaining_t.bullet_remaining_num_42mm=U8_Array_To_U16(&data_package[2]);
+	judge_data.ext_bullet_remaining_t.coin_remaining_num=U8_Array_To_U16(&data_package[4]);
 	return 1;
 }
-
-//解析比赛机器人状态
-static uint8_t Analysis_Game_Robot_Status(u8 *data_package, uint16_t data_len)
+//解析RFID
+static uint8_t Analysis_RFID_Data(u8 *data_package, uint16_t data_len)
 {
-	if(data_len != 27)
+	if(data_len != 4)
 	{
-		JUDGE_ERROR(505);
+		JUDGE_ERROR(503);
 		return 0;
 	}
-	
-	judge_data.game_robot_status.robot_id = data_package[0];
-
-	//机器人 1 号 17mm 枪口每秒冷却值
-	judge_data.game_robot_status.shooter_id1_17mm_cooling_rate = U8_Array_To_U16(&data_package[6]);
-
-	//机器人 1 号 17mm 枪口热量上限
-	judge_data.game_robot_status.shooter_id1_17mm_cooling_limit = U8_Array_To_U16(&data_package[8]);
-
-	//机器人 1 号 17mm 枪口上限速度 单位 m/s
-	judge_data.game_robot_status.shooter_id1_17mm_speed_limit = U8_Array_To_U16(&data_package[10]);
-
-	//底盘功率上限
-	judge_data.game_robot_status.chassis_power_limit = U8_Array_To_U16(&data_package[24]);
-	
-	judge_data.game_robot_status.mains_power_shooter_output = (data_package[26] & 0x04) >> 2;
-
-	//模拟发射机构断电
-	if(judge_data.game_robot_status.mains_power_shooter_output)
-	{
-		POWER1_CTRL_ON;
-		POWER2_CTRL_ON;
-	}
-	else
-	{
-		POWER1_CTRL_OFF;  
-		POWER2_CTRL_OFF;
-		//Fric_Reset(); //重置摩擦轮
-	}
-
-	//DEBUG_SHOWDATA1("sout", judge_data.game_robot_status.mains_power_shooter_output);
-	//DEBUG_SHOWDATA1("gggglllll", judge_data.game_robot_status.chassis_power_limit);
-	
+	judge_data.ext_rfid_status_t.rfid_status=U8_Array_To_U32(&data_package[0]);
 	return 1;
-}
-
-//判断1号17mm发射机构是否超热量
-u8 Is_Id1_17mm_Excess_Heat(const Judge_data_t* judge_data)
-{
-	//DEBUG_PRINT("sx:%d, dqrl:%d \r\n", judge_data->game_robot_status.shooter_id1_17mm_cooling_limit, judge_data->power_heat_data.shooter_id1_17mm_cooling_heat);
-	if(judge_data->game_robot_status.shooter_id1_17mm_cooling_limit == 65535)
-	{
-		return 0;
-	}
-	if(judge_data->game_robot_status.shooter_id1_17mm_cooling_limit <= (judge_data->power_heat_data.shooter_id1_17mm_cooling_heat + 15 ))
-	{
-		return 1;
-	}
-	return 0;
 }
 
