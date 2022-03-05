@@ -47,7 +47,7 @@ uint8_t Get_Judge_Buf_Len(void);
 
 void usart1_base_init(void);
 void usart6_base_init(void);
-
+void usart8_base_init(void);
 
 #endif
 

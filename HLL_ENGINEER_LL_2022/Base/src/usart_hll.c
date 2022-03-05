@@ -1,7 +1,8 @@
 /*
 	1、DBUS-串口1，remote_task二值信号量任务通知
-	2、裁判系统-串口6，Notify_Judge_Task二值信号量
+	2、裁判系统-串口8，Notify_Judge_Task二值信号量
 	3、printf-usart3
+	4、usart6保留
 */
 #include "usart_hll.h"
 //1、DBUS
@@ -12,8 +13,11 @@ static uint8_t rc_rx_buf1[RC_RX_BUF_NUM];
 static volatile uint16_t usart1_dma_rxd_data_len;	///< USART1 DMA 已经接收到的数据长度
 
 //2、裁判系统
-static uint8_t uart6_rx_buf[128];
+static uint8_t uart6_rx_buf[128];//usart6
 static uint8_t uart6_rx_length = 0;
+
+static uint8_t uart8_rx_buf[128];//usart8
+static uint8_t uart8_rx_length = 0;
 
 //3、printf-usart3
 int fputc(int ch, FILE *f)											
@@ -130,6 +134,55 @@ void Usart1_DMA_Reset(void)
 
 
 //裁判系统，补充配置
+void usart8_base_init(void)
+{
+	LL_DMA_SetPeriphAddress(DMA1, LL_DMA_STREAM_6, (uint32_t)(&UART8->DR));
+  LL_DMA_SetMemoryAddress(DMA1, LL_DMA_STREAM_6, (uint32_t)uart8_rx_buf);
+	
+  LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_6, 128);
+//	LL_USART_EnableIT_RXNE(USART6);   //使能串口1的中断
+	LL_USART_EnableIT_IDLE(UART8);   //使能串口1的空闲中断   注：使用IDLE+RXNE的DMA模式
+	
+	LL_USART_EnableDMAReq_RX(UART8);
+	LL_DMA_EnableStream(DMA1,LL_DMA_STREAM_6);
+}
+/*裁判系统，串口6中断回调*/
+void USART8_RxIdleCallback(void)
+{
+		if(LL_USART_IsActiveFlag_IDLE(UART8))			
+		{			
+			LL_DMA_DisableStream(DMA1, LL_DMA_STREAM_6);
+			LL_USART_ClearFlag_IDLE(UART8); 									
+			
+			//已接收数据长度
+		  uart8_rx_length = 128 - LL_DMA_GetDataLength (DMA1, LL_DMA_STREAM_6);
+			
+//			//debug
+//			LED_RED_OFF;
+			
+			//重设传输长度
+			LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_6, 128);
+			// 通知裁判系统任务	
+			Notify_Judge_Task(uart8_rx_length);				  		
+					
+			LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_6);						
+		}
+}
+
+const uint8_t* Get_Judge_Buf(void)
+{
+	return uart8_rx_buf;
+}
+
+uint8_t Get_Judge_Buf_Len(void)
+{
+	return uart8_rx_length;
+}
+
+
+
+
+//裁判系统，补充配置:保留
 void usart6_base_init(void)
 {
 	LL_DMA_SetPeriphAddress(DMA2, LL_DMA_STREAM_1, (uint32_t)(&USART6->DR));
@@ -165,16 +218,15 @@ void USART6_RxIdleCallback(void)
 		}
 }
 
-const uint8_t* Get_Judge_Buf(void)
+const uint8_t* Get_Judge_Buf_6(void)
 {
 	return uart6_rx_buf;
 }
 
-uint8_t Get_Judge_Buf_Len(void)
+uint8_t Get_Judge_Buf_Len_6(void)
 {
 	return uart6_rx_length;
 }
-
 
 
 

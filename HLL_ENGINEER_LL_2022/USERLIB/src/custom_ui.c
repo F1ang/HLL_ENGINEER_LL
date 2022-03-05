@@ -14,8 +14,8 @@ unsigned char UI_Seq;                      //°üÐòºÅ
 /****************************************´®¿ÚÇý¶¯Ó³Éä************************************/
 void UI_SendByte(unsigned char ch)
 {
-   USART_SendData(UART8,ch);
-   while (USART_GetFlagStatus(UART8, USART_FLAG_TXE) == RESET);	
+	 LL_USART_TransmitData8 (UART8,ch); 
+   while (LL_USART_IsActiveFlag_TXE(UART8 ) == RESET);	
 }
 
 /********************************************É¾³ý²Ù×÷*************************************

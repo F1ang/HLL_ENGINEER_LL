@@ -4,7 +4,7 @@
 #define Robot_ID UI_Data_RobotID_BStandard1
 #define Cilent_ID UI_Data_CilentID_BStandard1        //机器人角色设置
 
-#include "stm32f4xx.h"
+#include "main.h"
 #include "stdarg.h"
 #include "sys.h"
 

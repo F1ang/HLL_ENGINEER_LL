@@ -15,7 +15,7 @@ void Judge_Task(void *pvParameters)
 {
 	judge_buf = Get_Judge_Buf();  
 	//3°¢≥ı ºªØ
-	usart6_base_init();
+	usart8_base_init();
 	vTaskDelay(200);
 
 //	LL_USART_EnableIT_IDLE(USART6);
