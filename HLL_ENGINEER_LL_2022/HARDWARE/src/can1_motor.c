@@ -52,7 +52,7 @@ void Set_Chassis_Motors_Speed(float speed_fl, float speed_fr, float speed_bl, fl
 //	motor_ampere[1]=1000;
 //	motor_ampere[2]=1000;
 //	motor_ampere[3]=1000;
-	printf("%d,%d\n",motor_ampere[2],chassis_motor[2].speed_rpm);
+	//printf("%d,%d\n",motor_ampere[2],chassis_motor[2].speed_rpm);
 	
 	
 	Can1_Send_4Msg(CAN_CHASSIS_ALL_ID,motor_ampere);

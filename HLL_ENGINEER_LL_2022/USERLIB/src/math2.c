@@ -103,6 +103,11 @@ uint16_t U8_Array_To_U16(uint8_t *array)
 	return ( (array[1]<<8) | array[0] );
 }
 
+uint32_t U8_Array_To_U32(uint8_t *array)
+{	
+	return ( (array[1]<<24)|(array[1]<<16)|(array[1]<<8) | array[0] );
+}
+
 /* 角度Pid时，在获取tar和cur之后紧接着调用 */
 void Handle_Angle8191_PID_Over_Zero(float *tar, float *cur)
 {
