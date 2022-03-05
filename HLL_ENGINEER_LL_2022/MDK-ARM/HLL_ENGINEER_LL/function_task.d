@@ -1,10 +1,10 @@
 hll_engineer_ll\function_task.o: ..\Task\src\function_task.c
 hll_engineer_ll\function_task.o: ..\Task\inc\function_task.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\FreeRTOS.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\FreeRTOSConfig.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\projdefs.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\portable.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -80,7 +80,7 @@ hll_engineer_ll\function_task.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\function_task.o: ..\HARDWARE\inc\can1_motor.h
 hll_engineer_ll\function_task.o: ..\Base\inc\can1_hll.h
 hll_engineer_ll\function_task.o: ..\USERLIB\inc\math2.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 hll_engineer_ll\function_task.o: ..\HARDWARE\inc\function.h
 hll_engineer_ll\function_task.o: ..\HARDWARE\inc\motor_550.h
 hll_engineer_ll\function_task.o: ..\HARDWARE\inc\pump.h
