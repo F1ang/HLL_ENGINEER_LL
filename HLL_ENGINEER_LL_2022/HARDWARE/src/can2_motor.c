@@ -30,7 +30,7 @@ void Set_Overturn_Motors_Angle(int angle_overturn)
 	Pid_Position_Calc(&motor_overturn_angle_pid, angle_overturn, overturn_motor_li.total_angle);
 	Set_Overturn_Motors_Speed(motor_overturn_angle_pid.output);
 }
-#if CAN1_RX0_INT_ENABLE	//如果不采用轮询的方式（can口数据在每次使用前调用）
+#if CAN2_RX0_INT_ENABLE	//如果不采用轮询的方式（can口数据在每次使用前调用）
 //中断服务函数
 void CAN2_RX0_IRQHandler(void)
 {

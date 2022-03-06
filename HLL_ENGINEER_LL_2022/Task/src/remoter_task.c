@@ -100,7 +100,7 @@ void Remoter_Task(void *pvParameters)
 			/* 更新遥控器状态 */
 			Detect_Reload(0);  
 			
-			/* 机器人模式变换响应，待加 */
+			/* 机器人模式变换响应 */
 			Robot_Rc_Mode_Change_Control();
 			
 			/* 响应键盘控制 */
