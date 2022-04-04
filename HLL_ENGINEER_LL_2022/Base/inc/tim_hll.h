@@ -16,9 +16,12 @@
 //tim3
 #define PB0_PWM_OUT(ccr)  TIM3->CCR3 = ccr;
 #define PB1_PWM_OUT(ccr)  TIM3->CCR4 = ccr;
-
+//tim9
+#define PE5_PWM_OUT(ccr)  TIM9->CCR1 = ccr;
+#define PE6_PWM_OUT(ccr)  TIM9->CCR2 = ccr;
 extern void tim8_base_init(void);
 extern void tim3_base_init(void);
+extern void tim9_base_init(void);
 extern void timx_base_init(void);
 extern void tim7_base_init(void);
 extern void tim12_base_init(void);

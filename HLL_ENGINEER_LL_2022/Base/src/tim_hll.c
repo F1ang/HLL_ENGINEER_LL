@@ -1,10 +1,13 @@
 /*
-	1、encoder:tim2 tim4 tim5   pwm:tim8的ch1~ch4、tim3的ch3、ch4   tim7_updata-20ms待加
-	高级定时器的主输出使能，实现。
+
+	1、encoder:tim2 tim4 tim5   pwm:tim8的ch1~ch4(抬升1 抬升2 伸缩 舵机1)、  tim3 的ch3、ch4（舵机2, 舵机3）  pwm :tim9的ch1 ch2（舵机4，舵机5）  
+	tim7_ pdata-20ms  高级定时器的主输出使能，实现。
 	
 	2、ARPE使能待加，debug
 	
-	3、tim7中断相关，待加
+	3、tim7中断相关
+	
+	
 */
 
 #include "tim_hll.h"   
@@ -27,17 +30,17 @@ void tim8_base_init(void)
 	
 	LL_TIM_OC_SetCompareCH1(TIM8 ,1500);//	PI5_PWM_OUT(1500);
 	LL_TIM_OC_SetCompareCH2(TIM8 ,1500);//	PI6_PWM_OUT(1500);
+	
+	LL_TIM_OC_SetCompareCH3(TIM8 ,1500);//	PI7_PWM_OUT(1500);
+	LL_TIM_OC_SetCompareCH4(TIM8 ,0);		//	PI2_PWM_OUT(0)   舵机1
 }
-
-//驱动绿色电调
-void tim3_base_init(void)
-{
-	/*TIM3 GPIO Configuration
+/*
     PC9------> TIM3_CH4----->PB1
     PC8------> TIM3_CH3----->PB0
-  */
-	
-	//AF待定,F4手册，P180
+*/
+void tim3_base_init(void)
+{
+	//AF待定,F4手册，P180   原差动pwm
 	LL_GPIO_SetAFPin_8_15( GPIOB,LL_GPIO_PIN_0,LL_GPIO_AF_2);
 	LL_GPIO_SetAFPin_8_15( GPIOB,LL_GPIO_PIN_1,LL_GPIO_AF_2);
 	
@@ -46,12 +49,28 @@ void tim3_base_init(void)
 	
   LL_TIM_EnableCounter(TIM3);
 	
+	LL_TIM_OC_SetCompareCH3(TIM3 ,0);//PB0_PWM_OUT(0)  舵机2
+	LL_TIM_OC_SetCompareCH4(TIM3 ,0);//PB1_PWM_OUT(0)  舵机3
 //	//debug
 //	LL_TIM_EnableAllOutputs(TIM3);
 //	//debug
 //	LL_TIM_OC_SetCompareCH1(TIM3,100);
 }
-
+ /*
+    PE5     ------> TIM9_CH1
+    PE6     ------> TIM9_CH2
+ */
+void tim9_base_init(void)
+{
+	LL_TIM_CC_EnableChannel(TIM9,LL_TIM_CHANNEL_CH1);
+	LL_TIM_CC_EnableChannel(TIM9,LL_TIM_CHANNEL_CH2);
+	
+  LL_TIM_EnableCounter(TIM9);
+  LL_TIM_EnableAllOutputs(TIM9);
+	
+	LL_TIM_OC_SetCompareCH1(TIM9 ,2000);//PE5_PWM_OUT(ccr)  舵机4
+	LL_TIM_OC_SetCompareCH2(TIM9 ,2000);//PE6_PWM_OUT(ccr)  舵机5
+}
 
 //encoder:x=tim2,tim4,tim5
 //注：debug  LL_TIM_EnableAllOutputs

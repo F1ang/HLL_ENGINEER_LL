@@ -185,7 +185,7 @@ u8 MotorM3508_Send_Ampere(u32 all_id,s16 *data)
 	u8 FIFOBOX;
 	u8 Cur_Data[8];
 	u16 i=0;	
-  	Cur_Data[0]=CEBH(data[0]);
+  Cur_Data[0]=CEBH(data[0]);
 	Cur_Data[1]=CEBL(data[0]);
 	Cur_Data[2]=CEBH(data[1]);
 	Cur_Data[3]=CEBL(data[1]);
@@ -215,8 +215,9 @@ void CAN2_Rx_Msg(u8 fifox,u32 *id,u8 *ide,u8 *rtr,u8 *len,u8 *dat)
 {	   
 	*ide=CAN2->sFIFOMailBox[fifox].RIR&0x04;//第2位IDE：标识符扩展此位定义邮箱中邮件的标识符类型0：标准标识符1：扩展标识符位1 RTR：远程传输请求0：数据帧1：远程帧
 	
-	*id=CAN2->sFIFOMailBox[fifox].RIR>>21;//标准标识符
-
+	//*id=CAN2->sFIFOMailBox[fifox].RIR>>21;//标准标识符
+	*id=(uint32_t)0x00000FF&(CAN2->sFIFOMailBox[fifox].RIR>>21);//标准标识符
+	
 	*rtr=CAN2->sFIFOMailBox[fifox].RIR&0x02;	//得到远程发送请求值.
 	*len=CAN2->sFIFOMailBox[fifox].RDTR&0x0F;//得到DLC
 

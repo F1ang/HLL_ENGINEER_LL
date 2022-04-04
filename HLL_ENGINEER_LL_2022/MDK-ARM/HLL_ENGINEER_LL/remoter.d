@@ -60,6 +60,7 @@ hll_engineer_ll\remoter.o: ..\HARDWARE\inc\led.h
 hll_engineer_ll\remoter.o: ../Core/Inc/gpio.h
 hll_engineer_ll\remoter.o: ..\Task\inc\buzzer_task.h
 hll_engineer_ll\remoter.o: ..\Base\inc\usart_hll.h
+hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\remoter.o: ../Core/Inc/usart.h
 hll_engineer_ll\remoter.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\remoter.o: ..\Task\inc\judge_task.h

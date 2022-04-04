@@ -16,7 +16,18 @@
 
 11、can1,can2,   detect_task,judge_task实现
 
-12、裁判系统judge_task：发送任务通知API，暂时丢在function_task.c，因usart6中断无法测试进入中断发任务中断API。
+12、裁判系统judge_task：发送任务通知API，暂时丢在function_task.c，因usart8中断无法测试进入中断发任务中断API。
+
+13、键盘响应已注释。
+
+14、
+遥控器逻辑（暂定）
+抬升：S2-1 3 2 (高 中 低)  -->     3 2 1 (高 中 低)     S2-3 to 1 进行+1/-1       (注：要顺序 ，抬升时不能伸出，伸出时不能翻转）   
+伸出：S2-1 to 3->ch1       -->      S2-3 to 2 进行+1/-1    1缩回  2伸中250  3伸小15cm   4伸大   (注：KA待测伸出编码器测量)
+
+翻转：S1-3 to 1                    1平（松）   2翻（夹）			
+夹取：S1-3 to 1	3-1-> 1松             2夹	                  即：松必是平
+设备切换：S1-3 to 2 
 
 
 Base:等效于DEVICE
@@ -26,25 +37,10 @@ HARDWARE：部分已加
 
 注：所有均可改
 
+2022.4.4
+1、3508电机里程计用了比较简便些的写法。
+2、翻转已调。
+3、伸出待调，夹取待优化，救援卡和救援待加。
 
-
-
-//	LL_DMA_DisableFifoMode(DMA2, LL_DMA_STREAM_2);
-//	
-//	LL_DMA_SetPeriphAddress(DMA2, LL_DMA_STREAM_2, (uint32_t)(&USART1->DR));
-//  LL_DMA_SetMemoryAddress(DMA2, LL_DMA_STREAM_2, (uint32_t)rc_rx_buf0);
-//  LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_2, 36);
-
-//	LL_DMA_DisableStream(DMA2,LL_DMA_STREAM_2);	//双缓冲模式，待定
-//	LL_DMA_ConfigAddresses  (DMA2,LL_DMA_STREAM_2,(uint32_t)(&USART1->DR),(uint32_t)rc_rx_buf1,LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
-//	LL_DMA_SetCurrentTargetMem  (DMA2,LL_DMA_STREAM_2,LL_DMA_CURRENTTARGETMEM0);
-//	LL_DMA_EnableDoubleBufferMode  (DMA2,LL_DMA_STREAM_2);	
-//	
-////	LL_USART_EnableIT_RXNE(USART1);   
-//	//	LL_USART_EnableIT_IDLE(USART1);   				//注：法一：IDLE+RXNE，法二：BUFF+IDLE ，方法三:BUFF+DMA(选)
-//	
-//	LL_USART_EnableDMAReq_RX(USART1);
-//	LL_DMA_ClearFlag_TC2(DMA2); 
-//	LL_DMA_EnableStream(DMA2,LL_DMA_STREAM_2);
 
 

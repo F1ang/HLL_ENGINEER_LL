@@ -36,6 +36,7 @@ hll_engineer_ll\can1_motor.o: ..\USERLIB\inc\motor.h
 hll_engineer_ll\can1_motor.o: ..\USERLIB\inc\pid.h
 hll_engineer_ll\can1_motor.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\can1_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\can1_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\can1_motor.o: ../Core/Inc/main.h
 hll_engineer_ll\can1_motor.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h
 hll_engineer_ll\can1_motor.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h
@@ -71,6 +72,7 @@ hll_engineer_ll\can1_motor.o: ..\HARDWARE\inc\buzzer.h
 hll_engineer_ll\can1_motor.o: ..\Base\inc\tim_hll.h
 hll_engineer_ll\can1_motor.o: ../Core/Inc/tim.h
 hll_engineer_ll\can1_motor.o: ..\Base\inc\encoder.h
+hll_engineer_ll\can1_motor.o: ..\USERLIB\inc\motor.h
 hll_engineer_ll\can1_motor.o: ..\HARDWARE\inc\can2_motor.h
 hll_engineer_ll\can1_motor.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\can1_motor.o: ..\Task\inc\judge_task.h

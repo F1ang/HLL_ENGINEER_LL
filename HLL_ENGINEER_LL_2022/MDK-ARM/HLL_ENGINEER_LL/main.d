@@ -50,6 +50,7 @@ hll_engineer_ll\main.o: ..\Base\inc\can_hll.h
 hll_engineer_ll\main.o: ..\HARDWARE\inc\power_output.h
 hll_engineer_ll\main.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\main.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\main.o: ..\FreeRTOS\include\FreeRTOS.h
 hll_engineer_ll\main.o: ..\FreeRTOS\include\FreeRTOSConfig.h

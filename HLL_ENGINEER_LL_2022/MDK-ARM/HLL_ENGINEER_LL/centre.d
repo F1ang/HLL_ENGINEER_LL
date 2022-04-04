@@ -48,6 +48,7 @@ hll_engineer_ll\centre.o: ../Core/Inc/gpio.h
 hll_engineer_ll\centre.o: ../Core/Inc/usart.h
 hll_engineer_ll\centre.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\centre.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\centre.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\centre.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\centre.o: ..\FreeRTOS\include\FreeRTOS.h
 hll_engineer_ll\centre.o: ..\FreeRTOS\include\FreeRTOSConfig.h

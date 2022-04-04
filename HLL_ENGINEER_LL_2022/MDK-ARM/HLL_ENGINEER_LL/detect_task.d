@@ -61,6 +61,7 @@ hll_engineer_ll\detect_task.o: ..\USERLIB\inc\sys.h
 hll_engineer_ll\detect_task.o: ..\USERLIB\inc\motor.h
 hll_engineer_ll\detect_task.o: ..\USERLIB\inc\pid.h
 hll_engineer_ll\detect_task.o: ..\Base\inc\usart_hll.h
+hll_engineer_ll\detect_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\detect_task.o: ../Core/Inc/usart.h
 hll_engineer_ll\detect_task.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\detect_task.o: ..\FreeRTOS\include\semphr.h
@@ -72,6 +73,7 @@ hll_engineer_ll\detect_task.o: ..\HARDWARE\inc\buzzer.h
 hll_engineer_ll\detect_task.o: ..\Base\inc\tim_hll.h
 hll_engineer_ll\detect_task.o: ../Core/Inc/tim.h
 hll_engineer_ll\detect_task.o: ..\Base\inc\encoder.h
+hll_engineer_ll\detect_task.o: ..\USERLIB\inc\motor.h
 hll_engineer_ll\detect_task.o: ..\HARDWARE\inc\can2_motor.h
 hll_engineer_ll\detect_task.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\detect_task.o: ..\Task\inc\judge_task.h

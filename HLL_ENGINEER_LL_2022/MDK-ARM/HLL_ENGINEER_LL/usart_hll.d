@@ -1,6 +1,7 @@
 hll_engineer_ll\usart_hll.o: ..\Base\src\usart_hll.c
 hll_engineer_ll\usart_hll.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\usart_hll.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\usart_hll.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\usart_hll.o: ../Core/Inc/main.h
 hll_engineer_ll\usart_hll.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 hll_engineer_ll\usart_hll.o: ../Core/Inc/stm32f4xx_hal_conf.h

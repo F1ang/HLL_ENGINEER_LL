@@ -24,45 +24,48 @@ void get_moto_measure(M3508_Mileage *Mileage,u8*Data)
 	
 	Mileage->actual_torque_current = (uint16_t)(Data[4] << 8 | Data[5]);//转矩电流
 	Mileage->temperate = Data[6];//温度
-	//way_1
-	if(Mileage->speed_rpm > 0 ) //电机正转
-	{
-		if((Mileage->mechanical_angle - Mileage->Last_mechanical_angle) >= 50)
-		{
-		  delta = Mileage->mechanical_angle - Mileage->Last_mechanical_angle;
-		}
-		else if ((Mileage->mechanical_angle - Mileage->Last_mechanical_angle) <= -50)
-		{
-		  delta = Mileage->mechanical_angle + 8192 - Mileage->Last_mechanical_angle;
-			Mileage->round_cnt++;
-		}
-		else;
-	}
-  else if(Mileage->speed_rpm < 0) //电机反转
-	{
-		if ((Mileage->mechanical_angle - Mileage->Last_mechanical_angle) <= -50)
-		{
-			delta =Mileage->mechanical_angle - Mileage->Last_mechanical_angle;
-		}
-		else if((Mileage->mechanical_angle - Mileage->Last_mechanical_angle) >= 50)
-		{
-			delta = Mileage->mechanical_angle - 8192 - Mileage->Last_mechanical_angle;
-			Mileage->round_cnt--;
-		}
-		else;
-	}
-	else
-		delta=0;
-	Mileage->total_angle = Mileage->round_cnt * 8192 + Mileage->mechanical_angle - Mileage->offest_angle;
-
-////way_2
-//	if((Mileage->mechanical_angle - Mileage->Last_mechanical_angle)> 4096)
-//			Mileage->round_cnt--;
-//	else if ((Mileage->mechanical_angle - Mileage->Last_mechanical_angle)< -4096)
+//	//way_1
+//	if(Mileage->speed_rpm > 0 ) //电机正转
+//	{
+//		if((Mileage->mechanical_angle - Mileage->Last_mechanical_angle) >= 50)
+//		{
+//		  delta = Mileage->mechanical_angle - Mileage->Last_mechanical_angle;
+//		}
+//		else if ((Mileage->mechanical_angle - Mileage->Last_mechanical_angle) <= -50)
+//		{
+//		  delta = Mileage->mechanical_angle + 8192 - Mileage->Last_mechanical_angle;
 //			Mileage->round_cnt++;
-//	//记录real_all_angle--->error:way_1可能delta会出错
+//		}
+//		else;
+//	}
+//  else if(Mileage->speed_rpm < 0) //电机反转
+//	{
+//		if ((Mileage->mechanical_angle - Mileage->Last_mechanical_angle) <= -50)
+//		{
+//			delta =Mileage->mechanical_angle - Mileage->Last_mechanical_angle;
+//		}
+//		else if((Mileage->mechanical_angle - Mileage->Last_mechanical_angle) >= 50)
+//		{
+//			delta = Mileage->mechanical_angle - 8192 - Mileage->Last_mechanical_angle;
+//			Mileage->round_cnt--;
+//		}
+//		else;
+//	}
+//	
+//	else
+//		delta=0;
 //	Mileage->total_angle = Mileage->round_cnt * 8192 + Mileage->mechanical_angle - Mileage->offest_angle;
-//	delta=Mileage->Last_mechanical_angle-Mileage->total_angle;
+//	
+//	printf("angle=%d，speed=%d",Mileage->mechanical_angle,Mileage->speed_rpm);
+	
+//way_2
+	if((Mileage->mechanical_angle - Mileage->Last_mechanical_angle)> 4096)
+			Mileage->round_cnt--;
+	else if ((Mileage->mechanical_angle - Mileage->Last_mechanical_angle)< -4096)
+			Mileage->round_cnt++;
+	//记录real_all_angle--->error:way_1可能delta会出错
+	Mileage->total_angle = Mileage->round_cnt * 8192 + Mileage->mechanical_angle - Mileage->offest_angle;
+	delta=Mileage->Last_mechanical_angle-Mileage->total_angle;
 
 
 }

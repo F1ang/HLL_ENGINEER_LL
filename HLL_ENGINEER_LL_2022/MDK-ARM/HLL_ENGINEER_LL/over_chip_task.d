@@ -64,9 +64,8 @@ hll_engineer_ll\over_chip_task.o: ..\Base\inc\tim_hll.h
 hll_engineer_ll\over_chip_task.o: ../Core/Inc/tim.h
 hll_engineer_ll\over_chip_task.o: ..\Base\inc\encoder.h
 hll_engineer_ll\over_chip_task.o: ..\USERLIB\inc\motor.h
-hll_engineer_ll\over_chip_task.o: ..\HARDWARE\inc\can1_motor.h
-hll_engineer_ll\over_chip_task.o: ..\Base\inc\can1_hll.h
 hll_engineer_ll\over_chip_task.o: ..\Base\inc\usart_hll.h
+hll_engineer_ll\over_chip_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\over_chip_task.o: ../Core/Inc/usart.h
 hll_engineer_ll\over_chip_task.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\over_chip_task.o: ..\HARDWARE\inc\remoter.h
@@ -75,8 +74,12 @@ hll_engineer_ll\over_chip_task.o: ../Core/Inc/gpio.h
 hll_engineer_ll\over_chip_task.o: ..\Task\inc\buzzer_task.h
 hll_engineer_ll\over_chip_task.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\over_chip_task.o: ..\HARDWARE\inc\buzzer.h
+hll_engineer_ll\over_chip_task.o: ..\Base\inc\tim_hll.h
 hll_engineer_ll\over_chip_task.o: ..\HARDWARE\inc\can2_motor.h
+hll_engineer_ll\over_chip_task.o: ..\USERLIB\inc\motor.h
 hll_engineer_ll\over_chip_task.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\over_chip_task.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\over_chip_task.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\over_chip_task.o: ..\USERLIB\inc\crc_check.h
+hll_engineer_ll\over_chip_task.o: ..\HARDWARE\inc\can1_motor.h
+hll_engineer_ll\over_chip_task.o: ..\Base\inc\can1_hll.h

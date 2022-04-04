@@ -43,12 +43,5 @@ void Set_550_Motors_Angle(int angle_550_l,int angle_550_r,int angle_550_s)
 {
 	Pid_Position_Calc(&motor550_l_angle_pid, angle_550_l, motor550_l.total_angle);
 	Pid_Position_Calc(&motor550_r_angle_pid, angle_550_r, motor550_r.total_angle);
-	/*DEBUG*/
-//	int l_out,r_out,s_out;
-//	l_out=motor550_l_angle_pid.output;
-//	r_out=motor550_l_angle_pid.output;
-//	s_out=motor550_l_angle_pid.output;
-//	u8 k;if(k%300!=0){printf("LSO:%d,%d,%d\r\n",l_out,r_out,s_out);k++;}else{k++;}
-	//Set_550_Motors_Speed(motor550_l_angle_pid.output,motor550_r_angle_pid.output,motor550_s_angle_pid.output);
 	Set_550_Motors_Speed(motor550_l_angle_pid.output,motor550_r_angle_pid.output,angle_550_s);
 }

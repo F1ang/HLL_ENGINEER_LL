@@ -55,7 +55,7 @@ void Start_Task(void *pvParameters)
 							(void*          )NULL,
 							(UBaseType_t    )9,
 							(TaskHandle_t*  )&JudgeTask_Handler);
-//							
+							
 	
 	//创建监听任务
 	xTaskCreate((TaskFunction_t )Detect_Task,     
@@ -64,7 +64,7 @@ void Start_Task(void *pvParameters)
 							(void*          )NULL,
 							(UBaseType_t    )24,
 							(TaskHandle_t*  )&DetectTask_Handler);
-//	
+	
 //	//创建监听CPU使用率任务
 //	#if CHECK_CPU_USE
 //		xTaskCreate((TaskFunction_t )CPU_Task, /* 任务入口函数 */

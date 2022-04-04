@@ -53,6 +53,7 @@ hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\mpu_wrappers.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\task.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\list.h
 hll_engineer_ll\judge_system.o: ..\Base\inc\usart_hll.h
+hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\judge_system.o: ../Core/Inc/usart.h
 hll_engineer_ll\judge_system.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\semphr.h

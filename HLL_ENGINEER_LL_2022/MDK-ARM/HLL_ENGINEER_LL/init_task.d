@@ -49,6 +49,7 @@ hll_engineer_ll\init_task.o: ../Core/Inc/gpio.h
 hll_engineer_ll\init_task.o: ../Core/Inc/usart.h
 hll_engineer_ll\init_task.o: ..\Base\inc\usart_hll.h
 hll_engineer_ll\init_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\init_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\init_task.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\init_task.o: ..\FreeRTOS\include\FreeRTOS.h
 hll_engineer_ll\init_task.o: ..\FreeRTOS\include\FreeRTOSConfig.h

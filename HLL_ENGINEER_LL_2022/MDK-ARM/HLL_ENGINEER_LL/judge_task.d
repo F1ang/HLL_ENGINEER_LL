@@ -53,6 +53,7 @@ hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\mpu_wrappers.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\task.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\list.h
 hll_engineer_ll\judge_task.o: ..\Base\inc\usart_hll.h
+hll_engineer_ll\judge_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\judge_task.o: ../Core/Inc/usart.h
 hll_engineer_ll\judge_task.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\judge_task.o: ..\FreeRTOS\include\semphr.h
@@ -75,4 +76,3 @@ hll_engineer_ll\judge_task.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\judge_task.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\judge_task.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\judge_task.o: ..\USERLIB\inc\crc_check.h
-hll_engineer_ll\judge_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h

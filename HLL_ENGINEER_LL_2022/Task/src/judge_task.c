@@ -18,28 +18,13 @@ void Judge_Task(void *pvParameters)
 	usart8_base_init();
 	vTaskDelay(200);
 
-//	LL_USART_EnableIT_IDLE(USART6);
 	
 	while(1)
-	{
-		
-		//debug
-		LED_GREEN_ON;
-		vTaskDelay(200);
-		LED_GREEN_OFF;
-		vTaskDelay(200);
-		//debug
-//		printf("%d\r\n",motor550_s.speed_rpm);
-//		PI5_PWM_OUT(950);
-	
-//		PB0_PWM_OUT(900);
-				
-		//LL_mDelay(200);
-		//buzzer声沙哑，猜测是没快速进行任务切换，后期是否可以移到Function_task
-		
-		
+	{						
 		//等待任务通知 portMAX_DELAY
 		xTaskNotifyWait(0x00, 0xFFFFFFFF, &judge_buf_len, portMAX_DELAY);
+		
+		LED_RED_TOGGLE;//debug
 		
 		//将接受的的原始数据拷贝为副本
 		memcpy(judge_buf_copy, judge_buf, judge_buf_len);
@@ -48,15 +33,12 @@ void Judge_Task(void *pvParameters)
 		Detect_Reload(5);  
 		
 		//下一行是打印所有原始数据
-//		DEBUG_SHOWDATA1("judge_buf_len", judge_buf_len); for(u8 i=0; i<judge_buf_len; i++){DEBUG_PRINT("%d ", judge_buf_copy[0]);} DEBUG_PRINT("\r\n");
+		DEBUG_SHOWDATA1("judge_buf_len", judge_buf_len); for(u8 i=0; i<judge_buf_len; i++){DEBUG_PRINT("%d ", judge_buf_copy[0]);} DEBUG_PRINT("\r\n");
 		
 		//解析裁判系统数据
 		Analysis_Judge_System(judge_buf_copy, judge_buf_len);  
 		
 	}
-	
-	//vTaskDelete(NULL);
-	
 }
 
 

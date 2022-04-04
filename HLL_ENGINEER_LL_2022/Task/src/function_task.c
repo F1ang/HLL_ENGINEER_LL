@@ -48,13 +48,7 @@ void Function_Task(void *pvParameters)
 	vTaskDelay(200);
 	while(1)
 	{
-//		PA2_PWM_OUT(2000);
-		//Set_3508_Motors_Angle(remoter_control->rc.ch0*50,0);
-		//Can2_Send_4Msg(0x200,remoter_control->rc.ch0,0,0,0)
-		//can2_print();
-//    INFO_PRINT("%d\n",motor_overturn_speed_pid.output);
-//		vTaskDelay(20);
-		//INFO_PRINT("%d\n",motor550_r);
+		LED_GREEN_TOGGLE;	
 		//键鼠控制
 		if(function_robot_mode->control_device == 1)
 		{
@@ -110,80 +104,77 @@ void Function_Task(void *pvParameters)
 			{
 				if(overturn_seq==1)overturn_task_first();	            //翻转松开再翻回来一整套流程
 				if(overturn_seq==2)overturn_task_second();
-					                                         
-					
 				function_robot_mode->mode_overturn=1;
-			}
-					
-		}
+			}			
+		}//mouse_end
 		
 		
 		//遥控器模式
 		else if(function_robot_mode->control_device == 2)
 		{
-			//抬升
-				switch(function_robot_mode->mode_up)
+				//伸出
+				int KA;
+				switch(robot_mode.mode_stretch)//1 2 3 4
 				{
-					case 1:             //下降
-				  {
-						up_total_tar=0;
-						break;
-					}
-					case 2:              //抬升中
-					{
-						up_total_tar=5000;
-						break;
-					}
-	 				case 3:               //抬升高
-					{
-						up_total_tar=10000;
-						break;
-					}
+					case 1:KA=0;break;
+					case 2:KA=0;break;
+					case 3:KA=0;break;
+					case 4:KA=0;break;
 				}
+				//抬升
+				switch(robot_mode.mode_up)
+				{
+					case 3:
+					Set_550_Motors_Angle(11000,-11000,KA);
+					break;
+			
+					case 2:
+					Set_550_Motors_Angle(9700,-9700,KA);
+					break;
+			
+					case 1:
+					Set_550_Motors_Angle(0,-0,KA);
+					break;
+			
+					default:PI5_PWM_OUT(0);PI6_PWM_OUT(1500);PB0_PWM_OUT(1500);PB1_PWM_OUT(1500);
+					break;
+				}
+
+			//翻转  S1-3 to 1 ，与夹取关联
+				switch(robot_mode.mode_overturn)
+				{
+					
+					case 1:			//平: 
+						Set_Overturn_Motors_Angle(-82000);//-82000
+					//Set_Overturn_Motors_Speed(overturn_total_tar);//速度16384（角度取值8192）
+						break;
+					
+					case 2:			//翻:
+						Set_Overturn_Motors_Angle(-6500);//-6900
+						break;
+					
+				}
+				
 				//夹取S1
 				if(function_robot_mode->mode_chip==1)
 				{	
-					Notify_Judge_Task(30);
 					PUMP_OFF;             //松开代码  1-3
 				}
 				else
 				{
 					PUMP_ON;              //夹取代码  3-1
-				}
-				
-      overturn_total_tar=remoter_control->rc.ch4*	2;
-		}
-//		/******//******//******//******//*DEBUG*//******//******//******//******/
-			int KA;KA=(int)((float)remoter_control->rc.ch1/660*300);
-//		//u8 k;if(k%50!=0){printf("KA:%d",KA);k++;}else{k++;}
-//		Set_550_Motors_Speed(KA,-KA,0);
-//		Set_550_Motors_Speed(0,0,KA);
-//		PI5_PWM_OUT(KA+1500);PI6_PWM_OUT(KA+1500);
-		switch(remoter_control->rc.s2)
-		{
-			case 1:
-				Set_550_Motors_Angle(11000,-11000,KA);//DEBUG
-				break;
-			
-			case 3:
-				Set_550_Motors_Angle(9700,-9700,KA);
-				break;
-			
-			case 2:
-				Set_550_Motors_Angle(0,-0,KA);
-				break;
-			
-			default:PI5_PWM_OUT(0);PI6_PWM_OUT(1500);PB0_PWM_OUT(1500);PB1_PWM_OUT(1500);
-				break;
-		}
-
+				}										
+		}//remote_end
 		
-//		/******//******//******//******//******//******//******//******//******/
-
-		Set_Overturn_Motors_Speed(overturn_total_tar);
+		//overturn_total_tar=remoter_control->rc.ch4*	2;
+		//Set_Overturn_Motors_Speed(overturn_total_tar);//16384
 		
-    vTaskDelay(5); //延时5ms，也就是1000个时钟节拍	
-			
+		/***debug***/
+		//printf("all_angle=%d  ,   speed=%d\r\n",overturn_motor_li.total_angle,overturn_motor_li.speed_rpm);
+			printf("%d, %d\n",-6500,overturn_motor_li.total_angle);
+		//	printf("%d, %d\n",-75300,overturn_motor_li.total_angle);
+		
+    vTaskDelay(5); //延时5ms，也就是1000个时钟节拍			
 	}
 	
 }

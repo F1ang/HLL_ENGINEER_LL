@@ -20,7 +20,7 @@ typedef struct
 }Robot_mode_t;
 
 
-
+extern Robot_mode_t robot_mode;  //机器人模式
 extern TaskHandle_t RemoterTask_Handler;
 
 void Remoter_Task(void *pvParameters);

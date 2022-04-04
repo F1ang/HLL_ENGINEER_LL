@@ -10,6 +10,7 @@
       <TargetName>HLL_ENGINEER_LL</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pArmCC>5050106::V5.05 update 1 (build 106)::ARMCC</pArmCC>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F427IIHx</Device>
@@ -365,7 +366,7 @@
               <MiscControls></MiscControls>
               <Define>USE_FULL_LL_DRIVER,STM32F427xx,USE_HAL_DRIVER,ARM_MATH_CM4</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;      ../Drivers/STM32F4xx_HAL_Driver/Inc;      ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;      ..\Base\inc;      ..\Task\inc;      ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;      ..\FreeRTOS\include;      ..\FreeRTOS\portable\RVDS\ARM_CM4F;      ..\HARDWARE\inc;      ..\USERLIB\inc;      ..\Task\inc;     ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;       ../Drivers/STM32F4xx_HAL_Driver/Inc;       ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;       ..\Base\inc;       ..\Task\inc;       ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;       ..\FreeRTOS\include;       ..\FreeRTOS\portable\RVDS\ARM_CM4F;       ..\HARDWARE\inc;       ..\USERLIB\inc;       ..\Task\inc;      ../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

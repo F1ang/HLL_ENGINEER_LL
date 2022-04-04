@@ -34,12 +34,12 @@ void base_init()
 //	Can1_Init();
 //	//5、初始化CAN2
 //	Can2_Init();
-//	
-//	
-	//绿色电调pwm
+	
+	
+	//绿色电调pwm->servo_2,3
 	tim3_base_init();
 	
-	//tim8-ch1~ch4
+	//tim8-ch1~ch4 servo_1
 	tim8_base_init();	
 	
 	//encoder:x=2,4,5
@@ -47,6 +47,9 @@ void base_init()
 	
 	//tim7:updata
 	tim7_base_init();
+	
+	//servo_4,5
+	tim9_base_init();
 	
 	/* 板载24V输出控制初始化 */
 	Power_Ctrl_Init();

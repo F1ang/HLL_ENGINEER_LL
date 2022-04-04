@@ -2,6 +2,7 @@
 #define __MOTOR_H
 #include "pid.h"
 #include "sys.h"
+#include "usart_hll.h"
 typedef struct
 {
 	uint16_t mechanical_angle;  //转子机械角度
