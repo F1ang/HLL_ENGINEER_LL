@@ -41,6 +41,6 @@ HARDWARE：部分已加
 1、3508电机里程计用了比较简便些的写法。
 2、翻转已调。
 3、伸出待调，夹取待优化，救援卡和救援待加。
-
-
+4、后期想提速的话，把motor_ampere[0]=Pid_Position_Calc(&motor_fl_speed_pid, speed_fl, chassis_motor[0].speed_rpm);
+ chassis_motor[0].speed_rpm-> chassis_motor[0].actual_torque_current，再调参
 

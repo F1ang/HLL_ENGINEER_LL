@@ -42,17 +42,8 @@ void Set_Chassis_Motors_Speed(float speed_fl, float speed_fr, float speed_bl, fl
 	motor_ampere[2]=Pid_Position_Calc(&motor_bl_speed_pid, speed_bl, chassis_motor[2].speed_rpm);
 	motor_ampere[3]=Pid_Position_Calc(&motor_br_speed_pid, speed_br, chassis_motor[3].speed_rpm);
 	
-
-//	printf("chassis_motor[0]=%d\r\n",chassis_motor[0].speed_rpm);
-//	printf("chassis_motor[1]=%d\r\n",chassis_motor[1].speed_rpm);
-//	printf("chassis_motor[2]=%d\r\n",chassis_motor[2].speed_rpm);
-//	printf("chassis_motor[3]=%d\r\n",chassis_motor[3].speed_rpm);
 	//debug
-//	motor_ampere[0]=1000;	
-//	motor_ampere[1]=1000;
-//	motor_ampere[2]=1000;
-//	motor_ampere[3]=1000;
-	//printf("%d,%d\n",motor_ampere[2],chassis_motor[2].speed_rpm);
+	//printf("%d,%d\n",speed_fl,motor_ampere[2]);
 	
 	
 	Can1_Send_4Msg(CAN_CHASSIS_ALL_ID,motor_ampere);
@@ -63,8 +54,6 @@ void Set_Chassis_Motors_Speed(float speed_fl, float speed_fr, float speed_bl, fl
 void CAN1_RX0_IRQHandler(void)
 {
 	CAN1->IER&=~(1<<1);  //关闭FIFO消息挂起中断
-//	//debug
-//	LED_RED_OFF;
 	
 	u8 rxbuf[8];
 	u32 id;
@@ -72,8 +61,6 @@ void CAN1_RX0_IRQHandler(void)
 	if(CAN1_Msg_Pend(0)==0&&CAN1_Msg_Pend(1)==0){printf("Can1未接收到数据\r\n");}      
  	CAN1_Rx_Msg(0,&id,&ide,&rtr,&len,rxbuf);  //使用FIFO0接收邮箱，读取数据放在rxbuf中
 	if(ide!=0||rtr!=0){printf("can1接收数据异常\r\n");}
-//	//dubug
-//	printf("ID=%d\r\n",id);
 	
 	switch(id)
 	{
@@ -86,9 +73,7 @@ void CAN1_RX0_IRQHandler(void)
 	
 	CAN1->RF0R &=~(1<<5);//释放FIFO0输出邮箱
 	CAN1->IER|=1<<1;     //打开FIFO消息挂起中断
-  
-////debug
-//	LED_RED_ON;  
+   
 }
 
 
