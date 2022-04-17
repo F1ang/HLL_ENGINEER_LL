@@ -65,9 +65,7 @@ void Chassis_Task(void *pvParameters)
 					motor_speed[2] *= 11;
 					motor_speed[3] *= 11;
 			
-		}
-		
-		
+		}		
 		Ramp_Calc_Int(&real_motor_speed[0],50,motor_speed[0]);
 		Ramp_Calc_Int(&real_motor_speed[1],50,motor_speed[1]);
 		Ramp_Calc_Int(&real_motor_speed[2],50,motor_speed[2]);

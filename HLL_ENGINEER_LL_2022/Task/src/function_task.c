@@ -166,12 +166,9 @@ void Function_Task(void *pvParameters)
 				}										
 		}//remote_end
 		
-		//overturn_total_tar=remoter_control->rc.ch4*	2;
-		//Set_Overturn_Motors_Speed(overturn_total_tar);//16384
-		
+	
 		/***debug***/
-		//printf("all_angle=%d  ,   speed=%d\r\n",overturn_motor_li.total_angle,overturn_motor_li.speed_rpm);
-			printf("%d, %d\n",-6500,overturn_motor_li.total_angle);
+				printf("%d, %d\n",-6500,overturn_motor_li.total_angle);
 		//	printf("%d, %d\n",-75300,overturn_motor_li.total_angle);
 		
     vTaskDelay(5); //延时5ms，也就是1000个时钟节拍			

@@ -30,12 +30,10 @@ void Set_550_Motors_Speed(float speed_550_l,float speed_550_r,float speed_550_s)
 	PI6_PWM_OUT(1500+r_out);
 	if(s_out>=0)
 	{
-		PB0_PWM_OUT(s_out);
-		PB1_PWM_OUT(0);
+		PI7_PWM_OUT(s_out);
 	}
 	else{
-		PB0_PWM_OUT(0);
-		PB1_PWM_OUT(-s_out);
+		PI7_PWM_OUT(-s_out);
 	}
 
 }
