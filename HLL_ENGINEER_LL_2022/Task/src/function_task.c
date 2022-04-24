@@ -116,10 +116,10 @@ void Function_Task(void *pvParameters)
 				int KA;
 				switch(robot_mode.mode_stretch)//1 2 3 4
 				{
-					case 1:KA=0;break;
-					case 2:KA=0;break;
-					case 3:KA=0;break;
-					case 4:KA=0;break;
+					case 1:KA=6120;break;
+					case 2:KA=6120;break;
+					case 3:KA=6120;break;
+					case 4:KA=6120;break;
 				}
 				//Ì§Éý
 				switch(robot_mode.mode_up)

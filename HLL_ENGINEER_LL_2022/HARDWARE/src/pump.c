@@ -4,6 +4,7 @@
 void Pump_Init(void)
 {
 	
-	PUMP_OFF;     
+	PUMP_OFF;   
+	PUMP2_OFF;   
 }
 
