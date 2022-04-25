@@ -49,8 +49,8 @@ void tim3_base_init(void)
 	
   LL_TIM_EnableCounter(TIM3);
 	
-	LL_TIM_OC_SetCompareCH3(TIM3 ,0);//PB0_PWM_OUT(0)  ¶æ»ú2
-	LL_TIM_OC_SetCompareCH4(TIM3 ,0);//PB1_PWM_OUT(0)  ¶æ»ú3
+	LL_TIM_OC_SetCompareCH3(TIM3 ,500);//PB0_PWM_OUT(0)  ¾ÈÔ®×ó     //1000
+	LL_TIM_OC_SetCompareCH4(TIM3 ,1000);//PB1_PWM_OUT(0)  ¾ÈÔ®ÓÒ     //500
 //	//debug
 //	LL_TIM_EnableAllOutputs(TIM3);
 //	//debug
@@ -68,8 +68,8 @@ void tim9_base_init(void)
   LL_TIM_EnableCounter(TIM9);
   LL_TIM_EnableAllOutputs(TIM9);
 	
-	LL_TIM_OC_SetCompareCH1(TIM9 ,2000);//PE5_PWM_OUT(ccr)  ¶æ»ú4
-	LL_TIM_OC_SetCompareCH2(TIM9 ,2000);//PE6_PWM_OUT(ccr)  ¶æ»ú5
+	LL_TIM_OC_SetCompareCH1(TIM9 ,1500);//PE5_PWM_OUT(ccr)  ÉãÏñÍ·
+	LL_TIM_OC_SetCompareCH2(TIM9 ,1500);//PE6_PWM_OUT(ccr)  ¶æ»ú5
 }
 
 //encoder:x=tim2,tim4,tim5
