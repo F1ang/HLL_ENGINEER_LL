@@ -62,6 +62,8 @@ void Remoter_Task(void *pvParameters)
 	  robot_mode.mode_chip=1;//1ËÉ¿ª 2¼ÐÈ¡                                 //s1 
 	  robot_mode.mode_overturn=1;//1Æ½ 2·­                                //ch4
 		//robot_mode.action=1;//1¶Ò»» 2×ÊÔ´µº
+		robot_mode.mode_rescue=1;//1²»¾ÈÔ®2¾ÈÔ®
+		robot_mode.mode_revive=1;//1²»Éì³ö2¸´»î
 	}  
 	
 	//2¡¢³õÊ¼»¯
@@ -172,46 +174,61 @@ static void Robot_Rc_Mode_Change_Control(void)
 		return;
 	}
 	
-	//Ì§Éý    
+ //¾ÈÔ®
 	if(S2_CHANGED_TO(3,2))
 	{
-		if(up_flag==0)robot_mode.mode_up++;//Ë³ÐòÉý£¬Ë³Ðò½µ,ÊµÏÖ
-		else robot_mode.mode_up--;
-		
-		if(robot_mode.mode_up==3)up_flag=1;
-		if(robot_mode.mode_up==1)up_flag=0;	
-		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
+		robot_mode.mode_rescue++;
+		if(robot_mode.mode_rescue==3)robot_mode.mode_rescue=1;
+//		if(up_flag==0)robot_mode.mode_up++;//Ë³ÐòÉý£¬Ë³Ðò½µ,ÊµÏÖ
+//		else robot_mode.mode_up--;
+//		
+//		if(robot_mode.mode_up==3)up_flag=1;
+//		if(robot_mode.mode_up==1)up_flag=0;	
+//		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
 	}
-	
-	//Éì³ö
+
 	if(S2_CHANGED_TO(1,3))
 	{
-		if(stretch_flag==0)robot_mode.mode_stretch++;// 1 2 3 4
-		else robot_mode.mode_stretch--;
-		if(robot_mode.mode_stretch==4) stretch_flag=1;
-		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
+//		if(stretch_flag==0)robot_mode.mode_stretch++;// 1 2 3 4
+//		else robot_mode.mode_stretch--;
+//		if(robot_mode.mode_stretch==4) stretch_flag=1;
+//		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
 	}
-	//¼ÐÈ¡ and ·­×ª
-	if(S1_CHANGED_TO(3,1))
+//¸´»î¿¨
+	if(S2_CHANGED_TO(3,1))
 	{
-		robot_mode.mode_chip++;
-		if(robot_mode.mode_chip>2) robot_mode.mode_chip=0;
-		
-		if(robot_mode.mode_chip==1) robot_mode.mode_overturn=1;//ËÉ->Æ½
-		if(robot_mode.mode_chip==2&&robot_mode.mode_stretch==1) robot_mode.mode_overturn=2;//¼Ð and Ëõ->·­
-  	Set_Beep_Time(robot_mode.mode_chip, 1200, 50);
+		robot_mode.mode_revive++;
+		if(robot_mode.mode_revive==3)robot_mode.mode_revive=1;
+//		robot_mode.mode_chip++;
+//		if(robot_mode.mode_chip>2) robot_mode.mode_chip=0;
+//		
+//		if(robot_mode.mode_chip==1) robot_mode.mode_overturn=1;//ËÉ->Æ½
+//		if(robot_mode.mode_chip==2&&robot_mode.mode_stretch==1) robot_mode.mode_overturn=2;//¼Ð and Ëõ->·­
+//  	Set_Beep_Time(robot_mode.mode_chip, 1200, 50);
 	}
 	
 }
 
-///* ÏìÓ¦¼üÅÌÇÐ»»Ä£Ê½ */
-//void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* robot_mode)
-//{
-//	//ÅÐ¶ÏÊÇ²»ÊÇ¼üÊóÄ£Ê½
-//	if(robot_mode->control_device != 1)
-//	{
-//		return;
-//	}
+/* ÏìÓ¦¼üÅÌÇÐ»»Ä£Ê½ */
+void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* robot_mode)
+{
+	//ÅÐ¶ÏÊÇ²»ÊÇ¼üÊóÄ£Ê½
+	if(robot_mode->control_device != 1)
+	{
+		return;
+	}
+	//¾ÈÔ®
+	if(KEY_CLICKED(KEY_F))
+	{
+		robot_mode->mode_rescue++;
+		if(robot_mode->mode_rescue==3)robot_mode->mode_rescue=1;
+	}
+	//¸´»î
+	if(KEY_CLICKED(KEY_F))
+	{
+		robot_mode->mode_revive++;
+		if(robot_mode->mode_revive==3)robot_mode->mode_revive=1;
+	}
 //	if(remote_controller.mouse.press_l)//Éì³ö
 //	{
 //		stretch_flag=1;
@@ -233,5 +250,5 @@ static void Robot_Rc_Mode_Change_Control(void)
 //		robot_mode->mode_overturn=2;
 //		Set_Beep_Time(robot_mode->mode_overturn, 1200, 50);
 //	}
-//}
+}
 

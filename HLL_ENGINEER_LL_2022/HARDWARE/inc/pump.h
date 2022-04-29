@@ -7,8 +7,8 @@
 #define PUMP_ON     LL_GPIO_ResetOutputPin(GPIOF, LL_GPIO_PIN_10)			//RESET
 #define PUMP_OFF    LL_GPIO_SetOutputPin(GPIOF, LL_GPIO_PIN_10)
 
-#define PUMP2_ON     LL_GPIO_ResetOutputPin(GPIOI, LL_GPIO_PIN_9)			//SAVE
-#define PUMP2_OFF    LL_GPIO_SetOutputPin(GPIOI, LL_GPIO_PIN_9)
+#define REVIVE_ON     LL_GPIO_ResetOutputPin(GPIOI, LL_GPIO_PIN_9)			//SAVE
+#define REVIVE_OFF    LL_GPIO_SetOutputPin(GPIOI, LL_GPIO_PIN_9)
 
 void Pump_Init(void);
 

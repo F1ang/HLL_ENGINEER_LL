@@ -22,7 +22,7 @@ const static Robot_mode_t* chassis_robot_mode;
 static float chassis_motor_dynamic_rate = 10;
 static float mouse_x_dynamic_rate= 16.0f; //鼠标x轴灵敏度
 int real_motor_speed[4];
-
+int cam_duty=1500;
 void Chassis_Task(void *pvParameters)
 {
 	int16_t motor_speed[4] = {0, 0, 0, 0};
@@ -41,30 +41,32 @@ void Chassis_Task(void *pvParameters)
 		//键鼠控制
 		if(chassis_robot_mode->control_device == 1)
 		{					
-					motor_speed[0] = remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
-					motor_speed[1] = remoter_control->virtual_rocker.ch2 - remoter_control->virtual_rocker.ch3  + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
-					motor_speed[2] = -remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
-					motor_speed[3] = -remoter_control->virtual_rocker.ch2 - remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
+					motor_speed[0] = -remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
+					motor_speed[1] = -remoter_control->virtual_rocker.ch2 - remoter_control->virtual_rocker.ch3  + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
+					motor_speed[2] = remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
+					motor_speed[3] = remoter_control->virtual_rocker.ch2 - remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
 					
 					motor_speed[0] *= chassis_motor_dynamic_rate;
 					motor_speed[1] *= chassis_motor_dynamic_rate;
 					motor_speed[2] *= chassis_motor_dynamic_rate;
-					motor_speed[3] *= chassis_motor_dynamic_rate;	
+					motor_speed[3] *= chassis_motor_dynamic_rate;
+			    cam_duty=1500+remoter_control->virtual_rocker.ch1;
+          			
 		}		
 		//遥控器模式
 		else if(chassis_robot_mode->control_device == 2)
 		{
 					
-					motor_speed[0] = -remoter_control->rc.ch2 + remoter_control->rc.ch3 + remoter_control->rc.ch0;
-					motor_speed[1] = -remoter_control->rc.ch2 - remoter_control->rc.ch3 + remoter_control->rc.ch0;
-					motor_speed[2] = remoter_control->rc.ch2 + remoter_control->rc.ch3 + remoter_control->rc.ch0;
-					motor_speed[3] = remoter_control->rc.ch2 - remoter_control->rc.ch3 + remoter_control->rc.ch0;
+					motor_speed[0] = remoter_control->rc.ch2 + remoter_control->rc.ch3 + remoter_control->rc.ch0;
+					motor_speed[1] = remoter_control->rc.ch2 - remoter_control->rc.ch3 + remoter_control->rc.ch0;
+					motor_speed[2] = -remoter_control->rc.ch2 + remoter_control->rc.ch3 + remoter_control->rc.ch0;
+					motor_speed[3] = -remoter_control->rc.ch2 - remoter_control->rc.ch3 + remoter_control->rc.ch0;
 					
 					motor_speed[0] *= 11;
 					motor_speed[1] *= 11;
 					motor_speed[2] *= 11;
 					motor_speed[3] *= 11;
-			
+			    cam_duty=1500+remoter_control->rc.ch1;
 		}		
 		Ramp_Calc_Int(&real_motor_speed[0],50,motor_speed[0]);
 		Ramp_Calc_Int(&real_motor_speed[1],50,motor_speed[1]);
@@ -73,6 +75,8 @@ void Chassis_Task(void *pvParameters)
 
 		//底盘电机速度设置
 		Set_Chassis_Motors_Speed(real_motor_speed[0], real_motor_speed[1], real_motor_speed[2], real_motor_speed[3]);
+		//摄像头占空比设置
+		LL_TIM_OC_SetCompareCH1(TIM9 ,cam_duty);//PE5_PWM_OUT(ccr)  摄像头
     vTaskDelay(5); //延时5ms，也就是1000个时钟节拍	
 		
 	}

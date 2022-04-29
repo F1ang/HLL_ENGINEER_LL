@@ -16,7 +16,8 @@ typedef struct
 	uint8_t mode_stretch;// 1缩回 2伸出
 	uint8_t mode_chip;//1松开 2夹取
 	uint8_t mode_overturn;//翻转、松开、回位一套流程
-	
+	uint8_t mode_revive;//1不伸出 2复活
+	uint8_t mode_rescue;//1不救援 2救援
 }Robot_mode_t;
 
 

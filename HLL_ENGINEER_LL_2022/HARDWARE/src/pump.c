@@ -5,6 +5,6 @@ void Pump_Init(void)
 {
 	
 	PUMP_OFF;   
-	PUMP2_OFF;   
+	REVIVE_OFF;   
 }
 

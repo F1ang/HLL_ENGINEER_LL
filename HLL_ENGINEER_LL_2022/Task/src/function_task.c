@@ -163,7 +163,27 @@ void Function_Task(void *pvParameters)
 				else
 				{
 					PUMP_ON;              //º–»°¥˙¬Î  3-1
-				}										
+				}
+				//∏¥ªÓ
+				if(function_robot_mode->mode_revive==1)
+				{	
+					REVIVE_OFF;            
+				}
+				else
+				{
+					REVIVE_ON;              
+				}
+			  //æ»‘Æ
+				if(function_robot_mode->mode_rescue==1)
+				{	
+						LL_TIM_OC_SetCompareCH3(TIM3 ,500);//PB0_PWM_OUT(0)  æ»‘Æ◊Û     
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,1000);//PB1_PWM_OUT(0)  æ»‘Æ”“    
+				}
+				else
+				{
+						LL_TIM_OC_SetCompareCH3(TIM3 ,1200);//PB0_PWM_OUT(0)  æ»‘Æ◊Û     
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,500);//PB1_PWM_OUT(0)  æ»‘Æ”“     
+				}
 		}//remote_end
 		
 	
