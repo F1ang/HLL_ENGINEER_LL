@@ -20,7 +20,7 @@ void Start_Task(void *pvParameters)
 							(const char*    )"buzzer_task",
 							(uint16_t       )128,
 							(void*          )NULL,
-							(UBaseType_t    )3,
+							(UBaseType_t    )6,//3
 							(TaskHandle_t*  )&BuzzerTask_Handler);
 
 						
@@ -39,7 +39,7 @@ void Start_Task(void *pvParameters)
 							(void*          )NULL,
 							(UBaseType_t    )19,
 							(TaskHandle_t*  )&FunctionTask_Handler);
-	//反转任务						
+	//翻转任务						
 	xTaskCreate((TaskFunction_t )Overchip_Task,
 							(const char*    )"overchip_task",
 							(uint16_t       )256,

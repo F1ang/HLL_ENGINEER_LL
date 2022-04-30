@@ -33,8 +33,14 @@ typedef struct // M3508里程计专用结构体
 
 typedef struct // M550里程计专用结构体 
 {
+  uint16_t delta;	
+  uint16_t offest_angle;
+  int16_t count;      //圈数
+  s32 last_total_angle; 
+	uint16_t last_speed_rmp;
+
 	int16_t speed_rpm;  //转子转速
-  s32 total_angle;            //电机转动的总角度
+  s32 total_angle;    //电机转动的总角度
 }M550_Mileage;
 
 

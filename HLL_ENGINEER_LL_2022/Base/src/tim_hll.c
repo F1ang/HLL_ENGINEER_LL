@@ -12,6 +12,13 @@
 
 #include "tim_hll.h"   
      
+M550_Mileage motor550_l;
+M550_Mileage motor550_r; 
+M550_Mileage motor550_s;		 
+void get_550_measure(M550_Mileage *Mileage,uint8_t choise_motor);		 
+		 
+		 
+		 
 /*
     PI7     ------> TIM8_CH3
     PI6     ------> TIM8_CH2
@@ -51,10 +58,6 @@ void tim3_base_init(void)
 	
 	LL_TIM_OC_SetCompareCH3(TIM3 ,500);//PB0_PWM_OUT(0)  ¾ÈÔ®×ó     //1000
 	LL_TIM_OC_SetCompareCH4(TIM3 ,1000);//PB1_PWM_OUT(0)  ¾ÈÔ®ÓÒ     //500
-//	//debug
-//	LL_TIM_EnableAllOutputs(TIM3);
-//	//debug
-//	LL_TIM_OC_SetCompareCH1(TIM3,100);
 }
  /*
     PE5     ------> TIM9_CH1
@@ -111,24 +114,39 @@ void tim7_base_init(void)
 }
 
 
-M550_Mileage motor550_l;
-M550_Mileage motor550_r; 
-M550_Mileage motor550_s;
+
 void TIM7_IRQHandler(void)
 {
 	if(LL_TIM_IsActiveFlag_UPDATE(TIM7))
 	{
-	 //¶ÁÈ¡±àÂëÆ÷
-		motor550_l.speed_rpm=read_tim4_encoder();	
-		motor550_r.speed_rpm=-read_tim5_encoder();
-		motor550_s.speed_rpm=-read_tim2_encoder();    
-		motor550_l.total_angle+=motor550_l.speed_rpm;
-		motor550_r.total_angle+=motor550_r.speed_rpm;
-		motor550_s.total_angle+=motor550_s.speed_rpm;
-	
 		LL_TIM_ClearFlag_UPDATE(TIM7);
+		get_550_measure(&motor550_l,4);	
+		get_550_measure(&motor550_r,5);	
+		get_550_measure(&motor550_s,2);	
 	}
+}
 
+void get_550_measure(M550_Mileage *Mileage,uint8_t choise_motor)
+{
+	
+	Mileage->last_speed_rmp=Mileage->speed_rpm;
+	switch (choise_motor)
+	{
+	case 2:
+		Mileage->speed_rpm=read_tim2_encoder();//s
+		break;
+	case 4:
+		Mileage->speed_rpm=read_tim4_encoder();//l
+	break;
+	case 5:
+		Mileage->speed_rpm=-read_tim5_encoder();//r
+	break;	
+	default:
+		break;
+	}
+			Mileage->total_angle+=Mileage->speed_rpm;
+	
+	Mileage->delta=Mileage->total_angle-Mileage->last_total_angle;
 }
 
 
@@ -140,7 +158,6 @@ void tim12_base_init(void)
 */
 	LL_TIM_CC_EnableChannel(TIM12,LL_TIM_CHANNEL_CH1);
   LL_TIM_EnableCounter(TIM12);
-//	LL_TIM_EnableAllOutputs(TIM12);
 }
 
 

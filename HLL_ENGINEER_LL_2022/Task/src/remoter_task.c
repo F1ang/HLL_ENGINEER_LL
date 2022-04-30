@@ -174,25 +174,26 @@ static void Robot_Rc_Mode_Change_Control(void)
 		return;
 	}
 	
- //¾ÈÔ®
+// ¾ÈÔ®orÌ§Éý
 	if(S2_CHANGED_TO(3,2))
 	{
 		robot_mode.mode_rescue++;
 		if(robot_mode.mode_rescue==3)robot_mode.mode_rescue=1;
-//		if(up_flag==0)robot_mode.mode_up++;//Ë³ÐòÉý£¬Ë³Ðò½µ,ÊµÏÖ
-//		else robot_mode.mode_up--;
-//		
-//		if(robot_mode.mode_up==3)up_flag=1;
-//		if(robot_mode.mode_up==1)up_flag=0;	
-//		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
+		if(up_flag==0)robot_mode.mode_up++;//Ë³ÐòÉý£¬Ë³Ðò½µ,ÊµÏÖ
+		else robot_mode.mode_up--;
+		
+		if(robot_mode.mode_up==3)up_flag=1;
+		if(robot_mode.mode_up==1)up_flag=0;	
+		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
 	}
-
+//ÉìËõ
 	if(S2_CHANGED_TO(1,3))
 	{
-//		if(stretch_flag==0)robot_mode.mode_stretch++;// 1 2 3 4
-//		else robot_mode.mode_stretch--;
-//		if(robot_mode.mode_stretch==4) stretch_flag=1;
-//		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
+		if(stretch_flag==0)robot_mode.mode_stretch++;// 1 2 3 4
+		else robot_mode.mode_stretch--;
+		if(robot_mode.mode_stretch==4) stretch_flag=1;
+		if(robot_mode.mode_stretch==1) stretch_flag=0;
+		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
 	}
 //¸´»î¿¨
 	if(S2_CHANGED_TO(3,1))

@@ -52,7 +52,7 @@ BaseType_t Set_Beep_Time(uint8_t time, uint16_t pwm, uint16_t delay)
 {
 	Beep_play_t beep_msg_send;
 	beep_msg_send.pwm = pwm;
-	beep_msg_send.beep_time = time;
+	beep_msg_send.beep_time =2;//time->2£¬´óÓÚ5ËÆºõ»á×èÈû
 	beep_msg_send.delay_time = delay;
 	return xQueueSend(buzzer_queue, &beep_msg_send, 0);
 }

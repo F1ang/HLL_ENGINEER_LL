@@ -114,12 +114,12 @@ void Function_Task(void *pvParameters)
 		{
 				//…Ï≥ˆ
 				int KA;
-				switch(robot_mode.mode_stretch)//1 2 3 4
+				switch(robot_mode.mode_stretch)//…Ï≥ˆŒªµ„1 2 3 4
 				{
-					case 1:KA=6120;break;
-					case 2:KA=6120;break;
-					case 3:KA=6120;break;
-					case 4:KA=6120;break;
+					case 1:KA=0;break;
+					case 2:KA=-7120;break;//30600
+					case 3:KA=0;break;
+					case 4:KA=-7120;break;
 				}
 				//Ãß…˝
 				switch(robot_mode.mode_up)
@@ -133,10 +133,10 @@ void Function_Task(void *pvParameters)
 					break;
 			
 					case 1:
-					Set_550_Motors_Angle(0,-0,KA);
+					Set_550_Motors_Angle(0,0,KA);
 					break;
 			
-					default:PI5_PWM_OUT(0);PI6_PWM_OUT(1500);PB0_PWM_OUT(1500);PB1_PWM_OUT(1500);
+					default:PI5_PWM_OUT(1500);PI6_PWM_OUT(1500);PI7_PWM_OUT(1500);
 					break;
 				}
 
@@ -176,21 +176,23 @@ void Function_Task(void *pvParameters)
 			  //æ»‘Æ
 				if(function_robot_mode->mode_rescue==1)
 				{	
-						LL_TIM_OC_SetCompareCH3(TIM3 ,500);//PB0_PWM_OUT(0)  æ»‘Æ◊Û     
-	          LL_TIM_OC_SetCompareCH4(TIM3 ,1000);//PB1_PWM_OUT(0)  æ»‘Æ”“    
+						LL_TIM_OC_SetCompareCH3(TIM3 ,500);//PB0_PWM_OUT(0)  æ»‘Æ”“   500  
+					
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,900);//PB1_PWM_OUT(0)  æ»‘Æ◊Û  1000-1200  
 				}
 				else
 				{
-						LL_TIM_OC_SetCompareCH3(TIM3 ,1200);//PB0_PWM_OUT(0)  æ»‘Æ◊Û     
-	          LL_TIM_OC_SetCompareCH4(TIM3 ,500);//PB1_PWM_OUT(0)  æ»‘Æ”“     
+						LL_TIM_OC_SetCompareCH3(TIM3 ,900);//PB0_PWM_OUT(0)  æ»‘Æ”“     1200
+					
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,1200);//PB1_PWM_OUT(0)  æ»‘Æ◊Û     	500
 				}
 		}//remote_end
 		
-	
-		/***debug***/
-				printf("%d, %d\n",-6500,overturn_motor_li.total_angle);
-		//	printf("%d, %d\n",-75300,overturn_motor_li.total_angle);
-		
+/****DEBUG****/   		
+//µ˜≤ŒVOFA
+		//printf(" %d , %d  \n",6120,motor550_s.total_angle);		
+		//printf("%d, %d\n",-6500,overturn_motor_li.total_angle);
+		//printf("%d, %d\n",-75300,overturn_motor_li.total_angle);	
     vTaskDelay(5); //—” ±5ms£¨“≤æÕ «1000∏ˆ ±÷”Ω⁄≈ƒ			
 	}
 	

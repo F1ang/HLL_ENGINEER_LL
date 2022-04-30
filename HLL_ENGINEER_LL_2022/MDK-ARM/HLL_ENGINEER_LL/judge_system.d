@@ -8,7 +8,7 @@ hll_engineer_ll\judge_system.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ha
 hll_engineer_ll\judge_system.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 hll_engineer_ll\judge_system.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
 hll_engineer_ll\judge_system.o: ../Drivers/CMSIS/Include/core_cm4.h
-hll_engineer_ll\judge_system.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 hll_engineer_ll\judge_system.o: ../Drivers/CMSIS/Include/cmsis_version.h
 hll_engineer_ll\judge_system.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 hll_engineer_ll\judge_system.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -16,7 +16,7 @@ hll_engineer_ll\judge_system.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 hll_engineer_ll\judge_system.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 hll_engineer_ll\judge_system.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 hll_engineer_ll\judge_system.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-hll_engineer_ll\judge_system.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
 hll_engineer_ll\judge_system.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 hll_engineer_ll\judge_system.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 hll_engineer_ll\judge_system.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -44,7 +44,7 @@ hll_engineer_ll\judge_system.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll
 hll_engineer_ll\judge_system.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\FreeRTOS.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\FreeRTOSConfig.h
-hll_engineer_ll\judge_system.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\projdefs.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\portable.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -53,7 +53,7 @@ hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\mpu_wrappers.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\task.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\list.h
 hll_engineer_ll\judge_system.o: ..\Base\inc\usart_hll.h
-hll_engineer_ll\judge_system.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\judge_system.o: ../Core/Inc/usart.h
 hll_engineer_ll\judge_system.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\judge_system.o: ..\FreeRTOS\include\semphr.h
@@ -77,5 +77,5 @@ hll_engineer_ll\judge_system.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\judge_system.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\judge_system.o: ..\USERLIB\inc\crc_check.h
 hll_engineer_ll\judge_system.o: ..\USERLIB\inc\math2.h
-hll_engineer_ll\judge_system.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
 hll_engineer_ll\judge_system.o: ..\HARDWARE\inc\power_output.h

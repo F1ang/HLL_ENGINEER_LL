@@ -8,7 +8,7 @@ hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def
 hll_engineer_ll\remoter.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 hll_engineer_ll\remoter.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
 hll_engineer_ll\remoter.o: ../Drivers/CMSIS/Include/core_cm4.h
-hll_engineer_ll\remoter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 hll_engineer_ll\remoter.o: ../Drivers/CMSIS/Include/cmsis_version.h
 hll_engineer_ll\remoter.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 hll_engineer_ll\remoter.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -16,7 +16,7 @@ hll_engineer_ll\remoter.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 hll_engineer_ll\remoter.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-hll_engineer_ll\remoter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -45,7 +45,7 @@ hll_engineer_ll\remoter.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio
 hll_engineer_ll\remoter.o: ..\Task\inc\detect_task.h
 hll_engineer_ll\remoter.o: ..\FreeRTOS\include\FreeRTOS.h
 hll_engineer_ll\remoter.o: ..\FreeRTOS\include\FreeRTOSConfig.h
-hll_engineer_ll\remoter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 hll_engineer_ll\remoter.o: ..\FreeRTOS\include\projdefs.h
 hll_engineer_ll\remoter.o: ..\FreeRTOS\include\portable.h
 hll_engineer_ll\remoter.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -60,7 +60,7 @@ hll_engineer_ll\remoter.o: ..\HARDWARE\inc\led.h
 hll_engineer_ll\remoter.o: ../Core/Inc/gpio.h
 hll_engineer_ll\remoter.o: ..\Task\inc\buzzer_task.h
 hll_engineer_ll\remoter.o: ..\Base\inc\usart_hll.h
-hll_engineer_ll\remoter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\remoter.o: ../Core/Inc/usart.h
 hll_engineer_ll\remoter.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\remoter.o: ..\Task\inc\judge_task.h
@@ -78,4 +78,4 @@ hll_engineer_ll\remoter.o: ..\HARDWARE\inc\buzzer.h
 hll_engineer_ll\remoter.o: ..\HARDWARE\inc\can2_motor.h
 hll_engineer_ll\remoter.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\remoter.o: ..\USERLIB\inc\math2.h
-hll_engineer_ll\remoter.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
