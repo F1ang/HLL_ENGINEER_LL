@@ -7,6 +7,11 @@
  * 定义了局部结构体变量remote_controller用于储存遥控器数据
 */
 
+/*
+		键鼠:WSAD虚拟摇杆解析处理
+		摄像头Y轴解析处理
+*/
+
 #include "remoter.h"
 
 #include "remoter_task.h"
@@ -19,13 +24,12 @@
 #define RC_SW_MID ((uint8_t)3)
 #define RC_SW_DOWN ((uint8_t)2)
 
-
-
 #define ROCKER_DATA_CHECK(data) ((data > 660) || (data < -660))
 #define SWITCH_DATA_CHECK(data) (!((data == 1) || (data == 2) || (data == 3)))
 
 #define RC_KEY               rc->key.value
 #define KEY_PRESSED(key)     (RC_KEY & key)
+
 #define VIRTUAL_ROCKER_STEP1 5
 #define VIRTUAL_ROCKER_STEP2 10
 
@@ -63,9 +67,10 @@ void Parse_Remoter_Data(volatile const uint8_t *sbus_buf, Rc_ctrl_t *rc_ctrl)
 	Wasd_Key_To_Virtual_Rocker(rc_ctrl);
 
 	/* 鼠标x、y轴限幅 */
-	rc_ctrl->mouse.x = Int16_Limit(rc_ctrl->mouse.x, -1200, 1200);// /*加入math.c */
+	rc_ctrl->mouse.x = Int16_Limit(rc_ctrl->mouse.x, -1200, 1200);
 	rc_ctrl->mouse.y = Int16_Limit(rc_ctrl->mouse.y, -1200, 1200);
-
+	
+	/*DEBUG*/
 	//DEBUG_PRINT("ch1:%d ch2:%d ch3:%d ch4:%d\r\n", rc_ctrl->virtual_rocker.ch0, rc_ctrl->virtual_rocker.ch1, rc_ctrl->virtual_rocker.ch2, rc_ctrl->virtual_rocker.ch3);
 	//DEBUG_PRINT("mx:%d, my:%d, mz:%d\r\n", rc_ctrl->mouse.x, rc_ctrl->mouse.y, rc_ctrl->mouse.z);
 
@@ -85,7 +90,6 @@ uint8_t Remoter_Data_Check(Rc_ctrl_t *remote_controller)
 	}
 	if (ROCKER_DATA_CHECK(remote_controller->rc.ch1))
 	{
-//		printf("%d\r\n",remote_controller->rc.ch1);
 		return 2;
 	}
 	if (ROCKER_DATA_CHECK(remote_controller->rc.ch2))
@@ -161,8 +165,8 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 
 	 if(KEY_PRESSED(KEY_F)) DEBUG_PRINT("F\r\n");
 	 if(KEY_PRESSED(KEY_G)) DEBUG_PRINT("G\r\n");
-
-	/*只按下W时，不按下S*/
+	
+	/*只按下W时*/
 	if(KEY_PRESSED(KEY_W) && !(KEY_PRESSED(KEY_S)))
 	{
 		if(rc->virtual_rocker.ch3 < 0)
@@ -174,7 +178,7 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 			rc->virtual_rocker.ch3 += VIRTUAL_ROCKER_STEP1;
 		}
 	}
-	/*只按下S时，不按下W*/
+	/*只按下S时*/
 	else if(KEY_PRESSED(KEY_S) && !(KEY_PRESSED(KEY_W)))
 	{
 		if(rc->virtual_rocker.ch3 > 0)
@@ -202,9 +206,10 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 				rc->virtual_rocker.ch3 = 0;
 		}
 	}
-
+																												/***左右平移***/
+	//CH2
 	/*只按下D时*/
-	if(KEY_PRESSED(KEY_D) && !(KEY_PRESSED(KEY_A)))
+	if(KEY_PRESSED(KEY_A) && !(KEY_PRESSED(KEY_D)))
 	{
 		if(rc->virtual_rocker.ch2 < 0)
 		{
@@ -216,7 +221,7 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 		}
 	}
 	/*只按下A时*/
-	else if(KEY_PRESSED(KEY_A) && !(KEY_PRESSED(KEY_D)))
+	else if(KEY_PRESSED(KEY_D) && !(KEY_PRESSED(KEY_A)))
 	{
 		if(rc->virtual_rocker.ch2 > 0)
 		{
@@ -226,9 +231,8 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 		{
 			rc->virtual_rocker.ch2 -= VIRTUAL_ROCKER_STEP1;
 		}
-
 	}
-	/*A、D都未按下时*/
+	/*A、D都未按下时,斜波函数*/
 	else
 	{
 		if(rc->virtual_rocker.ch2 < 0)
@@ -244,13 +248,16 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 				rc->virtual_rocker.ch2 = 0;
 		}
 	}
+																					/***左右平移_END***/
+	
+	//左右转 CH0
 	if(rc->mouse.x!=0)
 	{
 		rc->virtual_rocker.ch0+=rc->mouse.x;
 		if(rc->virtual_rocker.ch0>660)rc->virtual_rocker.ch0=660;
 		if(rc->virtual_rocker.ch0<-660)rc->virtual_rocker.ch0=-660;
 	}
-	else rc->virtual_rocker.ch0=0;
+	else rc->virtual_rocker.ch0=rc->virtual_rocker.ch0;
 	
 	//摄像头
   if(rc->mouse.y!=0)
@@ -259,5 +266,6 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 		if(rc->virtual_rocker.ch1>660)rc->virtual_rocker.ch1=660;
 		if(rc->virtual_rocker.ch1<-660)rc->virtual_rocker.ch1=-660;
 	}
-	else rc->virtual_rocker.ch1=0;
+	else rc->virtual_rocker.ch1=rc->virtual_rocker.ch1;
+	
 }

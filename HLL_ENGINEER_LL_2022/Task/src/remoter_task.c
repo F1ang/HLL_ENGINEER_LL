@@ -1,16 +1,37 @@
+/*
+	1、遥控器:
+	S1(3,1)，1-键鼠，2-遥控
+	S2(3,2)，1-抬小，2-抬中，3-抬大     救援(暂时调试用)
+	S2(1,3)，1-缩回，2-伸中250，3-伸小15cm ，4-伸大
+	S2(3,1)，1-平，2-翻(夹紧和缩回到1->翻转)   复活卡(暂时调试用) 1-松，2-夹
+  CH2-左右平移，CH1-摄像头 ，CH0-左右，CH3-前后
+	
+	2、键鼠:
+	模式：M，1-键鼠，2-遥控(可选)
+	
+	抬升：Q，1-放下 2-抬小  3-抬大    Q+CTRL，放下  1-放下和微调关
+	remote_controller.press_l，2-升微调   remote_controller.press_r，3-降微调  
+	救援卡：F，1-不伸出 2-伸出
+	
+	伸缩：E，1-缩回 2-伸小 3-伸中 4-伸大	 E+CTRL，1-缩回
+	
+	爪子：R，1-翻，0-平
+	复活卡：G，1-伸，0-缩
+	夹取：C，1-夹，0-松
+
+	底盘：W-前，S-后，A-左平移,D-右平移，  (可优化-SHIFT+W/S/A/D,加速冲出)
+	屏幕：remote_controller.x-左右移   (Z-左，C-右) 
+	摄像头：remote_controller.y-上下移:静止值为0
+
+*/
+
 #include "remoter_task.h"  
 #include "remoter.h"
-////#include "judge_system.h"
-////#include "buzzer_task.h"
-////#include "shooter_task.h"
-////#include "detect_task.h"
-////#include "Motor.h"
+
 #define S1_VALUE       remote_controller.rc.s1
 #define S2_VALUE       remote_controller.rc.s2
 #define OLD_S1_VALUE   last_time_rc.rc.s1
 #define OLD_S2_VALUE   last_time_rc.rc.s2
-#define KEY_VALUE      remote_controller.key.value
-#define OLD_KEY_VALUE  last_time_rc.key.value
 
 #define S1_AT(a)       (S1_VALUE == (a))
 #define S2_AT(a)       (S2_VALUE == (a))
@@ -18,6 +39,9 @@
 #define S1_CHANGED_TO(a,b) ((OLD_S1_VALUE == (a)) && (S1_VALUE == (b)))
 #define S2_CHANGED_TO(a,b) ((OLD_S2_VALUE == (a)) && (S2_VALUE == (b)))
 
+//键鼠
+#define OLD_KEY_VALUE  last_time_rc.key.value
+#define KEY_VALUE      			remote_controller.key.value
 #define KEY_CLICKED(key)   (RC_KEY_PRESSED(KEY_VALUE,key) && (!RC_KEY_PRESSED(OLD_KEY_VALUE,key)))
 
 /* 函数声明 */
@@ -57,16 +81,20 @@ void Remoter_Task(void *pvParameters)
 	//初始化机器人模式
 	{
 		robot_mode.control_device=2;  //操控设备选择 1 键鼠  2遥控器
-		robot_mode.mode_up=1; //模式 1放下 2抬小10cm 3 抬大20cm             //s2
+		robot_mode.mode_up=1; //模式 1放下 2抬小10cm  3抬大20cm             //s2
 	  robot_mode.mode_stretch=1;// 1缩回 2伸中250 3伸小15cm  4伸大        //ch1
 	  robot_mode.mode_chip=1;//1松开 2夹取                                 //s1 
 	  robot_mode.mode_overturn=1;//1平 2翻                                //ch4
 		//robot_mode.action=1;//1兑换 2资源岛
 		robot_mode.mode_rescue=1;//1不救援2救援
 		robot_mode.mode_revive=1;//1不伸出2复活
+		
+		//键鼠
+		robot_mode.mode_up_small=1;//1-正常 2-升微调 3-降微调
+		robot_mode.mode_stretch_small=1;//1-正常 2-伸微调 3-缩微调
 	}  
 	
-	//2、初始化
+	//初始化
 	usart1_base_init(); 
 	vTaskDelay(200);  	 
 	
@@ -82,8 +110,6 @@ void Remoter_Task(void *pvParameters)
 
 			/* 解析遥控器数据 */
 			Parse_Remoter_Data(rc_rx_buf[rx_available_bufx], &remote_controller);
-			
-//			printf("%d\r\n",remote_controller.rc.ch1);
 			
 			/* 检测遥控器数据，是否合法如果不合法采取操作 */  
 		
@@ -102,11 +128,11 @@ void Remoter_Task(void *pvParameters)
 			/* 更新遥控器状态 */
 			Detect_Reload(0);  
 			
-			/* 机器人模式变换响应 */
+			/* 遥控器控制 */
 			Robot_Rc_Mode_Change_Control();
 			
 			/* 响应键盘控制 */
-//			Switch_Mouse_Key_Change(&remote_controller, &last_time_rc, &robot_mode);
+			Switch_Mouse_Key_Change(&remote_controller, &last_time_rc, &robot_mode);
 			
 			/* 保存本次遥控器状态 */
 			Rc_Data_Copy(&last_time_rc, &remote_controller);
@@ -179,12 +205,12 @@ static void Robot_Rc_Mode_Change_Control(void)
 	{
 		robot_mode.mode_rescue++;
 		if(robot_mode.mode_rescue==3)robot_mode.mode_rescue=1;
-		if(up_flag==0)robot_mode.mode_up++;//顺序升，顺序降,实现
-		else robot_mode.mode_up--;
-		
-		if(robot_mode.mode_up==3)up_flag=1;
-		if(robot_mode.mode_up==1)up_flag=0;	
-		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
+//		if(up_flag==0)robot_mode.mode_up++;//顺序升，顺序降,实现
+//		else robot_mode.mode_up--;
+//		
+//		if(robot_mode.mode_up==3)up_flag=1;
+//		if(robot_mode.mode_up==1)up_flag=0;	
+//		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
 	}
 //伸缩
 	if(S2_CHANGED_TO(1,3))
@@ -192,20 +218,20 @@ static void Robot_Rc_Mode_Change_Control(void)
 		if(stretch_flag==0)robot_mode.mode_stretch++;// 1 2 3 4
 		else robot_mode.mode_stretch--;
 		if(robot_mode.mode_stretch==4) stretch_flag=1;
-		if(robot_mode.mode_stretch==1) stretch_flag=0;
 		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
 	}
-//复活卡
+//复活卡 or 翻转 or 夹取
 	if(S2_CHANGED_TO(3,1))
 	{
-		robot_mode.mode_revive++;
-		if(robot_mode.mode_revive==3)robot_mode.mode_revive=1;
+//		robot_mode.mode_revive++;
+//		if(robot_mode.mode_revive==3)robot_mode.mode_revive=1;
 //		robot_mode.mode_chip++;
 //		if(robot_mode.mode_chip>2) robot_mode.mode_chip=0;
-//		
+		
 //		if(robot_mode.mode_chip==1) robot_mode.mode_overturn=1;//松->平
-//		if(robot_mode.mode_chip==2&&robot_mode.mode_stretch==1) robot_mode.mode_overturn=2;//夹 and 缩->翻
-//  	Set_Beep_Time(robot_mode.mode_chip, 1200, 50);
+		robot_mode.mode_overturn++;
+		if(robot_mode.mode_overturn>2) robot_mode.mode_overturn=1;//夹紧和缩回到1->翻
+  	Set_Beep_Time(robot_mode.mode_overturn, 1200, 50);
 	}
 	
 }
@@ -218,38 +244,90 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 	{
 		return;
 	}
-	//救援
-	if(KEY_CLICKED(KEY_F))
+										/***抬升***/
+	//1放下 2抬小 3 抬大
+	if(KEY_CLICKED(KEY_Q))
 	{
-		robot_mode->mode_rescue++;
-		if(robot_mode->mode_rescue==3)robot_mode->mode_rescue=1;
+		robot_mode->mode_up+=1;
+		if(robot_mode->mode_up>3)robot_mode->mode_up=1;
 	}
-	//复活
-	if(KEY_CLICKED(KEY_F))
+	//抬升微调
+	if(rc->mouse.press_l==1)
+	{
+		robot_mode->mode_up_small=2;
+	}
+	//放下微调
+	if(rc->mouse.press_r==1)  
+	{		
+		robot_mode->mode_up_small=3;
+	}
+	//放下
+	else if(KEY_CLICKED(KEY_Q)&KEY_CLICKED(KEY_CTRL))
+	{
+		robot_mode->mode_up=1;
+		robot_mode->mode_up_small=1;
+	}
+	
+										/***救援钩子***/
+	//1-不救 2-救援
+	if(KEY_CLICKED(KEY_F)==1)
 	{
 		robot_mode->mode_revive++;
 		if(robot_mode->mode_revive==3)robot_mode->mode_revive=1;
 	}
-//	if(remote_controller.mouse.press_l)//伸出
-//	{
-//		stretch_flag=1;
-//		robot_mode->mode_stretch++;
-//		if(robot_mode->mode_stretch==3) robot_mode->mode_stretch=1;
-//		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
-//	}
-//	if(remote_controller.mouse.press_r)//夹取
-//	{
-//		chip_flag=1;
-//		robot_mode->mode_chip++;
-//		if(robot_mode->mode_chip==3) robot_mode->mode_chip=1;
-//		Set_Beep_Time(robot_mode->mode_chip, 1200, 50);
-//	}
-//  if(KEY_CLICKED(KEY_E)&&robot_mode->mode_overturn==1)//翻转
-//	{
-//		overturn_angle=overturn_motor_li.mechanical_angle;
-//		overturn_angle_now=overturn_angle;
-//		robot_mode->mode_overturn=2;
-//		Set_Beep_Time(robot_mode->mode_overturn, 1200, 50);
-//	}
+
+										/***伸缩***/
+	//1-缩回 2-伸小 3-伸中 4-伸大	  E+CTRL，1-缩回
+	if(KEY_CLICKED(KEY_E))
+	{
+		robot_mode->mode_stretch++;
+		if(robot_mode->mode_stretch>4)robot_mode->mode_stretch=1;
+		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
+	}
+	//Z，2-伸微调   C,3-缩微调  
+	if(KEY_CLICKED(KEY_Z))
+	{
+		robot_mode->mode_stretch_small=2;
+		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
+	}
+	if(KEY_CLICKED(KEY_C))
+	{
+		robot_mode->mode_stretch_small=3;
+		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
+	}
+	else if(KEY_CLICKED(KEY_E)&KEY_CLICKED(KEY_CTRL))
+	{
+		robot_mode->mode_stretch_small=1;
+		robot_mode->mode_stretch=1;
+	}
+	
+										/***翻转***/
+	//1-平 2-翻
+	if(KEY_CLICKED(KEY_R))
+	{
+		robot_mode->mode_overturn++;
+		if(robot_mode->mode_overturn>2) robot_mode->mode_overturn=1;
+		Set_Beep_Time(robot_mode->mode_chip, 1200, 50);
+	}
+										/***复活卡***/
+	//1-不伸，2-伸
+	if(KEY_CLICKED(KEY_G))
+	{
+		robot_mode->mode_rescue++;
+		if(robot_mode->mode_rescue>2) robot_mode->mode_rescue=1;
+		Set_Beep_Time(robot_mode->mode_rescue, 1200, 50);
+	}
+											/***夹取***/
+	//1-松 2-夹
+	if(KEY_CLICKED(KEY_C))
+	{
+		robot_mode->mode_chip++;
+		if(robot_mode->mode_chip>2) robot_mode->mode_chip=1;
+		Set_Beep_Time(robot_mode->mode_chip, 1200, 50);
+	}
+	
+											/***屏幕***/
+	//remoter.c实现
+	
 }
 

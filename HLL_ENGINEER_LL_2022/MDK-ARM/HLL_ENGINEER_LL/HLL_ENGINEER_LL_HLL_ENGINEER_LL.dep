@@ -52,7 +52,7 @@ I (..\HARDWARE\inc\power_output.h)(0x6211D1D3)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -64,7 +64,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (..\Task\inc\buzzer_task.h)(0x6219CF27)
@@ -305,7 +305,7 @@ I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -317,7 +317,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -1193,7 +1193,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x617E9D85)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -1205,7 +1205,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -1270,7 +1270,7 @@ I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -1282,7 +1282,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -1339,7 +1339,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x617E9D85)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -1351,7 +1351,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -1462,7 +1462,7 @@ I (../Core/Inc/usart.h)(0x62652D22)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -1474,7 +1474,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (..\Task\inc\buzzer_task.h)(0x6219CF27)
@@ -1556,10 +1556,10 @@ I (..\USERLIB\inc\pid.h)(0x6220209F)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\buzzer_task.h)(0x6219CF27)
 I (..\HARDWARE\inc\buzzer.h)(0x6217011F)
 I (..\Base\inc\tim_hll.h)(0x6236AE05)
@@ -1621,7 +1621,7 @@ I (../Core/Inc/usart.h)(0x62652D22)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -1633,7 +1633,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (..\Task\inc\buzzer_task.h)(0x6219CF27)
@@ -1707,10 +1707,10 @@ I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -1726,8 +1726,8 @@ I (..\HARDWARE\inc\can2_motor.h)(0x6204BC95)
 I (..\Base\inc\can2_hll.h)(0x621DB1E6)
 I (..\HARDWARE\inc\judge_system.h)(0x6223418B)
 I (..\USERLIB\inc\crc_check.h)(0x6211C242)
-F (..\Task\src\remoter_task.c)(0x626D0595)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\remoter_task.o --omf_browse hll_engineer_ll\remoter_task.crf --depend hll_engineer_ll\remoter_task.d)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+F (..\Task\src\remoter_task.c)(0x628B58CC)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\remoter_task.o --omf_browse hll_engineer_ll\remoter_task.crf --depend hll_engineer_ll\remoter_task.d)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x5475F300)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x5475F300)
@@ -1742,7 +1742,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (../Core/Inc/main.h)(0x62652D24)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x617E9D84)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x62652D23)
@@ -1857,10 +1857,10 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x617E9D85)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -1880,7 +1880,7 @@ I (..\USERLIB\inc\crc_check.h)(0x6211C242)
 I (..\Task\inc\chassis_task.h)(0x61E3062C)
 I (..\Task\inc\function_task.h)(0x61E3062C)
 I (..\Task\inc\over_chip_task.h)(0x61E3062C)
-F (..\Task\src\buzzer_task.c)(0x626C81DA)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\buzzer_task.o --omf_browse hll_engineer_ll\buzzer_task.crf --depend hll_engineer_ll\buzzer_task.d)
+F (..\Task\src\buzzer_task.c)(0x628B5679)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\buzzer_task.o --omf_browse hll_engineer_ll\buzzer_task.crf --depend hll_engineer_ll\buzzer_task.d)
 I (..\Task\inc\buzzer_task.h)(0x6219CF27)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x5475F300)
@@ -1938,8 +1938,8 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x617E9D85)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -1955,7 +1955,7 @@ I (..\USERLIB\inc\pid.h)(0x6220209F)
 I (..\HARDWARE\inc\buzzer.h)(0x6217011F)
 I (..\HARDWARE\inc\can2_motor.h)(0x6204BC95)
 I (..\Base\inc\can2_hll.h)(0x621DB1E6)
-F (..\Task\src\chassis_task.c)(0x626B31E9)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\chassis_task.o --omf_browse hll_engineer_ll\chassis_task.crf --depend hll_engineer_ll\chassis_task.d)
+F (..\Task\src\chassis_task.c)(0x628B0BC3)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\chassis_task.o --omf_browse hll_engineer_ll\chassis_task.crf --depend hll_engineer_ll\chassis_task.d)
 I (..\Task\inc\chassis_task.h)(0x61E3062C)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x5475F300)
@@ -1969,10 +1969,10 @@ I (..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x61F1054F)
 I (..\FreeRTOS\include\mpu_wrappers.h)(0x61F1054B)
 I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (../Core/Inc/main.h)(0x62652D24)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x617E9D84)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x62652D23)
@@ -2035,7 +2035,7 @@ I (..\HARDWARE\inc\can1_motor.h)(0x621DBA63)
 I (..\Base\inc\can1_hll.h)(0x621DB1E6)
 I (..\USERLIB\inc\math2.h)(0x62234191)
 I (D:\keil5\ARM\ARMCC\include\math.h)(0x5475F2FE)
-F (..\Task\src\function_task.c)(0x626D45B6)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\function_task.o --omf_browse hll_engineer_ll\function_task.crf --depend hll_engineer_ll\function_task.d)
+F (..\Task\src\function_task.c)(0x628B505F)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\function_task.o --omf_browse hll_engineer_ll\function_task.crf --depend hll_engineer_ll\function_task.d)
 I (..\Task\inc\function_task.h)(0x61E3062C)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x5475F300)
@@ -2051,8 +2051,8 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (../Core/Inc/main.h)(0x62652D24)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x617E9D84)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x62652D23)
@@ -2186,8 +2186,8 @@ I (..\USERLIB\inc\motor.h)(0x626CA5F9)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
 I (..\Task\inc\buzzer_task.h)(0x6219CF27)
@@ -2334,8 +2334,8 @@ I (..\FreeRTOS\include\mpu_wrappers.h)(0x61F1054B)
 I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 F (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)()
-F (..\HARDWARE\src\remoter.c)(0x626B31E3)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\remoter.o --omf_browse hll_engineer_ll\remoter.crf --depend hll_engineer_ll\remoter.d)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+F (..\HARDWARE\src\remoter.c)(0x628B5D84)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Base\inc -I..\Task\inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I..\FreeRTOS\include -I..\FreeRTOS\portable\RVDS\ARM_CM4F -I..\HARDWARE\inc -I..\USERLIB\inc -I..\Task\inc -I../Drivers/CMSIS/Include-I C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE-I D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F427xx -DUSE_FULL_LL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DARM_MATH_CM4-o hll_engineer_ll\remoter.o --omf_browse hll_engineer_ll\remoter.crf --depend hll_engineer_ll\remoter.d)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (../Core/Inc/main.h)(0x62652D24)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x617E9D84)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x62652D23)
@@ -2388,7 +2388,7 @@ I (..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x61F1054F)
 I (..\FreeRTOS\include\mpu_wrappers.h)(0x61F1054B)
 I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
@@ -2507,7 +2507,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x617E9D85)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -2519,7 +2519,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -2583,7 +2583,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x617E9D85)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -2595,7 +2595,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -2664,10 +2664,10 @@ I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -2784,7 +2784,7 @@ I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -2796,7 +2796,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (..\Task\inc\buzzer_task.h)(0x6219CF27)
@@ -2899,7 +2899,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x617E9D85)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -2911,7 +2911,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
@@ -2990,10 +2990,10 @@ I (..\USERLIB\inc\motor.h)(0x626CA5F9)
 I (..\Base\inc\usart_hll.h)(0x62466F2A)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)
 I (..\Task\inc\buzzer_task.h)(0x6219CF27)
@@ -3203,7 +3203,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h)(0x617E9D85)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x617E9D85)
 I (../Core/Inc/usart.h)(0x62652D22)
-I (..\Task\inc\remoter_task.h)(0x626B31E9)
+I (..\Task\inc\remoter_task.h)(0x628B1053)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x61F1054B)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x61F1054B)
 I (..\FreeRTOS\include\projdefs.h)(0x61F1054B)
@@ -3215,7 +3215,7 @@ I (..\FreeRTOS\include\task.h)(0x61F1054B)
 I (..\FreeRTOS\include\list.h)(0x61F1054B)
 I (..\FreeRTOS\include\semphr.h)(0x61F1054B)
 I (..\FreeRTOS\include\queue.h)(0x61F1054B)
-I (..\HARDWARE\inc\remoter.h)(0x621B4507)
+I (..\HARDWARE\inc\remoter.h)(0x628B0C7D)
 I (..\Task\inc\detect_task.h)(0x6211BF07)
 I (..\HARDWARE\inc\led.h)(0x6217443D)
 I (../Core/Inc/gpio.h)(0x62652D13)

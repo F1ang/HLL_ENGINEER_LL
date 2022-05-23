@@ -33,6 +33,7 @@ extern u8 overturn_flag;
 extern s32 overturn_total_tar;
 extern s32 stretch_total_tar;
 s32 up_total_tar;
+static int KA,SetAngle_550_l,SetAngle_550_r,Small_T,Small_S;//抬升、伸出和微调
 
 extern M550_Mileage motor550_s;
 extern Pid_Position_t motor_overturn_speed_pid;
@@ -49,71 +50,107 @@ void Function_Task(void *pvParameters)
 	while(1)
 	{
 		LED_GREEN_TOGGLE;	
-		//键鼠控制
+																					/***键鼠控制***/
 		if(function_robot_mode->control_device == 1)
 		{
-			if(up_flag)//抬升
-			{
-				if(function_robot_mode->mode_up==1)
+																				/*伸出*/
+			//伸缩微调
+				switch(robot_mode.mode_stretch_small)
 				{
-					
-					            //添加下降代码
-					up_flag=0;
+					case 3:Small_S=-10;break;//缩微调	
+					case 2:Small_S=+10;break;//伸微调
+					case 1:Small_S=0;break;
+					default:	break;
+				}
+				//伸出位点1 2 3 4
+				switch(robot_mode.mode_stretch)
+				{
+					case 1:KA=0+Small_S;break;
+					case 2:KA=-7120+Small_S;break;//30600
+					case 3:KA=0+Small_S;break;
+					case 4:KA=-7120+Small_S;break;
+				}
+																				/*抬升*/
+				//抬升微调
+				switch(robot_mode.mode_up_small)
+				{
+					case 3:Small_T=-10;break;	
+					case 2:Small_T=+10;break;
+					case 1:Small_T=0;break;
+					default:	break;
+				}
+				//抬升进行
+				switch(robot_mode.mode_up)
+				{
+					case 3:
+						SetAngle_550_l=11000+Small_T;
+						SetAngle_550_r=-11000-Small_T;
+						Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
+					break;
+			
+					case 2:
+						SetAngle_550_l=9700+Small_T;
+						SetAngle_550_r=-9700-Small_T;
+						Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
+					break;
+			
+					case 1:
+						Set_550_Motors_Angle(0,0,KA);
+					break;
+			
+					default:PI5_PWM_OUT(1500);PI6_PWM_OUT(1500);PI7_PWM_OUT(1500);
+					break;
+				}
+																			/*救援钩子*/
+				if(function_robot_mode->mode_rescue==1)
+				{	
+						LL_TIM_OC_SetCompareCH3(TIM3 ,500);//PB0_PWM_OUT(0)  救援右   500  
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,900);//PB1_PWM_OUT(0)  救援左  1000-1200  
 				}
 				else
 				{
-					
-					            //添加抬升代码
-					up_flag=0;
+						LL_TIM_OC_SetCompareCH3(TIM3 ,900);//PB0_PWM_OUT(0)  救援右     1200
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,1200);//PB1_PWM_OUT(0)  救援左     	500
 				}
-			}
-			if(stretch_flag)//伸出
-			{
 				
-				if(function_robot_mode->mode_stretch==1)
+																			/*爪子*/
+				switch(robot_mode.mode_overturn)
 				{
-					
-					             //缩回代码
-					stretch_flag=0;
+					case 1:			//平: 
+						Set_Overturn_Motors_Angle(-82000);//-82000
+					break;
+				
+					case 2:			//翻:
+						Set_Overturn_Motors_Angle(-6500);//-6900
+					break;
+				}
+																			/*复活卡*/
+				if(function_robot_mode->mode_revive==1)
+				{	
+					REVIVE_OFF;            
 				}
 				else
 				{
-					
-					              //伸出代码
-					stretch_flag=0;
+					REVIVE_ON;              
 				}
-				
-			}
-			if(chip_flag)//夹取
-			{
+																			/*夹取*/
 				if(function_robot_mode->mode_chip==1)
-				{
-					
-					PUMP_OFF;	//松
-					chip_flag=0;
+				{	
+					PUMP_OFF;             
 				}
 				else
 				{
-					
 					PUMP_ON;              
-					chip_flag=0;
 				}
 				
-			}
-			if(function_robot_mode->mode_overturn==2)
-			{
-				if(overturn_seq==1)overturn_task_first();	            //翻转松开再翻回来一整套流程
-				if(overturn_seq==2)overturn_task_second();
-				function_robot_mode->mode_overturn=1;
-			}			
-		}//mouse_end
+																			/***屏幕***/
+				//remoter.c实现
+		}
 		
-		
-		//遥控器模式
+																							/***遥控器模式***/
 		else if(function_robot_mode->control_device == 2)
 		{
 				//伸出
-				int KA;
 				switch(robot_mode.mode_stretch)//伸出位点1 2 3 4
 				{
 					case 1:KA=0;break;
@@ -140,7 +177,7 @@ void Function_Task(void *pvParameters)
 					break;
 				}
 
-			//翻转  S1-3 to 1 ，与夹取关联
+			//翻转  S2-3 to 1 ，与夹取关联
 				switch(robot_mode.mode_overturn)
 				{
 					

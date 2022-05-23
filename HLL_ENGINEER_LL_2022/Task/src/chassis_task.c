@@ -38,7 +38,7 @@ void Chassis_Task(void *pvParameters)
 	
 	while(1)
 	{
-		//¼üÊó¿ØÖÆ
+		//¼üÊó¿ØÖÆ W-Ç° S-ºó A-×óÆ½ÒÆ D-ÓÒÆ½ÒÆ
 		if(chassis_robot_mode->control_device == 1)
 		{					
 					motor_speed[0] = -remoter_control->virtual_rocker.ch2 + remoter_control->virtual_rocker.ch3 + remoter_control->virtual_rocker.ch0/mouse_x_dynamic_rate;
