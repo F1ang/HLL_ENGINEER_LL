@@ -21,7 +21,7 @@ typedef struct
 	
 	/*键鼠微调*/
 	//抬升
-	uint8_t mode_up_small; //1-正常 2-升微调 3-放微调
+	uint8_t mode_up_small_l,mode_up_small_r; //1-正常 2-升微调 3-放微调
 	//伸缩 
 	uint8_t mode_stretch_small;//1-正常 2-伸微调 3-缩微调
 }Robot_mode_t;

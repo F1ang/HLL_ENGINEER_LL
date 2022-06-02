@@ -33,10 +33,13 @@ extern u8 overturn_flag;
 extern s32 overturn_total_tar;
 extern s32 stretch_total_tar;
 s32 up_total_tar;
-static int KA,SetAngle_550_l,SetAngle_550_r,Small_T,Small_S;//Ãß…˝°¢…Ï≥ˆ∫ÕŒ¢µ˜
 
 extern M550_Mileage motor550_s;
-extern Pid_Position_t motor_overturn_speed_pid;
+extern M550_Mileage motor550_l;
+extern M550_Mileage motor550_r;
+
+static int KA,SetAngle_550_l,SetAngle_550_r;
+static int Small_T,Small_T_l,Small_T_r,Small_S;//Ãß…˝°¢…Ï≥ˆ->Œ¢µ˜œ‡πÿ
 
 void Function_Task(void *pvParameters)
 {
@@ -55,62 +58,74 @@ void Function_Task(void *pvParameters)
 		{
 																				/*…Ï≥ˆ*/
 			//…ÏÀıŒ¢µ˜
-				switch(robot_mode.mode_stretch_small)
+				switch(robot_mode.mode_stretch_small)  
 				{
-					case 3:Small_S=-10;break;//ÀıŒ¢µ˜	
-					case 2:Small_S=+10;break;//…ÏŒ¢µ˜
+					case 3:Small_S=-300;break;//ÀıŒ¢µ˜	
+					case 2:Small_S=300;break;//…ÏŒ¢µ˜
 					case 1:Small_S=0;break;
 					default:	break;
 				}
 				//…Ï≥ˆŒªµ„1 2 3 4
 				switch(robot_mode.mode_stretch)
 				{
-					case 1:KA=0+Small_S;break;
-					case 2:KA=-7120+Small_S;break;//30600
-					case 3:KA=0+Small_S;break;
-					case 4:KA=-7120+Small_S;break;
+					case 1:KA=0;break;
+					case 2:KA=-7120;break;//30600
+					case 3:KA=0;break;
+					case 4:KA=-7120;break;
 				}
 																				/*Ãß…˝*/
-				//Ãß…˝Œ¢µ˜
-				switch(robot_mode.mode_up_small)
+				//Ãß…˝Œ¢µ˜:◊Û
+				switch(robot_mode.mode_up_small_l)
 				{
-					case 3:Small_T=-10;break;	
-					case 2:Small_T=+10;break;
-					case 1:Small_T=0;break;
+					case 2:Small_T_l=300;break;//+20
+					case 1:Small_T_l=0;break;
 					default:	break;
 				}
+				//Ãß…˝Œ¢µ˜:”“
+				switch(robot_mode.mode_up_small_r)
+				{
+					case 2:Small_T_r=-300;break;
+					case 1:Small_T_r=0;break;
+					default:	break;
+				}
+				
 				//Ãß…˝Ω¯––
 				switch(robot_mode.mode_up)
 				{
 					case 3:
-						SetAngle_550_l=11000+Small_T;
-						SetAngle_550_r=-11000-Small_T;
+						SetAngle_550_l=5700;
+						SetAngle_550_r=-5700;
 						Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
 					break;
 			
 					case 2:
-						SetAngle_550_l=9700+Small_T;
-						SetAngle_550_r=-9700-Small_T;
+						SetAngle_550_l=2700;
+						SetAngle_550_r=-2700;
 						Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
 					break;
 			
 					case 1:
+						SetAngle_550_l=0;
+						SetAngle_550_r=0;
 						Set_550_Motors_Angle(0,0,KA);
 					break;
 			
 					default:PI5_PWM_OUT(1500);PI6_PWM_OUT(1500);PI7_PWM_OUT(1500);
 					break;
 				}
+				//Œ¢µ˜
+				//if(Small_T_r!=1|Small_T_l!=1|Small_S!=1)Set_550_Motors_Angle(SetAngle_550_l+Small_T_l,SetAngle_550_r+Small_T_r,KA+Small_S);
+				
 																			/*æ»‘Æπ≥◊”*/
 				if(function_robot_mode->mode_rescue==1)
 				{	
-						LL_TIM_OC_SetCompareCH3(TIM3 ,500);//PB0_PWM_OUT(0)  æ»‘Æ”“   500  
-	          LL_TIM_OC_SetCompareCH4(TIM3 ,900);//PB1_PWM_OUT(0)  æ»‘Æ◊Û  1000-1200  
+						LL_TIM_OC_SetCompareCH3(TIM3 ,950);//PB0_PWM_OUT(0)  æ»‘Æ”“   900  
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,900);//PB1_PWM_OUT(0)  æ»‘Æ◊Û  
 				}
 				else
 				{
-						LL_TIM_OC_SetCompareCH3(TIM3 ,900);//PB0_PWM_OUT(0)  æ»‘Æ”“     1200
-	          LL_TIM_OC_SetCompareCH4(TIM3 ,1200);//PB1_PWM_OUT(0)  æ»‘Æ◊Û     	500
+						LL_TIM_OC_SetCompareCH3(TIM3 ,780);//PB0_PWM_OUT(0)  æ»‘Æ”“     600--800
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,1150);//PB1_PWM_OUT(0)  æ»‘Æ◊Û    1100-1200 	
 				}
 				
 																			/*◊¶◊”*/
@@ -144,7 +159,7 @@ void Function_Task(void *pvParameters)
 				}
 				
 																			/***∆¡ƒª***/
-				//remoter.c µœ÷
+				//remoter.c÷– µœ÷
 		}
 		
 																							/***“£øÿ∆˜ƒ£ Ω***/
@@ -154,19 +169,20 @@ void Function_Task(void *pvParameters)
 				switch(robot_mode.mode_stretch)//…Ï≥ˆŒªµ„1 2 3 4
 				{
 					case 1:KA=0;break;
-					case 2:KA=-7120;break;//30600
+					case 2:KA=-3060;break;//30600
 					case 3:KA=0;break;
-					case 4:KA=-7120;break;
+					case 4:KA=-3060;break;
 				}
+
 				//Ãß…˝
 				switch(robot_mode.mode_up)
 				{
 					case 3:
-					Set_550_Motors_Angle(11000,-11000,KA);
+						Set_550_Motors_Angle(5000,-5700,KA);//l r s
 					break;
 			
 					case 2:
-					Set_550_Motors_Angle(9700,-9700,KA);
+						Set_550_Motors_Angle(2000,-2700,KA);
 					break;
 			
 					case 1:
@@ -176,7 +192,7 @@ void Function_Task(void *pvParameters)
 					default:PI5_PWM_OUT(1500);PI6_PWM_OUT(1500);PI7_PWM_OUT(1500);
 					break;
 				}
-
+//			Set_550_Motors_Speed(remoter_control->rc.ch4,-remoter_control->rc.ch4,KA);
 			//∑≠◊™  S2-3 to 1 £¨”Îº–»°πÿ¡™
 				switch(robot_mode.mode_overturn)
 				{
@@ -213,20 +229,25 @@ void Function_Task(void *pvParameters)
 			  //æ»‘Æ
 				if(function_robot_mode->mode_rescue==1)
 				{	
-						LL_TIM_OC_SetCompareCH3(TIM3 ,500);//PB0_PWM_OUT(0)  æ»‘Æ”“   500  
+						LL_TIM_OC_SetCompareCH3(TIM3 ,950);//PB0_PWM_OUT(0)  æ»‘Æ”“   900  
 					
 	          LL_TIM_OC_SetCompareCH4(TIM3 ,900);//PB1_PWM_OUT(0)  æ»‘Æ◊Û  1000-1200  
 				}
 				else
 				{
-						LL_TIM_OC_SetCompareCH3(TIM3 ,900);//PB0_PWM_OUT(0)  æ»‘Æ”“     1200
+						LL_TIM_OC_SetCompareCH3(TIM3 ,780);//PB0_PWM_OUT(0)  æ»‘Æ”“     600
 					
-	          LL_TIM_OC_SetCompareCH4(TIM3 ,1200);//PB1_PWM_OUT(0)  æ»‘Æ◊Û     	500
+	          LL_TIM_OC_SetCompareCH4(TIM3 ,1150);//PB1_PWM_OUT(0)  æ»‘Æ◊Û     	500
 				}
 		}//remote_end
 		
 /****DEBUG****/   		
 //µ˜≤ŒVOFA
+		printf(" %d,%d\n",-SetAngle_550_l/15,motor550_l.speed_rpm);	//-287  
+		
+		//printf("%d, %d\n",2700,motor550_l.total_angle);		
+		//printf("%d, %d\n",9700,motor550_r.total_angle);
+		
 		//printf(" %d , %d  \n",6120,motor550_s.total_angle);		
 		//printf("%d, %d\n",-6500,overturn_motor_li.total_angle);
 		//printf("%d, %d\n",-75300,overturn_motor_li.total_angle);	

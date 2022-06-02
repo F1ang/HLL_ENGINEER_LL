@@ -10,17 +10,20 @@
 	模式：M，1-键鼠，2-遥控(可选)
 	
 	抬升：Q，1-放下 2-抬小  3-抬大    Q+CTRL，放下  1-放下和微调关
-	remote_controller.press_l，2-升微调   remote_controller.press_r，3-降微调  
+	remote_controller.press_l，2-左升微调   remote_controller.press_r，3-右微调  
 	救援卡：F，1-不伸出 2-伸出
 	
+	
 	伸缩：E，1-缩回 2-伸小 3-伸中 4-伸大	 E+CTRL，1-缩回
+	Z，2-伸微调   C,3-缩微调  
 	
 	爪子：R，1-翻，0-平
 	复活卡：G，1-伸，0-缩
 	夹取：C，1-夹，0-松
 
+
 	底盘：W-前，S-后，A-左平移,D-右平移，  (可优化-SHIFT+W/S/A/D,加速冲出)
-	屏幕：remote_controller.x-左右移   (Z-左，C-右) 
+	屏幕：remote_controller.x-左右移    
 	摄像头：remote_controller.y-上下移:静止值为0
 
 */
@@ -90,7 +93,8 @@ void Remoter_Task(void *pvParameters)
 		robot_mode.mode_revive=1;//1不伸出2复活
 		
 		//键鼠
-		robot_mode.mode_up_small=1;//1-正常 2-升微调 3-降微调
+		robot_mode.mode_up_small_l=1;//1-正常 2-左升微调 
+		robot_mode.mode_up_small_r=1;//1-正常 2-右升微调 
 		robot_mode.mode_stretch_small=1;//1-正常 2-伸微调 3-缩微调
 	}  
 	
@@ -203,21 +207,24 @@ static void Robot_Rc_Mode_Change_Control(void)
 // 救援or抬升
 	if(S2_CHANGED_TO(3,2))
 	{
-		robot_mode.mode_rescue++;
-		if(robot_mode.mode_rescue==3)robot_mode.mode_rescue=1;
+//		robot_mode.mode_rescue++;
+//		if(robot_mode.mode_rescue==3)robot_mode.mode_rescue=1;
+		
 //		if(up_flag==0)robot_mode.mode_up++;//顺序升，顺序降,实现
 //		else robot_mode.mode_up--;
 //		
 //		if(robot_mode.mode_up==3)up_flag=1;
 //		if(robot_mode.mode_up==1)up_flag=0;	
-//		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
+		
+		robot_mode.mode_up+=1;
+		if(robot_mode.mode_up>3)robot_mode.mode_up=1;
+		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
 	}
 //伸缩
 	if(S2_CHANGED_TO(1,3))
 	{
-		if(stretch_flag==0)robot_mode.mode_stretch++;// 1 2 3 4
-		else robot_mode.mode_stretch--;
-		if(robot_mode.mode_stretch==4) stretch_flag=1;
+		robot_mode.mode_stretch++;
+		if(robot_mode.mode_stretch>4)robot_mode.mode_stretch=1;
 		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
 	}
 //复活卡 or 翻转 or 夹取
@@ -229,7 +236,7 @@ static void Robot_Rc_Mode_Change_Control(void)
 //		if(robot_mode.mode_chip>2) robot_mode.mode_chip=0;
 		
 //		if(robot_mode.mode_chip==1) robot_mode.mode_overturn=1;//松->平
-		robot_mode.mode_overturn++;
+		robot_mode.mode_overturn+=1;
 		if(robot_mode.mode_overturn>2) robot_mode.mode_overturn=1;//夹紧和缩回到1->翻
   	Set_Beep_Time(robot_mode.mode_overturn, 1200, 50);
 	}
@@ -246,27 +253,32 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 	}
 										/***抬升***/
 	//1放下 2抬小 3 抬大
-	if(KEY_CLICKED(KEY_Q))
+	if(KEY_CLICKED(KEY_Q)&!KEY_CLICKED(KEY_CTRL))
 	{
 		robot_mode->mode_up+=1;
 		if(robot_mode->mode_up>3)robot_mode->mode_up=1;
-	}
-	//抬升微调
-	if(rc->mouse.press_l==1)
-	{
-		robot_mode->mode_up_small=2;
-	}
-	//放下微调
-	if(rc->mouse.press_r==1)  
-	{		
-		robot_mode->mode_up_small=3;
 	}
 	//放下
 	else if(KEY_CLICKED(KEY_Q)&KEY_CLICKED(KEY_CTRL))
 	{
 		robot_mode->mode_up=1;
-		robot_mode->mode_up_small=1;
+		robot_mode->mode_up_small_l=1;
+		robot_mode->mode_up_small_r=1;
 	}
+	
+	//左微调
+	if(rc->mouse.press_l==1)
+	{
+		robot_mode->mode_up_small_l=2;
+	}
+	else robot_mode->mode_up_small_l=1;
+	//右微调
+	if(rc->mouse.press_r==1)  
+	{		
+		robot_mode->mode_up_small_r=2;
+	}
+	else robot_mode->mode_up_small_r=1;
+	
 	
 										/***救援钩子***/
 	//1-不救 2-救援
@@ -278,21 +290,10 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 
 										/***伸缩***/
 	//1-缩回 2-伸小 3-伸中 4-伸大	  E+CTRL，1-缩回
-	if(KEY_CLICKED(KEY_E))
+	if(KEY_CLICKED(KEY_E)&!KEY_CLICKED(KEY_CTRL))
 	{
 		robot_mode->mode_stretch++;
 		if(robot_mode->mode_stretch>4)robot_mode->mode_stretch=1;
-		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
-	}
-	//Z，2-伸微调   C,3-缩微调  
-	if(KEY_CLICKED(KEY_Z))
-	{
-		robot_mode->mode_stretch_small=2;
-		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
-	}
-	if(KEY_CLICKED(KEY_C))
-	{
-		robot_mode->mode_stretch_small=3;
 		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
 	}
 	else if(KEY_CLICKED(KEY_E)&KEY_CLICKED(KEY_CTRL))
@@ -300,6 +301,20 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 		robot_mode->mode_stretch_small=1;
 		robot_mode->mode_stretch=1;
 	}
+	
+	//Z，2-伸微调   C,3-缩微调  
+	if(KEY_CLICKED(KEY_Z)&!KEY_CLICKED(KEY_CTRL))
+	{
+		robot_mode->mode_stretch_small=2;
+		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
+	}
+	if(KEY_CLICKED(KEY_C)&!KEY_CLICKED(KEY_CTRL))
+	{
+		robot_mode->mode_stretch_small=3;
+		Set_Beep_Time(robot_mode->mode_stretch, 1200, 50);
+	}
+	else if(!KEY_CLICKED(KEY_Z)&!KEY_CLICKED(KEY_CTRL))
+		robot_mode->mode_stretch_small=1;
 	
 										/***翻转***/
 	//1-平 2-翻
