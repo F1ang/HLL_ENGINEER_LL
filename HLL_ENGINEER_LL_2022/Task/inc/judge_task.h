@@ -10,6 +10,8 @@
 #include "crc_check.h"
 #include "led.h"
 #include "tim_hll.h"   
+
+#include "client_ui_task.h"
 extern TaskHandle_t JudgeTask_Handler;
 
 extern void Judge_Task(void *pvParameters);

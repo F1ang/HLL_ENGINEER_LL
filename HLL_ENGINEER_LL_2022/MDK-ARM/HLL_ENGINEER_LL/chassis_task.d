@@ -74,6 +74,12 @@ hll_engineer_ll\chassis_task.o: ../Core/Inc/tim.h
 hll_engineer_ll\chassis_task.o: ..\Base\inc\encoder.h
 hll_engineer_ll\chassis_task.o: ..\USERLIB\inc\motor.h
 hll_engineer_ll\chassis_task.o: ..\USERLIB\inc\pid.h
+hll_engineer_ll\chassis_task.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\chassis_task.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\chassis_task.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\chassis_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\chassis_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\chassis_task.o: ..\Task\inc\client_ui_task.h
 hll_engineer_ll\chassis_task.o: ..\Task\inc\buzzer_task.h
 hll_engineer_ll\chassis_task.o: ..\HARDWARE\inc\buzzer.h
 hll_engineer_ll\chassis_task.o: ..\HARDWARE\inc\can2_motor.h
@@ -81,4 +87,3 @@ hll_engineer_ll\chassis_task.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\chassis_task.o: ..\HARDWARE\inc\can1_motor.h
 hll_engineer_ll\chassis_task.o: ..\Base\inc\can1_hll.h
 hll_engineer_ll\chassis_task.o: ..\USERLIB\inc\math2.h
-hll_engineer_ll\chassis_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h

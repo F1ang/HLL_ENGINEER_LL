@@ -1,5 +1,5 @@
 #include "judge_system.h"
-//#include "crc_check.h"
+#include "crc_check.h"
 #include "math2.h"
 #include "remoter_task.h"
 #include "power_output.h"
@@ -29,11 +29,13 @@ uint8_t Analysis_Data(u8 *get_data, uint16_t data_len);
 static uint8_t Analysis_Buff_Data(u8 *data_package, uint16_t data_len);
 static uint8_t Analysis_Bullet_Remain_Data(u8 *data_package, uint16_t data_len);
 static uint8_t Analysis_RFID_Data(u8 *data_package, uint16_t data_len);
-
+static uint8_t Analysis_Robot_HP_Data(u8 *data_package, uint16_t data_len);
+static uint8_t Analysis_Robot_Status_Data(u8 *data_package, uint16_t data_len);
+static uint8_t Analysis_Power_Heat_Data(u8 *data_package, uint16_t data_len);
 //裁判系统数据定义
 static Judge_data_t judge_data;
 
-const Judge_data_t* Get_Judge_Data(void)
+Judge_data_t* Get_Judge_Data(void)   
 {
 	return &judge_data;
 }
@@ -43,12 +45,13 @@ const Judge_data_t* Get_Judge_Data(void)
   描述  ：解析裁判系统数据
   参数  ：get_data需要解析的帧头数据，data_len数据长度
   返回值：0--解析失败 1--解析成功
+  frame_header(5-byte)+cmd_id (2-byte)+data (n-byte)+frame_tail (2-byte，CRC16，整包校验)
 */
 uint8_t Analysis_Judge_System(u8 *get_data, u16 data_len)
 {
 	u8 a5_position[8]; //0xA5的位置
 	u8 a5_number = 0;  //0xA5的个数（数据包个数）
-	u16 data_length[8];  //每个data数据包的长度
+	u16 data_length[8];  //每个数据包的长度
 	
 	//寻找帧头
 	Find_All_A5(get_data, data_len, a5_position, &a5_number);
@@ -171,28 +174,34 @@ uint16_t Analysis_Cmd_Id(u8 *get_data)
 /*
   函数名：Analysis_Data
   描述  ：解析data数据
-  参数  ：get_data需要解析的数据包, data_len data的长度
+  参数  ：get_data需要解析的数据包, data_len 数据段的长度
   返回值：0--解析失败 1--解析成功
 */
 uint8_t Analysis_Data(u8 *get_data, uint16_t data_len)
 {
 	uint16_t cmd_id = get_data[5] | (get_data[6]<<8);
-	
+	//printf("cmd_id=%lx\r\n",(long)cmd_id);  
 	switch (cmd_id)
 	{
 		//机器人增益
 		case Buff_Data:
 			return Analysis_Buff_Data(&get_data[7], data_len);
-		 // break;
+		//解析子弹剩余量	
 		case Bullet_Remain_Data:
 			return Analysis_Bullet_Remain_Data(&get_data[7], data_len);
-		 // break;
+		//解析RFID	
 		case RFID_Data:
-			return Analysis_RFID_Data(&get_data[7], data_len);
-		 // break;
-		
+			return Analysis_RFID_Data(&get_data[7], data_len);	
+		//机器人血量
+		case Robot_HP:
+			return	Analysis_Robot_HP_Data(&get_data[7],data_len);
+		//机器人状态
+		case Robot_Status:
+			return Analysis_Robot_Status_Data(&get_data[7],data_len);
+		//实时热量
+		case Power_Heat:
+			return Analysis_Power_Heat_Data(&get_data[7],data_len);
 	}
-	
 	return 0x0A;
 }
 
@@ -201,7 +210,7 @@ static uint8_t Analysis_Buff_Data(u8 *data_package, uint16_t data_len)
 {
 	if(data_len != 1)
 	{
-		JUDGE_ERROR(503);
+		JUDGE_ERROR(501);
 		return 0;
 	}
 	judge_data.ext_buff_t.power_rune_buff=data_package[0];
@@ -213,7 +222,7 @@ static uint8_t Analysis_Bullet_Remain_Data(u8 *data_package, uint16_t data_len)
 {
 	if(data_len != 6)
 	{
-		JUDGE_ERROR(503);
+		JUDGE_ERROR(502);
 		return 0;
 	}
 	judge_data.ext_bullet_remaining_t.bullet_remaining_num_17mm=U8_Array_To_U16(&data_package[0]);
@@ -232,4 +241,67 @@ static uint8_t Analysis_RFID_Data(u8 *data_package, uint16_t data_len)
 	judge_data.ext_rfid_status_t.rfid_status=U8_Array_To_U32(&data_package[0]);
 	return 1;
 }
+//解析HP
+static uint8_t Analysis_Robot_HP_Data(u8 *data_package, uint16_t data_len)
+{
+	if(data_len != 32)
+	{
+		JUDGE_ERROR(504);
+		return 0;
+	}
+	judge_data.ext_game_robot_HP_t.red_1_robot_HP=U8_Array_To_U16(&data_package[0]);
+	judge_data.ext_game_robot_HP_t.red_2_robot_HP=U8_Array_To_U16(&data_package[2]);
+	judge_data.ext_game_robot_HP_t.red_3_robot_HP=U8_Array_To_U16(&data_package[4]);
+	judge_data.ext_game_robot_HP_t.red_4_robot_HP=U8_Array_To_U16(&data_package[6]);
+	judge_data.ext_game_robot_HP_t.red_5_robot_HP=U8_Array_To_U16(&data_package[8]);
+	judge_data.ext_game_robot_HP_t.red_7_robot_HP=U8_Array_To_U16(&data_package[10]);
+	judge_data.ext_game_robot_HP_t.red_outpost_HP=U8_Array_To_U16(&data_package[12]);
+	judge_data.ext_game_robot_HP_t.red_base_HP=U8_Array_To_U16(&data_package[14]);
+
+	judge_data.ext_game_robot_HP_t.blue_1_robot_HP=U8_Array_To_U16(&data_package[16]);
+	judge_data.ext_game_robot_HP_t.blue_2_robot_HP=U8_Array_To_U16(&data_package[18]);
+	judge_data.ext_game_robot_HP_t.blue_3_robot_HP=U8_Array_To_U16(&data_package[20]);
+	judge_data.ext_game_robot_HP_t.blue_4_robot_HP=U8_Array_To_U16(&data_package[22]);
+	judge_data.ext_game_robot_HP_t.blue_5_robot_HP=U8_Array_To_U16(&data_package[24]);
+	judge_data.ext_game_robot_HP_t.blue_7_robot_HP=U8_Array_To_U16(&data_package[26]);
+	judge_data.ext_game_robot_HP_t.blue_outpost_HP=U8_Array_To_U16(&data_package[28]);
+	judge_data.ext_game_robot_HP_t.blue_base_HP=U8_Array_To_U16(&data_package[30]);
+	return 1;
+}
+
+//解析机器人状态
+static uint8_t Analysis_Robot_Status_Data(u8 *data_package, uint16_t data_len)
+{
+	if(data_len != 27)
+	{
+		JUDGE_ERROR(504);
+		return 0;
+	}
+	judge_data.ext_game_robot_status_t.robot_id=data_package[0];
+	judge_data.ext_game_robot_status_t.robot_level=data_package[1];
+	judge_data.ext_game_robot_status_t.remain_HP=U8_Array_To_U16(&data_package[2]);
+	judge_data.ext_game_robot_status_t.max_HP=U8_Array_To_U16(&data_package[4]);
+	judge_data.ext_game_robot_status_t.chassis_power_limit=U8_Array_To_U16(&data_package[24]);
+	//printf("remain_HP=%d\r\n",	judge_data.ext_game_robot_status_t.remain_HP);
+	return 1;
+}
+
+//解析热量数据
+static uint8_t Analysis_Power_Heat_Data(u8 *data_package, uint16_t data_len)
+{
+	if(data_len != 16)
+	{
+		JUDGE_ERROR(505);
+		return 0;
+	}
+	judge_data.ext_power_heat_data_t.chassis_power=U8_Array_To_U16(&data_package[4]);
+	//printf("chassis_power=%f\r\n",judge_data.ext_power_heat_data_t.chassis_power);  
+	return 1;
+}
+
+
+
+
+
+
 

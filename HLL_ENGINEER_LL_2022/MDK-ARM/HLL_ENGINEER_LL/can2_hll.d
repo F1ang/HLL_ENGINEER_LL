@@ -77,3 +77,9 @@ hll_engineer_ll\can2_hll.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\can2_hll.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\can2_hll.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\can2_hll.o: ..\USERLIB\inc\crc_check.h
+hll_engineer_ll\can2_hll.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\can2_hll.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\can2_hll.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\can2_hll.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\can2_hll.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\can2_hll.o: ..\Task\inc\client_ui_task.h

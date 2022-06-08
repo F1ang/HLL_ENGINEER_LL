@@ -15,7 +15,7 @@ void Judge_Task(void *pvParameters)
 {
 	judge_buf = Get_Judge_Buf();  
 	//3、初始化
-	usart8_base_init();
+	uart8_base_init();
 	vTaskDelay(200);
 
 	
@@ -32,13 +32,20 @@ void Judge_Task(void *pvParameters)
 		//更新裁判系统状态
 		Detect_Reload(5);  
 		
-		//下一行是打印所有原始数据
-		DEBUG_SHOWDATA1("judge_buf_len", judge_buf_len); for(u8 i=0; i<judge_buf_len; i++){DEBUG_PRINT("%d ", judge_buf_copy[0]);} DEBUG_PRINT("\r\n");
-		
+		//DEBUG
+//		DEBUG_SHOWDATA1("judge_buf_len", judge_buf_len);
+//		for(u8 i=0; i<judge_buf_len; i++){DEBUG_PRINT("%d ", judge_buf_copy[i]);} 
+//		DEBUG_PRINT("\r\n");
+
 		//解析裁判系统数据
 		Analysis_Judge_System(judge_buf_copy, judge_buf_len);  
 		
+		//发送UI二值信号量
+		Ui_Update();
+		
+		vTaskDelay(5); 
 	}
+	
 }
 
 

@@ -42,7 +42,7 @@ const uint8_t* Get_Rc_Bufferx(uint8_t bufx);
 uint8_t Get_Rc_Available_Bufferx(void);
 void Usart1_DMA_Reset(void);
 
-void USART8_RxIdleCallback(void);
+void UART8_RxIdleCallback(void);
 const uint8_t* Get_Judge_Buf(void);
 uint8_t Get_Judge_Buf_Len(void);
 
@@ -52,7 +52,7 @@ uint8_t Get_Judge_Buf_Len_6(void);
 
 void usart1_base_init(void);
 void usart6_base_init(void);
-void usart8_base_init(void);
+void uart8_base_init(void);
 
 extern uint8_t usart8_send(uint8_t data);//UI_DMA_ÂÖÑ¯
 #endif

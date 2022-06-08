@@ -668,6 +668,11 @@
               <FileType>1</FileType>
               <FilePath>..\Task\src\over_chip_task.c</FilePath>
             </File>
+            <File>
+              <FileName>client_ui_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Task\src\client_ui_task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -822,6 +827,16 @@
               <FileName>custom_ui.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\USERLIB\src\custom_ui.c</FilePath>
+            </File>
+            <File>
+              <FileName>client_ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USERLIB\src\client_ui.c</FilePath>
+            </File>
+            <File>
+              <FileName>UI_Draw.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USERLIB\src\UI_Draw.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -80,3 +80,8 @@ hll_engineer_ll\motor_550.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\motor_550.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\motor_550.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\motor_550.o: ..\USERLIB\inc\crc_check.h
+hll_engineer_ll\motor_550.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\motor_550.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\motor_550.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\motor_550.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\motor_550.o: ..\Task\inc\client_ui_task.h

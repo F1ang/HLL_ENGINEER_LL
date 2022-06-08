@@ -76,3 +76,9 @@ hll_engineer_ll\stm32f4xx_it.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\stm32f4xx_it.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\stm32f4xx_it.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\stm32f4xx_it.o: ..\USERLIB\inc\crc_check.h
+hll_engineer_ll\stm32f4xx_it.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\stm32f4xx_it.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\stm32f4xx_it.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\stm32f4xx_it.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\stm32f4xx_it.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\stm32f4xx_it.o: ..\Task\inc\client_ui_task.h

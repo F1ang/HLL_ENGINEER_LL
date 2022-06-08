@@ -64,6 +64,14 @@ void Start_Task(void *pvParameters)
 							(void*          )NULL,
 							(UBaseType_t    )24,
 							(TaskHandle_t*  )&DetectTask_Handler);
+							
+		//UI任务						
+	xTaskCreate((TaskFunction_t )Client_Ui_Task,              
+							(const char*    )"client_ui_task",
+							(uint16_t       )256,
+							(void*          )NULL,
+							(UBaseType_t    )9,
+							(TaskHandle_t*  )&Client_Ui_Task_Handler);							
 	
 //	//创建监听CPU使用率任务
 //	#if CHECK_CPU_USE

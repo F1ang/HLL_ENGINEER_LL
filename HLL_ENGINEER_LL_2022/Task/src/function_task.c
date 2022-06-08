@@ -178,11 +178,11 @@ void Function_Task(void *pvParameters)
 				switch(robot_mode.mode_up)
 				{
 					case 3:
-						Set_550_Motors_Angle(5000,-5700,KA);//l r s
+						Set_550_Motors_Angle(5700,-5700,KA);//l r s
 					break;
 			
 					case 2:
-						Set_550_Motors_Angle(2000,-2700,KA);
+						Set_550_Motors_Angle(2700,-2700,KA);
 					break;
 			
 					case 1:
@@ -193,6 +193,7 @@ void Function_Task(void *pvParameters)
 					break;
 				}
 //			Set_550_Motors_Speed(remoter_control->rc.ch4,-remoter_control->rc.ch4,KA);
+//				Set_550_Motors_Speed(0,0,remoter_control->rc.ch4);
 			//翻转  S2-3 to 1 ，与夹取关联
 				switch(robot_mode.mode_overturn)
 				{
@@ -203,7 +204,7 @@ void Function_Task(void *pvParameters)
 						break;
 					
 					case 2:			//翻:
-						Set_Overturn_Motors_Angle(-6500);//-6900
+						Set_Overturn_Motors_Angle(-6500);//-6900 -6200
 						break;
 					
 				}
@@ -243,7 +244,7 @@ void Function_Task(void *pvParameters)
 		
 /****DEBUG****/   		
 //调参VOFA
-		printf(" %d,%d\n",-SetAngle_550_l/15,motor550_l.speed_rpm);	//-287  
+		//printf(" %d,%d\n",-SetAngle_550_l/15,motor550_l.speed_rpm);	//-287  
 		
 		//printf("%d, %d\n",2700,motor550_l.total_angle);		
 		//printf("%d, %d\n",9700,motor550_r.total_angle);

@@ -382,7 +382,7 @@ void USART6_IRQHandler(void)
 void UART8_IRQHandler(void)
 {
   /* USER CODE BEGIN UART8_IRQn 0 */
-	USART8_RxIdleCallback();
+	UART8_RxIdleCallback();   
   /* USER CODE END UART8_IRQn 0 */
   /* USER CODE BEGIN UART8_IRQn 1 */
 

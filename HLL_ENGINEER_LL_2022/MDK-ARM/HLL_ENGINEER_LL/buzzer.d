@@ -78,3 +78,9 @@ hll_engineer_ll\buzzer.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\buzzer.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\buzzer.o: ..\USERLIB\inc\crc_check.h
 hll_engineer_ll\buzzer.o: ..\Base\inc\tim_hll.h
+hll_engineer_ll\buzzer.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\buzzer.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\buzzer.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\buzzer.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\buzzer.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\buzzer.o: ..\Task\inc\client_ui_task.h

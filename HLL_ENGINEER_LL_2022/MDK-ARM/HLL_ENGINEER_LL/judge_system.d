@@ -76,6 +76,11 @@ hll_engineer_ll\judge_system.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\judge_system.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\judge_system.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\judge_system.o: ..\USERLIB\inc\crc_check.h
-hll_engineer_ll\judge_system.o: ..\USERLIB\inc\math2.h
+hll_engineer_ll\judge_system.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\judge_system.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\judge_system.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
 hll_engineer_ll\judge_system.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\judge_system.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\judge_system.o: ..\USERLIB\inc\math2.h
 hll_engineer_ll\judge_system.o: ..\HARDWARE\inc\power_output.h

@@ -2,8 +2,9 @@
 
 /* 定义变量 */
 M3508_Mileage overturn_motor_li;
-static Pid_Position_t motor_overturn_speed_pid = NEW_POSITION_PID(36, 0.15, 0.89, 2000, 10000, 0, 1000, 500); 			//翻转电机速度PID
-static Pid_Position_t motor_overturn_angle_pid = NEW_POSITION_PID(0.1, 0.05, 0.07, 1000, 2000, 0, 100, 50); 				//翻转电机角度PID				//翻转电机角度PID
+																						//p i d  max_err_integral max_out  is_integral_spare begin_integral stop_grow_integral
+static Pid_Position_t motor_overturn_speed_pid = NEW_POSITION_PID(2.5, 0, 0.02, 800, 14000, 0, 200, 500); 			//翻转电机速度PID
+static Pid_Position_t motor_overturn_angle_pid = NEW_POSITION_PID(0.1, 0.05, 0, 600, 8100, 0, 200, 500);				//翻转电机角度PID
 
 static s16 motor_ampere[4]={0,0,0,0};
 /* 函数声明 */

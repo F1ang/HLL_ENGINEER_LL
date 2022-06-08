@@ -46,6 +46,7 @@
 "hll_engineer_ll\chassis_task.o"
 "hll_engineer_ll\function_task.o"
 "hll_engineer_ll\over_chip_task.o"
+"hll_engineer_ll\client_ui_task.o"
 "hll_engineer_ll\croutine.o"
 "hll_engineer_ll\event_groups.o"
 "hll_engineer_ll\list.o"
@@ -73,6 +74,8 @@
 "hll_engineer_ll\pid.o"
 "hll_engineer_ll\sys.o"
 "hll_engineer_ll\custom_ui.o"
+"hll_engineer_ll\client_ui.o"
+"hll_engineer_ll\ui_draw.o"
 --library_type=microlib --strict --scatter "HLL_ENGINEER_LL\HLL_ENGINEER_LL.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

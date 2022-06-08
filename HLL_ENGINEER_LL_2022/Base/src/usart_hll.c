@@ -135,37 +135,35 @@ void Usart1_DMA_Reset(void)
 
 
 //裁判系统，补充配置  ，注：RX采用DMA,TX采用轮询
-void usart8_base_init(void)
+void uart8_base_init(void)
 {
 	//RX
 	LL_DMA_SetPeriphAddress(DMA1, LL_DMA_STREAM_6, (uint32_t)(&UART8->DR));
   LL_DMA_SetMemoryAddress(DMA1, LL_DMA_STREAM_6, (uint32_t)uart8_rx_buf);
   LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_6, 128);
-	LL_DMA_EnableStream(DMA1,LL_DMA_STREAM_6);
 		
-	LL_USART_EnableDMAReq_RX(UART8);
-	LL_USART_ClearFlag_IDLE(UART8);
+	LL_DMA_ClearFlag_TC6(DMA1);		
+	LL_USART_ClearFlag_IDLE(UART8); 
 	LL_USART_EnableIT_IDLE(UART8);   //注：使用IDLE+BUFF的DMA模式
+	LL_USART_EnableDMAReq_RX(UART8);
+	LL_DMA_EnableStream(DMA1,LL_DMA_STREAM_6);
 }
 /*裁判系统，串口8中断回调*/
-void USART8_RxIdleCallback(void)
+void UART8_RxIdleCallback(void)
 {
 		if(LL_USART_IsActiveFlag_IDLE(UART8))			
 		{			
 			LL_DMA_DisableStream(DMA1, LL_DMA_STREAM_6);
-			LL_USART_ClearFlag_IDLE(UART8); 									
-			
+			LL_USART_ClearFlag_IDLE(UART8);
+			LL_DMA_ClearFlag_TC6(DMA1);//add1			
 			//已接收数据长度
-		  uart8_rx_length = 128 - LL_DMA_GetDataLength (DMA1, LL_DMA_STREAM_6);
-			
-			//debug
-			LED_RED_OFF;
-			
+		  	uart8_rx_length = 128 - LL_DMA_GetDataLength (DMA1, LL_DMA_STREAM_6);
 			//重设传输长度
 			LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_6, 128);
+			//debug
+			LED_RED_OFF;
 			// 通知裁判系统任务	
-			Notify_Judge_Task(uart8_rx_length);				  		
-					
+			Notify_Judge_Task(uart8_rx_length);				  			
 			LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_6);						
 		}
 }
@@ -223,9 +221,6 @@ void USART6_RxIdleCallback(void)
 			
 			//已接收数据长度
 		  uart6_rx_length = 128 - LL_DMA_GetDataLength (DMA2, LL_DMA_STREAM_1);
-			
-//			//debug
-//			LED_RED_OFF;
 			
 			//重设传输长度
 			LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_1, 128);

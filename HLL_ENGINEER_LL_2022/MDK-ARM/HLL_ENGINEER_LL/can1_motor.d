@@ -78,3 +78,9 @@ hll_engineer_ll\can1_motor.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\can1_motor.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\can1_motor.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\can1_motor.o: ..\USERLIB\inc\crc_check.h
+hll_engineer_ll\can1_motor.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\can1_motor.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\can1_motor.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\can1_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\can1_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\can1_motor.o: ..\Task\inc\client_ui_task.h

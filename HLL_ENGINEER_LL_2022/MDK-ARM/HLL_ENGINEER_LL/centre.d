@@ -78,5 +78,11 @@ hll_engineer_ll\centre.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\centre.o: ..\Task\inc\judge_task.h
 hll_engineer_ll\centre.o: ..\HARDWARE\inc\judge_system.h
 hll_engineer_ll\centre.o: ..\USERLIB\inc\crc_check.h
+hll_engineer_ll\centre.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\centre.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\centre.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\centre.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\centre.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\centre.o: ..\Task\inc\client_ui_task.h
 hll_engineer_ll\centre.o: ..\HARDWARE\inc\pump.h
 hll_engineer_ll\centre.o: ..\Base\inc\can1_hll.h

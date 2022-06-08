@@ -73,9 +73,14 @@ hll_engineer_ll\remoter.o: ../Core/Inc/tim.h
 hll_engineer_ll\remoter.o: ..\Base\inc\encoder.h
 hll_engineer_ll\remoter.o: ..\USERLIB\inc\motor.h
 hll_engineer_ll\remoter.o: ..\USERLIB\inc\pid.h
+hll_engineer_ll\remoter.o: ..\Task\inc\client_ui_task.h
+hll_engineer_ll\remoter.o: ..\USERLIB\inc\UI_Draw.h
+hll_engineer_ll\remoter.o: ..\USERLIB\inc\client_ui.h
+hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\remoter.o: ..\Task\inc\client_ui_task.h
 hll_engineer_ll\remoter.o: ..\Task\inc\buzzer_task.h
 hll_engineer_ll\remoter.o: ..\HARDWARE\inc\buzzer.h
 hll_engineer_ll\remoter.o: ..\HARDWARE\inc\can2_motor.h
 hll_engineer_ll\remoter.o: ..\Base\inc\can2_hll.h
 hll_engineer_ll\remoter.o: ..\USERLIB\inc\math2.h
-hll_engineer_ll\remoter.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
