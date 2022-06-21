@@ -57,61 +57,84 @@ void Function_Task(void *pvParameters)
 		if(function_robot_mode->control_device == 1)
 		{
 																				/*伸出*/
-			//伸缩微调
+			//开环伸缩
 				switch(robot_mode.mode_stretch_small)  
 				{
-					case 3:Small_S=-300;break;//缩微调	
-					case 2:Small_S=300;break;//伸微调
-					case 1:Small_S=0;break;
-					default:	break;
-				}
-				//伸出位点1 2 3 4
-				switch(robot_mode.mode_stretch)
-				{
-					case 1:KA=0;break;
-					case 2:KA=-7120;break;//30600
-					case 3:KA=0;break;
-					case 4:KA=-7120;break;
-				}
-																				/*抬升*/
-				//抬升微调:左
-				switch(robot_mode.mode_up_small_l)
-				{
-					case 2:Small_T_l=300;break;//+20
-					case 1:Small_T_l=0;break;
-					default:	break;
-				}
-				//抬升微调:右
-				switch(robot_mode.mode_up_small_r)
-				{
-					case 2:Small_T_r=-300;break;
-					case 1:Small_T_r=0;break;
+					case 3:Small_S-=10;break;//缩	
+					case 2:Small_S+=10;break;//伸
+					//case 1:Small_S=0;break;
 					default:	break;
 				}
 				
-				//抬升进行
-				switch(robot_mode.mode_up)
+				//伸出位点1 2 3 4	
+				if(robot_mode.mode_open_stretch==1)
 				{
-					case 3:
-						SetAngle_550_l=5700;
-						SetAngle_550_r=-5700;
-						Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
-					break;
-			
-					case 2:
-						SetAngle_550_l=2700;
-						SetAngle_550_r=-2700;
-						Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
-					break;
-			
-					case 1:
-						SetAngle_550_l=0;
-						SetAngle_550_r=0;
-						Set_550_Motors_Angle(0,0,KA);
-					break;
-			
-					default:PI5_PWM_OUT(1500);PI6_PWM_OUT(1500);PI7_PWM_OUT(1500);
-					break;
+						switch(robot_mode.mode_stretch)
+						{
+							case 1:KA=0;break;
+							case 2:KA=-7120;break;//30600
+							case 3:KA=0;break;
+							case 4:KA=-7120;break;
+						}
+				}
+				else 
+				{
+								KA=Small_S;
+				}
+																				/*抬升*/		
+				//抬升进行               
+			 if(robot_mode.mode_open_up==1)
+				 {
+						switch(robot_mode.mode_up)
+						{
+							case 3:
+								SetAngle_550_l=5700;
+								SetAngle_550_r=-5700;
+								Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
+							break;
+					
+							case 2:
+								SetAngle_550_l=2700;
+								SetAngle_550_r=-2700;
+								Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
+							break;
+					
+							case 1:
+								SetAngle_550_l=0;
+								SetAngle_550_r=0;
+								Set_550_Motors_Angle(0,0,KA);
+							break;
+					
+							default:PI5_PWM_OUT(1500);PI6_PWM_OUT(1500);PI7_PWM_OUT(1500);
+							break;
+						}
+				}
+				 //开环
+				else 
+				{
+						//开环升
+						switch(robot_mode.mode_up_small_l)
+						{
+							case 2:Small_T_l+=10;break;//+20
+							//case 1:Small_T_l=0;break;
+							default:	break;
+						}
+						//开环降
+						switch(robot_mode.mode_up_small_r)
+						{
+							case 2:Small_T_l=-10;break;
+							//case 1:Small_T_r=0;break;
+							default:	break;
+						}
+						
+						if(Small_T_l>Small_T_l_Max)Small_T_l=Small_T_l_Max;
+						else if(Small_T_l<Small_T_l_Min)Small_T_l=Small_T_l_Min;
+					
+						if(KA>KA_Max)KA=KA_Max;
+						else if(KA<KA_Min)KA=KA_Min;
+					
+						if(robot_mode.mode_up_small_l==2)Set_550_Motors_Angle(Small_T_l,-Small_T_l,KA);//升
+						if(robot_mode.mode_up_small_r==2)Set_550_Motors_Angle(Small_T_l,-Small_T_l,KA);//降
 				}
 				//微调
 				//if(Small_T_r!=1|Small_T_l!=1|Small_S!=1)Set_550_Motors_Angle(SetAngle_550_l+Small_T_l,SetAngle_550_r+Small_T_r,KA+Small_S);
@@ -137,6 +160,10 @@ void Function_Task(void *pvParameters)
 				
 					case 2:			//翻:
 						Set_Overturn_Motors_Angle(-6500);//-6900
+					break;
+					
+					case 3:
+						
 					break;
 				}
 																			/*复活卡*/
@@ -199,12 +226,12 @@ void Function_Task(void *pvParameters)
 				{
 					
 					case 1:			//平: 
-						Set_Overturn_Motors_Angle(-82000);//-82000
+						Set_Overturn_Motors_Angle(-72000);//-82000  降
 					//Set_Overturn_Motors_Speed(overturn_total_tar);//速度16384（角度取值8192）
 						break;
 					
 					case 2:			//翻:
-						Set_Overturn_Motors_Angle(-6500);//-6900 -6200
+						Set_Overturn_Motors_Angle(-6500);//-6500 -6200 抬
 						break;
 					
 				}
@@ -250,7 +277,11 @@ void Function_Task(void *pvParameters)
 		//printf("%d, %d\n",9700,motor550_r.total_angle);
 		
 		//printf(" %d , %d  \n",6120,motor550_s.total_angle);		
-		//printf("%d, %d\n",-6500,overturn_motor_li.total_angle);
+		
+		//printf("%d\n",overturn_motor_li.speed_rpm);
+		
+		
+		
 		//printf("%d, %d\n",-75300,overturn_motor_li.total_angle);	
     vTaskDelay(5); //延时5ms，也就是1000个时钟节拍			
 	}

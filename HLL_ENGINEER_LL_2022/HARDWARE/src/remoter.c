@@ -249,23 +249,26 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 		}
 	}
 																					/***×óÓÒÆ½ÒÆ_END***/
-	
-	//×óÓÒ×ª CH0
-	if(rc->mouse.x!=0)
-	{
-		rc->virtual_rocker.ch0+=rc->mouse.x;
-		if(rc->virtual_rocker.ch0>660)rc->virtual_rocker.ch0=660;
-		if(rc->virtual_rocker.ch0<-660)rc->virtual_rocker.ch0=-660;
-	}
-	else rc->virtual_rocker.ch0=rc->virtual_rocker.ch0;
-	
-	//ÉãÏñÍ·
-  if(rc->mouse.y!=0)
-	{
-		rc->virtual_rocker.ch1+=rc->mouse.y;
-		if(rc->virtual_rocker.ch1>660)rc->virtual_rocker.ch1=660;
-		if(rc->virtual_rocker.ch1<-660)rc->virtual_rocker.ch1=-660;
-	}
-	else rc->virtual_rocker.ch1=rc->virtual_rocker.ch1;
-	
+		//×óÓÒ×ª CH0
+		if(rc->mouse.x!=0)
+		{
+			rc->virtual_rocker.ch0=rc->mouse.x*30;
+			if(rc->virtual_rocker.ch0>660)rc->virtual_rocker.ch0=660;
+			if(rc->virtual_rocker.ch0<-660)rc->virtual_rocker.ch0=-660;
+		}
+		else rc->virtual_rocker.ch0=rc->virtual_rocker.ch0;
+
+		//ÉãÏñÍ·
+		if(robot_mode.mode_rescue==1)
+		{
+			if(rc->mouse.y!=0)
+			{
+				rc->virtual_rocker.ch1+=rc->mouse.y;
+				if(rc->virtual_rocker.ch1>660)rc->virtual_rocker.ch1=660;
+				if(rc->virtual_rocker.ch1<-660)rc->virtual_rocker.ch1=-660;
+			}
+			else rc->virtual_rocker.ch1=rc->virtual_rocker.ch1;
+		}	
+		else {}
+		
 }

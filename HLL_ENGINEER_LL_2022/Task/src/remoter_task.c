@@ -10,22 +10,25 @@
 	模式：M，1-键鼠，2-遥控(可选)
 	
 	抬升：Q，1-放下 2-抬小  3-抬大    Q+CTRL，放下  1-放下和微调关
-	remote_controller.press_l，2-左升微调   remote_controller.press_r，3-右微调  
-	救援卡：F，1-不伸出 2-伸出
+	 
+	救援爪：F，1-不伸出 2-伸出
 	
 	
 	伸缩：E，1-缩回 2-伸小 3-伸中 4-伸大	 E+CTRL，1-缩回
-	Z，2-伸微调   C,3-缩微调  
+	  
 	
-	爪子：R，1-翻，0-平
-	复活卡：G，1-伸，0-缩
+	爪子：R，1-翻，0-平    ---->1-低 2-平 3-翻 
+	复活卡：G，1-伸，0-缩  ---->停止Y轴 
 	夹取：C，1-夹，0-松
 
 
 	底盘：W-前，S-后，A-左平移,D-右平移，  (可优化-SHIFT+W/S/A/D,加速冲出)
 	屏幕：remote_controller.x-左右移    
 	摄像头：remote_controller.y-上下移:静止值为0
-
+	
+	注:
+	V-抬升开环：remote_controller.press_l，2-左升   remote_controller.press_r，3-右降 
+	B-伸缩开环：Z，2-伸   X,3-缩
 */
 
 #include "remoter_task.h"  
@@ -84,15 +87,17 @@ void Remoter_Task(void *pvParameters)
 	//初始化机器人模式
 	{
 		robot_mode.control_device=2;  //操控设备选择 1 键鼠  2遥控器
-		robot_mode.mode_up=1; //模式 1放下 2抬小10cm  3抬大20cm             //s2
-	  robot_mode.mode_stretch=1;// 1缩回 2伸中250 3伸小15cm  4伸大        //ch1
-	  robot_mode.mode_chip=1;//1松开 2夹取                                 //s1 
-	  robot_mode.mode_overturn=1;//1平 2翻                                //ch4
+		robot_mode.mode_up=1; //模式 1放下 2抬小10cm  3抬大20cm             
+	  robot_mode.mode_stretch=1;// 1缩回 2伸中250 3伸小15cm  4伸大        
+	  robot_mode.mode_chip=1;//1松开 2夹取                                 
+	  robot_mode.mode_overturn=1;//1平 2翻 --->1-低 2-平 3-翻                             
 		//robot_mode.action=1;//1兑换 2资源岛
 		robot_mode.mode_rescue=1;//1不救援2救援
 		robot_mode.mode_revive=1;//1不伸出2复活
 		
 		//键鼠
+		robot_mode.mode_open_up=1;//1-正常，2开环
+		robot_mode.mode_open_stretch=1;//1-正常，2开环
 		robot_mode.mode_up_small_l=1;//1-正常 2-左升微调 
 		robot_mode.mode_up_small_r=1;//1-正常 2-右升微调 
 		robot_mode.mode_stretch_small=1;//1-正常 2-伸微调 3-缩微调
@@ -220,13 +225,13 @@ static void Robot_Rc_Mode_Change_Control(void)
 		if(robot_mode.mode_up>3)robot_mode.mode_up=1;
 		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
 	}
-//伸缩
-	if(S2_CHANGED_TO(1,3))
-	{
-		robot_mode.mode_stretch++;
-		if(robot_mode.mode_stretch>4)robot_mode.mode_stretch=1;
-		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
-	}
+////伸缩
+//	if(S2_CHANGED_TO(1,3))
+//	{
+//		robot_mode.mode_stretch++;
+//		if(robot_mode.mode_stretch>4)robot_mode.mode_stretch=1;
+//		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
+//	}
 //复活卡 or 翻转 or 夹取
 	if(S2_CHANGED_TO(3,1))
 	{
@@ -239,6 +244,13 @@ static void Robot_Rc_Mode_Change_Control(void)
 		robot_mode.mode_overturn+=1;
 		if(robot_mode.mode_overturn>2) robot_mode.mode_overturn=1;//夹紧和缩回到1->翻
   	Set_Beep_Time(robot_mode.mode_overturn, 1200, 50);
+		
+//		//1-低 2-平 3-翻
+//		if(robot_mode.mode_overturn>=3)overturn_flag=1;
+//		else if(robot_mode.mode_overturn<=1)overturn_flag=0;
+//		if (overturn_flag==0)robot_mode.mode_overturn+=1;
+//		else robot_mode.mode_overturn-=1;
+//  	Set_Beep_Time(robot_mode.mode_overturn, 1200, 50);
 	}
 	
 }
@@ -252,6 +264,18 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 		return;
 	}
 										/***抬升***/
+	//开环或闭环
+	if(KEY_CLICKED(KEY_V))
+	{
+		robot_mode->mode_open_up+=1;
+		if(robot_mode->mode_open_up>2)robot_mode->mode_open_up=1;
+	}
+	if(KEY_CLICKED(KEY_B))
+	{
+		robot_mode->mode_open_stretch+=1;
+		if(robot_mode->mode_open_stretch>2)robot_mode->mode_open_stretch=1;
+	}
+	
 	//1放下 2抬小 3 抬大
 	if(KEY_CLICKED(KEY_Q)&!KEY_CLICKED(KEY_CTRL))
 	{
@@ -266,13 +290,13 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 		robot_mode->mode_up_small_r=1;
 	}
 	
-	//左微调
+	//开环升
 	if(rc->mouse.press_l==1)
 	{
 		robot_mode->mode_up_small_l=2;
 	}
 	else robot_mode->mode_up_small_l=1;
-	//右微调
+	//开环降
 	if(rc->mouse.press_r==1)  
 	{		
 		robot_mode->mode_up_small_r=2;
@@ -302,7 +326,7 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 		robot_mode->mode_stretch=1;
 	}
 	
-	//Z，2-伸微调   C,3-缩微调  
+	//Z，2-伸   C,3-缩
 	if(KEY_CLICKED(KEY_Z)&!KEY_CLICKED(KEY_CTRL))
 	{
 		robot_mode->mode_stretch_small=2;
@@ -323,6 +347,13 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 		robot_mode->mode_overturn++;
 		if(robot_mode->mode_overturn>2) robot_mode->mode_overturn=1;
 		Set_Beep_Time(robot_mode->mode_chip, 1200, 50);
+		
+		//1-低 2-平 3-翻
+		if(robot_mode->mode_overturn>=3)overturn_flag=1;
+		else if(robot_mode->mode_overturn<=1)overturn_flag=0;
+		if (overturn_flag==0)robot_mode->mode_overturn+=1;
+		else robot_mode->mode_overturn-=1;
+  	Set_Beep_Time(robot_mode->mode_overturn, 1200, 50);
 	}
 										/***复活卡***/
 	//1-不伸，2-伸

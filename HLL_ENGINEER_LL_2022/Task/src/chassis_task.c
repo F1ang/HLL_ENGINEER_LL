@@ -50,7 +50,7 @@ void Chassis_Task(void *pvParameters)
 					motor_speed[1] *= chassis_motor_dynamic_rate;
 					motor_speed[2] *= chassis_motor_dynamic_rate;
 					motor_speed[3] *= chassis_motor_dynamic_rate;
-			    cam_duty=1500+remoter_control->virtual_rocker.ch1;
+			    cam_duty=1500-remoter_control->virtual_rocker.ch1;
           			
 		}		
 		//Ò£¿ØÆ÷Ä£Ê½

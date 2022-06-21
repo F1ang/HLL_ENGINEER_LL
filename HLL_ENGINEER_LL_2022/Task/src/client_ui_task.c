@@ -17,7 +17,7 @@ void Client_Ui_Task(void *pvParameters)
 		if( xSemaphoreTake(ui_update_semaphore, 500) == pdTRUE )
 		{
 			Dynamic_UI();
-			printf("Dynamic_UI\r\n");
+			//printf("Dynamic_UI\r\n");
 		}    
 		else
 		{

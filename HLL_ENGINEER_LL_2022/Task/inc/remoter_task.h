@@ -24,6 +24,9 @@ typedef struct
 	uint8_t mode_up_small_l,mode_up_small_r; //1-正常 2-升微调 3-放微调
 	//伸缩 
 	uint8_t mode_stretch_small;//1-正常 2-伸微调 3-缩微调
+	
+	uint8_t mode_open_up;//1-正常，2开环
+	uint8_t mode_open_stretch;//1-正常，2开环
 }Robot_mode_t;
 
 extern Robot_mode_t robot_mode;  //机器人模式
