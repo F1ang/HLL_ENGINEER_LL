@@ -252,14 +252,15 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 		//×óÓÒ×ª CH0
 		if(rc->mouse.x!=0)
 		{
-			rc->virtual_rocker.ch0=rc->mouse.x*30;
+			//if(rc->mouse.x<=2||rc->mouse.x>=-2)rc->mouse.x=0;
+			rc->virtual_rocker.ch0=rc->mouse.x*10;
 			if(rc->virtual_rocker.ch0>660)rc->virtual_rocker.ch0=660;
 			if(rc->virtual_rocker.ch0<-660)rc->virtual_rocker.ch0=-660;
 		}
 		else rc->virtual_rocker.ch0=rc->virtual_rocker.ch0;
 
 		//ÉãÏñÍ·
-		if(robot_mode.mode_rescue==1)
+		if(robot_mode.mode_revive==1)
 		{
 			if(rc->mouse.y!=0)
 			{

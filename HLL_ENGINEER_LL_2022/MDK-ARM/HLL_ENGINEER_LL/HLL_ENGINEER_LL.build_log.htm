@@ -3,52 +3,63 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.14.0.0
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: lc Microsoft, microsoft, LIC=X96CK-Z2FT6-GK6BG-VLN8M-CKLDG-39B73
+IDE-Version: μVision V5.29.0.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 admin, HP Inc., LIC=VGXG8-3LMW7-SBBEJ-U4RVB-2VWY8-NC1FH
  
 Tool Versions:
-Toolchain:       MDK-ARM Standard  Version: 5.14.0.0
-Toolchain Path:  D:\keil5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.05 update 1 (build 106)
-Assembler:       Armasm.exe V5.05 update 1 (build 106)
-Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
-Library Manager: ArmAr.exe V5.05 update 1 (build 106)
-Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
-CPU DLL:         SARMCM3.DLL V5.14.0.0
-Dialog DLL:      DCM.DLL V1.13.1.0
-Target DLL:      CMSIS_AGDI.dll V1.21.0.0
-Dialog DLL:      TCM.DLL V1.14.4.0
+Toolchain:       MDK-ARM Plus  Version: 5.29.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.29.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.32.0.0
+Dialog DLL:      TCM.DLL V1.36.5.0
  
 <h2>Project:</h2>
-C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\HLL_ENGINEER_LL.uvprojx
-Project File Date:  06/10/2022
+E:\Desktop\Project\engineer\ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\HLL_ENGINEER_LL.uvprojx
+Project File Date:  06/22/2022
 
 <h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'HLL_ENGINEER_LL'
-compiling remoter_task.c...
+compiling function_task.c...
+..\Task\src\function_task.c(43): warning:  #177-D: variable "Small_T"  was declared but never referenced
+  static int Small_T,Small_T_l,Small_T_r,Small_S;//抬升、伸出->微调相关
+..\Task\src\function_task.c(43): warning:  #177-D: variable "Small_T_r"  was declared but never referenced
+  static int Small_T,Small_T_l,Small_T_r,Small_S;//抬升、伸出->微调相关
+..\Task\src\function_task.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=33000 RO-data=2064 RW-data=1112 ZI-data=50560  
+Program Size: Code=33116 RO-data=2064 RW-data=1136 ZI-data=50568  
 FromELF: creating hex file...
-"HLL_ENGINEER_LL\HLL_ENGINEER_LL.axf" - 0 Error(s), 0 Warning(s).
+"HLL_ENGINEER_LL\HLL_ENGINEER_LL.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.4.2.0.pack
-                ARM::CMSIS:CORE:3.40.0
+                http://www.keil.com/pack/ARM.CMSIS.5.6.0.pack
+                ARM.CMSIS.5.6.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 3.40.0
+   * Component: CORE Version: 5.3.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.14.0.pack
+                Keil.STM32F4xx_DFP.2.14.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Asus\Documents\HLL_ENGINEER_LL\HLL_ENGINEER_LL_2022\MDK-ARM\RTE
-  D:\keil5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include
-  D:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0
+  .\RTE\_HLL_ENGINEER_LL
+  C:\Users\admin\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include
+  C:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:3.40.0
-      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+   * Component: ARM::CMSIS:CORE:5.3.0
+Build Time Elapsed:  00:00:10
 </pre>
 </body>
 </html>

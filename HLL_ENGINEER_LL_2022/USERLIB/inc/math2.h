@@ -22,4 +22,6 @@ void Pitch_Angle_Limit(float* angle, float down_angle, float up_angle);
 float KalmenFilter(float data, float Q, float R);
 
 void Ramp_Calc_Int(int *output, int input, int tar_value);
+void Ramp_Calc_over(int input, long int tar_value);
+extern long int output;
 #endif

@@ -20,7 +20,7 @@ const static Rc_ctrl_t* remoter_control;
 const static Robot_mode_t* chassis_robot_mode;
 
 static float chassis_motor_dynamic_rate = 10;
-static float mouse_x_dynamic_rate= 16.0f; //鼠标x轴灵敏度
+static float mouse_x_dynamic_rate= 1.0f; //鼠标x轴灵敏度
 int real_motor_speed[4];
 int cam_duty=1500;
 void Chassis_Task(void *pvParameters)
@@ -72,13 +72,12 @@ void Chassis_Task(void *pvParameters)
 		Ramp_Calc_Int(&real_motor_speed[1],50,motor_speed[1]);
 		Ramp_Calc_Int(&real_motor_speed[2],50,motor_speed[2]);
 		Ramp_Calc_Int(&real_motor_speed[3],50,motor_speed[3]);
-
+    
 		//底盘电机速度设置
 		Set_Chassis_Motors_Speed(real_motor_speed[0], real_motor_speed[1], real_motor_speed[2], real_motor_speed[3]);
 		//摄像头占空比设置
 		LL_TIM_OC_SetCompareCH1(TIM9 ,cam_duty);//PE5_PWM_OUT(ccr)  摄像头
-    vTaskDelay(5); //延时5ms，也就是1000个时钟节拍	
-		
+    vTaskDelay(5); //延时5ms，也就是1000个时钟节拍		
 	}
 	
 	//vTaskDelete(NULL);

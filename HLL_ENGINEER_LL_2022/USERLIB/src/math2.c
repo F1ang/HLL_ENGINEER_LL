@@ -46,6 +46,28 @@ void Ramp_Calc_Int(int *output, int input, int tar_value)
 	}
 	else *output=tar_value;
 }
+
+long int output;
+void Ramp_Calc_over(int input, long int tar_value)
+{
+	if(tar_value>output)
+	{
+		output += input;
+		if(output>tar_value)
+		{
+			output=tar_value;
+		}
+	}
+	else if(tar_value<output)
+	{
+		output -= input;
+		if(output<tar_value)
+		{
+			output=tar_value;
+		}
+	}
+	else output=tar_value;
+}
 /* ¡°¶¸ÆÂº¯Êý¡± */
 void Steep_Calc(float *output, float *output_tmp, float input, float min_value, float max_value)
 {

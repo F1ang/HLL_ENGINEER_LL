@@ -18,7 +18,7 @@ typedef struct
 	uint8_t mode_overturn;//翻转、松开、回位一套流程
 	uint8_t mode_revive;//1不伸出 2复活
 	uint8_t mode_rescue;//1不救援 2救援
-	
+	uint8_t open;
 	/*键鼠微调*/
 	//抬升
 	uint8_t mode_up_small_l,mode_up_small_r; //1-正常 2-升微调 3-放微调

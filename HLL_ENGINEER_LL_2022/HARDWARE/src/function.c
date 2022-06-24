@@ -32,7 +32,6 @@ void function_init(void)
 	over_chip_flag=1;  								                            //夹取归位
 	                                                              //伸出归位
 	                                                              //抬升归位
-
 }
 void overturn_task_first(void)
 {

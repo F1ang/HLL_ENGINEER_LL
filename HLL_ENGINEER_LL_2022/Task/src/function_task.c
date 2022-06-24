@@ -10,7 +10,8 @@
 #include "tim_hll.h"
 #include "motor_550.h"   
 #include "pump.h"	
-#include "usart_hll.h" 
+#include "usart_hll.h"
+#include "math2.h"
 TaskHandle_t FunctionTask_Handler;
 
 const static Rc_ctrl_t* remoter_control;
@@ -40,7 +41,7 @@ extern M550_Mileage motor550_r;
 
 static int KA,SetAngle_550_l,SetAngle_550_r;
 static int Small_T,Small_T_l,Small_T_r,Small_S;//抬升、伸出->微调相关
-
+long int pos=-72000;
 void Function_Task(void *pvParameters)
 {
 
@@ -72,9 +73,9 @@ void Function_Task(void *pvParameters)
 						switch(robot_mode.mode_stretch)
 						{
 							case 1:KA=0;break;
-							case 2:KA=-7120;break;//30600
-							case 3:KA=0;break;
-							case 4:KA=-7120;break;
+							case 2:KA=-4800;break;//3060 兑换
+							case 3:KA=-10420;break;//资源岛 兑换
+							case 4:KA=0;break;
 						}
 				}
 				else 
@@ -88,14 +89,14 @@ void Function_Task(void *pvParameters)
 						switch(robot_mode.mode_up)
 						{
 							case 3:
-								SetAngle_550_l=5700;
-								SetAngle_550_r=-5700;
+								SetAngle_550_l=3900;//空接-兑换站
+								SetAngle_550_r=-3900;
 								Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
 							break;
 					
 							case 2:
-								SetAngle_550_l=2700;
-								SetAngle_550_r=-2700;
+								SetAngle_550_l=2500;//资源岛
+								SetAngle_550_r=-2500;
 								Set_550_Motors_Angle(SetAngle_550_l,SetAngle_550_r,KA);
 							break;
 					
@@ -155,11 +156,13 @@ void Function_Task(void *pvParameters)
 				switch(robot_mode.mode_overturn)
 				{
 					case 1:			//平: 
-						Set_Overturn_Motors_Angle(-82000);//-82000
+						Ramp_Calc_over(500,-72000);
+					  Set_Overturn_Motors_Angle(output);
 					break;
 				
 					case 2:			//翻:
-						Set_Overturn_Motors_Angle(-6500);//-6900
+						Ramp_Calc_over(500,-6500);
+						Set_Overturn_Motors_Angle(output);
 					break;
 					
 					case 3:
@@ -192,24 +195,25 @@ void Function_Task(void *pvParameters)
 																							/***遥控器模式***/
 		else if(function_robot_mode->control_device == 2)
 		{
-				//伸出
+			if(robot_mode.open==1)	
+			{//伸出
 				switch(robot_mode.mode_stretch)//伸出位点1 2 3 4
 				{
 					case 1:KA=0;break;
-					case 2:KA=-3060;break;//30600
-					case 3:KA=0;break;
-					case 4:KA=-3060;break;
+					case 2:KA=-4800;break;//30600
+					case 3:KA=-10420;break;
+					case 4:KA=0;break;
 				}
 
 				//抬升
 				switch(robot_mode.mode_up)
 				{
 					case 3:
-						Set_550_Motors_Angle(5700,-5700,KA);//l r s
+						Set_550_Motors_Angle(3800,-3800,KA);//l r s
 					break;
 			
 					case 2:
-						Set_550_Motors_Angle(2700,-2700,KA);
+						Set_550_Motors_Angle(2500,-2500,KA);//3700
 					break;
 			
 					case 1:
@@ -219,19 +223,27 @@ void Function_Task(void *pvParameters)
 					default:PI5_PWM_OUT(1500);PI6_PWM_OUT(1500);PI7_PWM_OUT(1500);
 					break;
 				}
-//			Set_550_Motors_Speed(remoter_control->rc.ch4,-remoter_control->rc.ch4,KA);
-//				Set_550_Motors_Speed(0,0,remoter_control->rc.ch4);
+		}
+			else if(robot_mode.open==2)Set_550_Motors_Speed(0,0,remoter_control->rc.ch4);
+			
+		//}
+		//Set_550_Motors_Speed(remoter_control->rc.ch4,-remoter_control->rc.ch4,0);
+			
 			//翻转  S2-3 to 1 ，与夹取关联
 				switch(robot_mode.mode_overturn)
 				{
 					
 					case 1:			//平: 
-						Set_Overturn_Motors_Angle(-72000);//-82000  降
-					//Set_Overturn_Motors_Speed(overturn_total_tar);//速度16384（角度取值8192）
+						Ramp_Calc_over(500,-72000);
+					  Set_Overturn_Motors_Angle(output);
+						//Set_Overturn_Motors_Angle(-72000);//-82000  降
+					  //Set_Overturn_Motors_Speed(overturn_total_tar);//速度16384（角度取值8192）
 						break;
 					
 					case 2:			//翻:
-						Set_Overturn_Motors_Angle(-6500);//-6500 -6200 抬
+						Ramp_Calc_over(500,-6500);
+						Set_Overturn_Motors_Angle(output);
+						//Set_Overturn_Motors_Angle(-6500);//-6500 -6200 抬
 						break;
 					
 				}
@@ -276,7 +288,7 @@ void Function_Task(void *pvParameters)
 		//printf("%d, %d\n",2700,motor550_l.total_angle);		
 		//printf("%d, %d\n",9700,motor550_r.total_angle);
 		
-		//printf(" %d , %d  \n",6120,motor550_s.total_angle);		
+		//printf("%d   \r\n",motor550_s.total_angle);		
 		
 		//printf("%d\n",overturn_motor_li.speed_rpm);
 		

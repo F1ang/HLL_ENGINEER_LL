@@ -10,7 +10,7 @@ static Pid_Position_t motor550_l_angle_pid = NEW_POSITION_PID(0.2, 0, 0, 20, 450
 static Pid_Position_t motor550_r_speed_pid = NEW_POSITION_PID(6, 0, 0,7, 150, 0, 50, 100); 
 static Pid_Position_t motor550_r_angle_pid = NEW_POSITION_PID(0.2, 0, 0, 20, 450, 0, 50, 100); 
 
-static Pid_Position_t motor550_s_speed_pid = NEW_POSITION_PID(6, 0, 0,7, 150, 0, 50, 100);
+static Pid_Position_t motor550_s_speed_pid = NEW_POSITION_PID(6, 0, 0.8,7, 150, 0, 50, 100);//0.5
 static Pid_Position_t motor550_s_angle_pid = NEW_POSITION_PID(0.2, 0, 0, 20, 450, 0, 50, 100); 
 
 

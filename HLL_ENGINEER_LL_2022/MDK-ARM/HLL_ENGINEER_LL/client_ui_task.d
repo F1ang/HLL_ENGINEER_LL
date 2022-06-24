@@ -1,10 +1,10 @@
 hll_engineer_ll\client_ui_task.o: ..\Task\src\client_ui_task.c
 hll_engineer_ll\client_ui_task.o: ..\Task\inc\client_ui_task.h
 hll_engineer_ll\client_ui_task.o: ..\FreeRTOS\include\FreeRTOS.h
-hll_engineer_ll\client_ui_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
-hll_engineer_ll\client_ui_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+hll_engineer_ll\client_ui_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hll_engineer_ll\client_ui_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 hll_engineer_ll\client_ui_task.o: ..\FreeRTOS\include\FreeRTOSConfig.h
-hll_engineer_ll\client_ui_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\client_ui_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 hll_engineer_ll\client_ui_task.o: ..\FreeRTOS\include\projdefs.h
 hll_engineer_ll\client_ui_task.o: ..\FreeRTOS\include\portable.h
 hll_engineer_ll\client_ui_task.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -55,7 +55,7 @@ hll_engineer_ll\client_ui_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_
 hll_engineer_ll\client_ui_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h
 hll_engineer_ll\client_ui_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
 hll_engineer_ll\client_ui_task.o: ..\Base\inc\usart_hll.h
-hll_engineer_ll\client_ui_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+hll_engineer_ll\client_ui_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\client_ui_task.o: ../Core/Inc/usart.h
 hll_engineer_ll\client_ui_task.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\client_ui_task.o: ..\HARDWARE\inc\remoter.h
@@ -79,5 +79,5 @@ hll_engineer_ll\client_ui_task.o: ..\USERLIB\inc\crc_check.h
 hll_engineer_ll\client_ui_task.o: ..\Task\inc\client_ui_task.h
 hll_engineer_ll\client_ui_task.o: ..\USERLIB\inc\UI_Draw.h
 hll_engineer_ll\client_ui_task.o: ..\USERLIB\inc\client_ui.h
-hll_engineer_ll\client_ui_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
-hll_engineer_ll\client_ui_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\client_ui_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\client_ui_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

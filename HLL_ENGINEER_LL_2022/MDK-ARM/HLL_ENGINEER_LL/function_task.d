@@ -1,10 +1,10 @@
 hll_engineer_ll\function_task.o: ..\Task\src\function_task.c
 hll_engineer_ll\function_task.o: ..\Task\inc\function_task.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\FreeRTOS.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\FreeRTOSConfig.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\projdefs.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\portable.h
 hll_engineer_ll\function_task.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -61,7 +61,7 @@ hll_engineer_ll\function_task.o: ..\HARDWARE\inc\led.h
 hll_engineer_ll\function_task.o: ../Core/Inc/gpio.h
 hll_engineer_ll\function_task.o: ..\Task\inc\buzzer_task.h
 hll_engineer_ll\function_task.o: ..\Base\inc\usart_hll.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 hll_engineer_ll\function_task.o: ../Core/Inc/usart.h
 hll_engineer_ll\function_task.o: ..\Task\inc\remoter_task.h
 hll_engineer_ll\function_task.o: ..\Task\inc\judge_task.h
@@ -77,8 +77,8 @@ hll_engineer_ll\function_task.o: ..\USERLIB\inc\pid.h
 hll_engineer_ll\function_task.o: ..\Task\inc\client_ui_task.h
 hll_engineer_ll\function_task.o: ..\USERLIB\inc\UI_Draw.h
 hll_engineer_ll\function_task.o: ..\USERLIB\inc\client_ui.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
-hll_engineer_ll\function_task.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+hll_engineer_ll\function_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 hll_engineer_ll\function_task.o: ..\Task\inc\client_ui_task.h
 hll_engineer_ll\function_task.o: ..\Task\inc\buzzer_task.h
 hll_engineer_ll\function_task.o: ..\HARDWARE\inc\buzzer.h

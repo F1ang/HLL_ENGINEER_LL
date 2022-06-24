@@ -94,7 +94,7 @@ void Remoter_Task(void *pvParameters)
 		//robot_mode.action=1;//1兑换 2资源岛
 		robot_mode.mode_rescue=1;//1不救援2救援
 		robot_mode.mode_revive=1;//1不伸出2复活
-		
+		robot_mode.open=1;//1正常2开环伸出3开环抬升
 		//键鼠
 		robot_mode.mode_open_up=1;//1-正常，2开环
 		robot_mode.mode_open_stretch=1;//1-正常，2开环
@@ -197,6 +197,12 @@ Robot_mode_t *Get_Robot_Mode_Point(void)
 /* 响应遥控器按键切换模式 */
 static void Robot_Rc_Mode_Change_Control(void)
 {
+	if(S1_CHANGED_TO(3,1))
+	{
+		robot_mode.open++;
+		if(robot_mode.open>=3)robot_mode.open=1;
+		Set_Beep_Time(robot_mode.open, 1000, 55);
+	}
 	//操作设备选择
 	if(S1_CHANGED_TO(3,2))
 	{
@@ -225,6 +231,7 @@ static void Robot_Rc_Mode_Change_Control(void)
 		if(robot_mode.mode_up>3)robot_mode.mode_up=1;
 		Set_Beep_Time(robot_mode.mode_up, 1200, 50);
 	}
+	
 ////伸缩
 //	if(S2_CHANGED_TO(1,3))
 //	{
@@ -232,6 +239,7 @@ static void Robot_Rc_Mode_Change_Control(void)
 //		if(robot_mode.mode_stretch>4)robot_mode.mode_stretch=1;
 //		Set_Beep_Time(robot_mode.mode_stretch, 1200, 50);
 //	}
+	
 //复活卡 or 翻转 or 夹取
 	if(S2_CHANGED_TO(3,1))
 	{
@@ -241,6 +249,7 @@ static void Robot_Rc_Mode_Change_Control(void)
 //		if(robot_mode.mode_chip>2) robot_mode.mode_chip=0;
 		
 //		if(robot_mode.mode_chip==1) robot_mode.mode_overturn=1;//松->平
+		
 		robot_mode.mode_overturn+=1;
 		if(robot_mode.mode_overturn>2) robot_mode.mode_overturn=1;//夹紧和缩回到1->翻
   	Set_Beep_Time(robot_mode.mode_overturn, 1200, 50);
@@ -349,11 +358,11 @@ void Switch_Mouse_Key_Change(Rc_ctrl_t* rc, Rc_ctrl_t* last_rc, Robot_mode_t* ro
 		Set_Beep_Time(robot_mode->mode_chip, 1200, 50);
 		
 		//1-低 2-平 3-翻
-		if(robot_mode->mode_overturn>=3)overturn_flag=1;
-		else if(robot_mode->mode_overturn<=1)overturn_flag=0;
-		if (overturn_flag==0)robot_mode->mode_overturn+=1;
-		else robot_mode->mode_overturn-=1;
-  	Set_Beep_Time(robot_mode->mode_overturn, 1200, 50);
+//		if(robot_mode->mode_overturn>=3)overturn_flag=1;
+//		else if(robot_mode->mode_overturn<=1)overturn_flag=0;
+//		if (overturn_flag==0)robot_mode->mode_overturn+=1;
+//		else robot_mode->mode_overturn-=1;
+//  	Set_Beep_Time(robot_mode->mode_overturn, 1200, 50);
 	}
 										/***复活卡***/
 	//1-不伸，2-伸
