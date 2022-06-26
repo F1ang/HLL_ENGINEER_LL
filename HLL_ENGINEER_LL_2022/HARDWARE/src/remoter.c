@@ -253,7 +253,7 @@ void Wasd_Key_To_Virtual_Rocker(Rc_ctrl_t* rc)
 		if(rc->mouse.x!=0)
 		{
 			//if(rc->mouse.x<=2||rc->mouse.x>=-2)rc->mouse.x=0;
-			rc->virtual_rocker.ch0=rc->mouse.x*10;
+			rc->virtual_rocker.ch0=rc->mouse.x*6;
 			if(rc->virtual_rocker.ch0>660)rc->virtual_rocker.ch0=660;
 			if(rc->virtual_rocker.ch0<-660)rc->virtual_rocker.ch0=-660;
 		}

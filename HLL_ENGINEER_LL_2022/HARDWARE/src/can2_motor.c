@@ -3,7 +3,7 @@
 /* 定义变量 */
 M3508_Mileage overturn_motor_li;
 																						//p i d  max_err_integral max_out  is_integral_spare begin_integral stop_grow_integral
-static Pid_Position_t motor_overturn_speed_pid = NEW_POSITION_PID(3, 0, 0.2, 1000, 14000, 0, 200, 500); 			//翻转电机速度PID
+static Pid_Position_t motor_overturn_speed_pid = NEW_POSITION_PID(3.2, 0, 0.2, 1000, 14000, 0, 200, 500); 			//翻转电机速度PID 3 3.5
 static Pid_Position_t motor_overturn_angle_pid = NEW_POSITION_PID(0.2, 0, 0, 200, 4000, 0, 200, 500);				//翻转电机角度PID
 
 //static Pid_Position_t motor_overturn_speed_pid = NEW_POSITION_PID(8, 0.005, 0, 2000, 16000, 0, 200, 500); 			//翻转电机速度PID

@@ -156,12 +156,12 @@ void Function_Task(void *pvParameters)
 				switch(robot_mode.mode_overturn)
 				{
 					case 1:			//平: 
-						Ramp_Calc_over(500,-72000);
+						Ramp_Calc_over(700,-72000);
 					  Set_Overturn_Motors_Angle(output);
 					break;
 				
 					case 2:			//翻:
-						Ramp_Calc_over(500,-6500);
+						Ramp_Calc_over(700,-6500);
 						Set_Overturn_Motors_Angle(output);
 					break;
 					
@@ -223,25 +223,24 @@ void Function_Task(void *pvParameters)
 					default:PI5_PWM_OUT(1500);PI6_PWM_OUT(1500);PI7_PWM_OUT(1500);
 					break;
 				}
-		}
-			else if(robot_mode.open==2)Set_550_Motors_Speed(0,0,remoter_control->rc.ch4);
-			
-		//}
-		//Set_550_Motors_Speed(remoter_control->rc.ch4,-remoter_control->rc.ch4,0);
+		 }
+		else if(robot_mode.open==2)Set_550_Motors_Speed(0,0,remoter_control->rc.ch4);	
+		
+		else if(robot_mode.open==3)Set_550_Motors_Speed(remoter_control->rc.ch4,-remoter_control->rc.ch4,0);
 			
 			//翻转  S2-3 to 1 ，与夹取关联
 				switch(robot_mode.mode_overturn)
 				{
 					
 					case 1:			//平: 
-						Ramp_Calc_over(500,-72000);
+						Ramp_Calc_over(1000,-72000);
 					  Set_Overturn_Motors_Angle(output);
 						//Set_Overturn_Motors_Angle(-72000);//-82000  降
 					  //Set_Overturn_Motors_Speed(overturn_total_tar);//速度16384（角度取值8192）
 						break;
 					
 					case 2:			//翻:
-						Ramp_Calc_over(500,-6500);
+						Ramp_Calc_over(1000,-6500);
 						Set_Overturn_Motors_Angle(output);
 						//Set_Overturn_Motors_Angle(-6500);//-6500 -6200 抬
 						break;

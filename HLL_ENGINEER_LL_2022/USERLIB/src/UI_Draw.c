@@ -99,7 +99,8 @@ void Start_UI(void){
 float Dynamic_Data = 0.12;
 extern uint8_t chip_flag;
 extern Judge_data_t *judge_data;
-extern Robot_mode_t robot_mode;     
+extern Robot_mode_t robot_mode;
+uint8_t F1_L,F2_L,F3_L,F4_L,F5_L,F6_L,F7_L;
 void Dynamic_UI(void){
 		static char change_color;
 		UI_Delete(SendBuff,UI_Data_Del_Layer,0);
@@ -118,51 +119,72 @@ void Dynamic_UI(void){
 
 		/*STATUS*/
 		//存图像buff,标识，操作，图层，颜色，字号，字符个数，线宽，X，Y，字符串
-		Char_Draw(&Char_t,"006",UI_Graph_ADD,9,UI_Color_Yellow,16,2,2,1400,800,"OT");
+		Char_Draw(&Char_t,"006",UI_Graph_ADD,9,UI_Color_Yellow,16,2,2,1400,800,"OV");
 		Char_ReFresh(SendBuff,Char_t);
 		UI_SendALL(SendBuff);
 		//存图像buff，标识，图层操作，图层，颜色，字体，小数位数，线宽，开始坐标(x,y)，要显示的变量
-		Float_Draw(&F1,"007",UI_Graph_ADD,8,UI_Color_Main,16,1,2,1470,800,robot_mode.mode_overturn);
+		Float_Draw(&F1,"007",UI_Graph_ADD,0,UI_Color_Main,16,0,2,1470,800,robot_mode.mode_overturn);
 		
 		
 		Char_Draw(&Char_t,"008",UI_Graph_ADD,9,UI_Color_Yellow,16,2,2,1400,770,"UP");
 		Char_ReFresh(SendBuff,Char_t);
 		UI_SendALL(SendBuff);
-		Float_Draw(&F2,"009",UI_Graph_ADD,8,UI_Color_Main,16,1,2,1470,770,robot_mode.mode_up);
+		Float_Draw(&F2,"009",UI_Graph_ADD,0,UI_Color_Main,16,0,2,1470,770,robot_mode.mode_up);
 		
 		
 		Char_Draw(&Char_t,"010",UI_Graph_ADD,9,UI_Color_Yellow,16,3,2,1400,740,"RES");
 		Char_ReFresh(SendBuff,Char_t);
 		UI_SendALL(SendBuff);
-		Float_Draw(&F3,"011",UI_Graph_ADD,8,UI_Color_Main,16,1,2,1470,740,robot_mode.mode_rescue);
+		Float_Draw(&F3,"011",UI_Graph_ADD,0,UI_Color_Main,16,0,2,1470,740,robot_mode.mode_rescue);
 		
 		
 		Char_Draw(&Char_t,"012",UI_Graph_ADD,9,UI_Color_Yellow,16,3,2,1400,710,"REV");
 		Char_ReFresh(SendBuff,Char_t);
 		UI_SendALL(SendBuff);
-		Float_Draw(&F4,"013",UI_Graph_ADD,8,UI_Color_Main,16,1,2,1470,710,robot_mode.mode_revive);
+		Float_Draw(&F4,"013",UI_Graph_ADD,0,UI_Color_Main,16,0,2,1470,710,robot_mode.mode_revive);
 			
-		/*HP*/
-//		Char_Draw(&Char_t,"014",UI_Graph_ADD,0,UI_Color_Main,16,3,4,1200,360,"Blue_1");
+//		/*HP*/
+//		Char_Draw(&Char_t,"014",UI_Graph_ADD,9,UI_Color_Main,16,2,4,1400,620,"HP");
 //		Char_ReFresh(SendBuff,Char_t);
 //		UI_SendALL(SendBuff);
-//		Float_Draw(&F5,"015",UI_Graph_ADD,0,UI_Color_Main,12,1,2,1200,340,judge_data->ext_game_robot_HP_t.blue_1_robot_HP);
+//		Float_Draw(&F5,"015",UI_Graph_ADD,0,UI_Color_Main,12,0,2,1470,620,judge_data->ext_game_robot_HP_t.blue_1_robot_HP);
+		
+		Char_Draw(&Char_t,"014",UI_Graph_ADD,9,UI_Color_Main,16,4,2,1400,680,"chip");
+		Char_ReFresh(SendBuff,Char_t);
+		UI_SendALL(SendBuff);
+		Float_Draw(&F5,"015",UI_Graph_ADD,0,UI_Color_Main,16,0,2,1470,680,robot_mode.mode_chip);
 
-		Char_Draw(&Char_t,"016",UI_Graph_ADD,9,UI_Color_Yellow,16,3,2,1400,680,"OUP");
-		Char_ReFresh(SendBuff,Char_t);
-		UI_SendALL(SendBuff);
-		Float_Draw(&F6,"017",UI_Graph_ADD,8,UI_Color_Main,16,1,2,1470,680,robot_mode.mode_open_up);
+//		Char_Draw(&Char_t,"016",UI_Graph_ADD,9,UI_Color_Yellow,16,3,2,1400,680,"OUP");
+//		Char_ReFresh(SendBuff,Char_t);
+//		UI_SendALL(SendBuff);
+//		Float_Draw(&F6,"017",UI_Graph_ADD,0,UI_Color_Main,16,0,2,1470,680,robot_mode.mode_open_up);
+//		
+//		Char_Draw(&Char_t,"018",UI_Graph_ADD,9,UI_Color_Yellow,16,3,2,1400,650,"OST");
+//		Char_ReFresh(SendBuff,Char_t);
+//		UI_SendALL(SendBuff);
+//		Float_Draw(&F7,"019",UI_Graph_ADD,0,UI_Color_Main,16,0,2,1470,650,robot_mode.mode_open_stretch);
+			
+//		if(F1_L==robot_mode.mode_overturn&&F2_L==robot_mode.mode_up&&F3_L==robot_mode.mode_rescue&&\
+//			F4_L==robot_mode.mode_revive&&F6_L==robot_mode.mode_open_up&&F7_L==robot_mode.mode_open_stretch)
+//		{
+
+			UI_ReFresh(SendBuff,5,F1,F2,F3,F4,F5);
+			UI_SendALL(SendBuff);
+			
+//		}
+//		else
+//		{
+//			UI_Delete(SendBuff,UI_Data_Del_Layer,0);
+//		  UI_SendALL(SendBuff);
+//		}
 		
-		Char_Draw(&Char_t,"018",UI_Graph_ADD,9,UI_Color_Yellow,16,3,2,1400,650,"OSS");
-		Char_ReFresh(SendBuff,Char_t);
-		UI_SendALL(SendBuff);
-		Float_Draw(&F7,"019",UI_Graph_ADD,8,UI_Color_Main,16,1,2,1470,650,robot_mode.mode_open_stretch);
+		F1_L=robot_mode.mode_overturn;
+		F2_L=robot_mode.mode_up;
+		F3_L=robot_mode.mode_rescue;
+		F4_L=robot_mode.mode_revive;
+		F6_L=robot_mode.mode_open_up;
+		F7_L=robot_mode.mode_open_stretch;
 		
-		UI_ReFresh(SendBuff,6,F1,F2,F3,F4,F6,F7);
-		UI_SendALL(SendBuff);
-		
-		UI_Delete(SendBuff,UI_Data_Del_Layer,8);
-		UI_SendALL(SendBuff);
 }
 
 /*********************************************************************

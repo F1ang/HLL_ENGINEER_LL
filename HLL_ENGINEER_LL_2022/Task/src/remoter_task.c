@@ -200,7 +200,7 @@ static void Robot_Rc_Mode_Change_Control(void)
 	if(S1_CHANGED_TO(3,1))
 	{
 		robot_mode.open++;
-		if(robot_mode.open>=3)robot_mode.open=1;
+		if(robot_mode.open>=4)robot_mode.open=1;
 		Set_Beep_Time(robot_mode.open, 1000, 55);
 	}
 	//操作设备选择
